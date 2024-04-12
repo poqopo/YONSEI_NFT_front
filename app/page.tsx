@@ -14,7 +14,7 @@ export default function Home() {
       </h1>
       <h2 className="font-bold text-[15px]">AKARAKA EVENT</h2>
 
-      <div className="w-full bg-[#D9E1E8]/20">
+      <div className="w-full bg-[#D9E1E8]/20 rounded-[30px]">
         <Gallery />
         <div className="my-10">
           <a

@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="m-auto w-screen bg-white">{children}</div>
+        <div className="m-auto w-screen max-w-[500px] bg-white">{children}</div>
       </body>
     </html>
   );

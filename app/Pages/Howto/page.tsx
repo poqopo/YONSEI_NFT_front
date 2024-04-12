@@ -13,9 +13,7 @@ export default function Howto() {
           2. 나의 과를 선택하고 NFT 발급하기 버튼 클릭
         </h2>
         {/* <img src="/howto1.png" alt="loading..." /> */}
-        <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          3. KLIP지갑 선택(타 지갑 이용 가능)
-        </h2>
+        <h2 className="mt-10 mb-5 font-bold text-[15px]">3. 지갑 연결</h2>
         {/* <img src="/howto1.png" alt="loading..." /> */}
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
           4. 카카오톡에서 NFT 확인하기
