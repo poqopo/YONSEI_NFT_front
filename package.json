@@ -1,5 +1,5 @@
 {
-  "name": "react-vite-typescript-template",
+  "name": "my_yonsei_nft",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -11,6 +11,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "axios": "^1.6.8",
+    "embla-carousel-autoplay": "^8.0.2",
+    "embla-carousel-react": "^8.0.2",
+    "qrcode.react": "^3.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0"
@@ -20,8 +24,8 @@
     "@testing-library/react": "^13.3.0",
     "@types/jest": "^28.1.1",
     "@types/node": "^17.0.40",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
+    "@types/react": "^18.2.78",
+    "@types/react-dom": "^18.2.25",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "@vitejs/plugin-react": "^3.1.0",

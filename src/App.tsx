@@ -1,11 +1,25 @@
+import { useRoutes } from 'react-router-dom';
+import Home from './pages/Home';
+import Mint from './pages/Mint';
+import DefaultLayout from './pages/DefaultLayout';
+
 function App() {
-  return (
-    <div className="flex justify-center">
-      <h1 className="font-bold text-2xl text-blue-900">
-        React(v18) , Typescript , Tailwind CSS , Vite
-      </h1>
-    </div>
-  );
+  const element = useRoutes([
+    {
+      element: <DefaultLayout />,
+      children: [
+        {
+          path: '/',
+          element: <Home />,
+        },
+        {
+          path: '/Mint/:address',
+          element: <Mint />,
+        },
+      ],
+    },
+  ]);
+  return element;
 }
 
 export default App;

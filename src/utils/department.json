@@ -1,0 +1,18 @@
+{
+  "000": {
+    "Department_KR": "TEST",
+    "Department": "TEST",
+    "maxRand": 2
+  },
+  "101": {
+    "Department_KR": "컴퓨터과학과",
+    "Department": "Computer Science",
+    "maxRand": 3,
+    "Source_Pre": "xyz"
+  },
+  "102": {
+    "Department_KR": "컴퓨터과학과",
+    "Department": "Electrical Engineering",
+    "Source_Pre": "abc"
+  }
+}
