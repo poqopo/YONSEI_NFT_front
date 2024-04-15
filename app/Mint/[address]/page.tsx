@@ -1,6 +1,14 @@
 "use client";
+import Modal from "@/app/Components/Modal/page";
 import Gallery from "@/app/Components/gallery/page";
+import departmentData from "@/app/utils/department.json";
+import { useState } from "react";
+
 export default function Home() {
+  const [input, setInput] = useState("");
+  const departmentInfo = departmentData[input];
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <main className="flex flex-col place-content-between gap-y-5 mt-10 font-roboto text-[#090707]  text-center">
       <h2 className=" font-bold text-[15px]">
@@ -11,16 +19,52 @@ export default function Home() {
       </h1>
       <h2 className="font-bold text-[15px]">AKARAKA EVENT</h2>
 
+      {showModal ? (
+        <Modal>
+          <p
+            className="text-end text-black"
+            onClick={() => setShowModal(false)}
+          >
+            X
+          </p>
+          <p className="mt-10">
+            선택하신 과는 "{departmentInfo.Department_KR}"입니다. 맞다면 발급
+            버튼을 눌러주세요! <br />
+            카톡 아이디별로 1개밖에 발급이 되지 않으니 신중하게 선택해주세요
+          </p>
+          <button
+            className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#30A9DE] text-[#D9E1E8]"
+            onClick={() => {
+              setShowModal(false);
+              console.log(departmentInfo.Source_Pre);
+            }}
+          >
+            NFT 발급하기
+          </button>
+        </Modal>
+      ) : (
+        <div />
+      )}
+
       <div className="w-full bg-[#D9E1E8]/20 rounded-[30px]">
         <Gallery />
-
         <div className="my-10 w-4/5 flex place-content-between m-auto ">
           <input
             type="text"
             className="w-[240px] text-[13px] rounded-[15px] text-start"
-            placeholder="학번을 입력해주세요.(ex.2024000000)"
+            placeholder="학번 가운데 3자리를 입력해주세요.(ex.110)"
+            onChange={(e) => setInput(e.target.value)}
           />
-          <button className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#30A9DE] text-[#D9E1E8]">
+          <button
+            className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#30A9DE] text-[#D9E1E8]"
+            onClick={() => {
+              if (departmentInfo == undefined) {
+                window.alert("입력하신 학과가 존재하지 않습니다.");
+              } else {
+                setShowModal(true);
+              }
+            }}
+          >
             NFT 발급하기
           </button>
         </div>

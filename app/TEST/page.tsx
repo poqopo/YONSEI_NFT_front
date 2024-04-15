@@ -1,8 +1,13 @@
 "use client";
 
 import Gallery from "@/app/Components/gallery/page";
+import departmentData from "@/app/utils/department.json";
 
 export default function TEST() {
+  const departmentNumber = "000";
+  const departmentInfo = departmentData[departmentNumber];
+
+  console.log(departmentInfo);
   return (
     <main className="flex flex-col place-content-between gap-y-5 mt-10 font-roboto text-[#090707]  text-center">
       <h2 className=" font-bold text-[15px]">

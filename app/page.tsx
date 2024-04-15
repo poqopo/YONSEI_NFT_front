@@ -8,6 +8,7 @@ import { useState } from "react";
 import { getAddress } from "./utils/klip";
 import QRCode from "qrcode.react";
 import { useRouter } from "next/navigation";
+import Modal from "./Components/Modal/page";
 
 //QR코드와 지갑 주소를 초기화
 const DEFAULT_QR_CODE = "DEFAULT";
@@ -48,13 +49,24 @@ export default function Home() {
         </div>
 
         {qrvalue_auth !== "DEFAULT" ? (
-          <div>
-            <QRCode
-              value={qrvalue_auth}
-              size={256}
-              style={{ margin: "auto" }}
-            />
-          </div>
+          <Modal>
+            <p
+              className="text-end text-black"
+              onClick={() => setQrvalue_auth("DEFAULT")}
+            >
+              X
+            </p>
+            <div>
+              <QRCode
+                value={qrvalue_auth}
+                size={200}
+                style={{ margin: "auto" }}
+              />
+            </div>
+            <p className="mt-10 ">
+              카메라로 스캔 후, 카카오톡 로그인을 해주세요!
+            </p>
+          </Modal>
         ) : myAddress != DEFAULT_ADDRESS ? (
           <p>{myAddress}</p>
         ) : (
