@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="flex flex-col place-content-between gap-y-5 mt-10 font-roboto text-[#090707]  text-center">
       <h2 className=" font-bold text-[15px]">
-        연세대학교 블록블록과 000이 함께하는
+        연세대학교 블록블록과 Sui가 함께하는
       </h2>
       <h1 className="font-extrabold text-[24px] text-[#30A9DE]">
         MY YONSEI NFT
