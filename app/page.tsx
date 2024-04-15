@@ -1,9 +1,31 @@
+"use client";
+
 import Gallery from "./Components/gallery/page";
 import "./globals.css";
-import Howto from "./Pages/Howto/page";
-import Event from "./Pages/Event/page";
+import Howto from "./Howto/page";
+import Event from "./Event/page";
+import { useState } from "react";
+import { getAddress } from "./utils/klip";
+import QRCode from "qrcode.react";
+import { useRouter } from "next/navigation";
+
+//QR코드와 지갑 주소를 초기화
+const DEFAULT_QR_CODE = "DEFAULT";
+const DEFAULT_ADDRESS = "0x00000000000000000000000000000";
 
 export default function Home() {
+  const router = useRouter();
+  const [qrvalue_auth, setQrvalue_auth] = useState(DEFAULT_QR_CODE);
+  const [myAddress, setMyAddress] = useState(DEFAULT_ADDRESS);
+
+  //지갑 연동하는 함수 실행
+  const getUserData = () => {
+    getAddress(setQrvalue_auth, async (address: string) => {
+      setMyAddress(address);
+      router.push(`/Mint/${address}`);
+    });
+  };
+
   return (
     <main className="flex flex-col place-content-between gap-y-5 mt-10 font-roboto text-[#090707]  text-center">
       <h2 className=" font-bold text-[15px]">
@@ -17,13 +39,27 @@ export default function Home() {
       <div className="w-full bg-[#D9E1E8]/20 rounded-[30px]">
         <Gallery />
         <div className="my-10">
-          <a
-            href="/Mint"
-            className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#30A9DE] text-[#D9E1E8] "
+          <button
+            className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#30A9DE] text-[#D9E1E8]"
+            onClick={() => getUserData()}
           >
             NFT 발급하고 타투스티커 받기
-          </a>
+          </button>
         </div>
+
+        {qrvalue_auth !== "DEFAULT" ? (
+          <div>
+            <QRCode
+              value={qrvalue_auth}
+              size={256}
+              style={{ margin: "auto" }}
+            />
+          </div>
+        ) : myAddress != DEFAULT_ADDRESS ? (
+          <p>{myAddress}</p>
+        ) : (
+          <div />
+        )}
       </div>
       <h3 className="mt-4 font-bold text-[15px]">ABOUT</h3>
       <h2 className="mb-5 font-bold text-[20px]">
