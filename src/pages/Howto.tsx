@@ -9,11 +9,11 @@ export default function Howto() {
         <img src="/howto1.png" alt="loading..." />
         <p className="mt-10 mb-5 font-medium text-[15px]">
           <span>2. 내 학번 가운데 세자리 (ex.2024</span>
-          <span className="font-bold">123</span>
-          <span>000) 입력한 후 발급하기 버튼 클릭</span>
+          <span className="font-bold text-red-600">123</span>
+          <span>000) 입력 후 발급하기 버튼 클릭</span>
         </p>
         <p className="mt-10 mb-5 font-medium text-[15px]">
-          3. 나의 과 확인한 후 NFT 제작 버튼 클릭
+          3. 학과명을 확인한 후 NFT 제작 버튼 클릭
         </p>
 
         <h2 className="mt-10 mb-5 font-medium text-[15px]">
