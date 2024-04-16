@@ -1,9 +1,9 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import Gallery from '../Components/gallery';
 import departmentData from '../utils/department.json';
-import mintNFT from '../utils/mintNFT';
+import { getURL, mintNFT } from '../utils/mintNFT';
 
 export default function Mint() {
   const [input, setInput] = useState('');
@@ -11,6 +11,7 @@ export default function Mint() {
 
   const [showModal, setShowModal] = useState(false);
   const params = useParams();
+  const navigate = useNavigate();
 
   return (
     <main className="flex flex-col place-content-between gap-y-5 mt-10 font-roboto text-[#090707]  text-center">
@@ -22,7 +23,7 @@ export default function Mint() {
       </h1>
 
       {showModal ? (
-        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 max-w-[500px] h-fit bg-[#FEE500] z-50">
+        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 max-w-[500px] bg-[#FEE500] z-50">
           <button
             type="button"
             className="fixed top-[20px] right-[20px] text-[30px]"
@@ -45,12 +46,14 @@ export default function Mint() {
               className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#191919] text-[#FFFFFF]"
               onClick={() => {
                 setShowModal(false);
-                mintNFT(
-                  params.address,
+                const { imguri, tokenuri } = getURL(
                   departmentInfo.Department,
                   departmentInfo.maxRand,
                 );
+                mintNFT(params.address, tokenuri);
                 window.alert('NFT 민팅 완료!');
+                console.log(imguri);
+                navigate('/MyPage', { state: { url: imguri } });
               }}
             >
               NFT 제작

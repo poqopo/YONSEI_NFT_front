@@ -101,7 +101,7 @@ export default function Home() {
                   카톡으로 간편가입하세요!
                 </p>
               </div>
-              <div className="w-2/3 text-start font-medium mx-auto">
+              <div className="w-2/3 text-start font-medium mx-auto text-[13px]">
                 <p>1. 카메라로 QR코드 스캔</p>
                 <p>2. 카카오톡으로 계속하기 클릭</p>
                 <p>3. KLIP지갑에서 사용할 비밀번호 설정</p>
@@ -116,8 +116,8 @@ export default function Home() {
         )}
       </div>
       <h2 className="my-5 font-bold text-[20px]">
-        다시 오지 않을 나의 소중한 학교생활, <br />
-        NFT로 영원히 기록하는 건 어떨까요? <br />
+        다시 오지 않을 이 순간, <br />
+        NFT로 영원히 남겨보세요 <br />
       </h2>
       <p className="font-medium text-[13px]">
         AKARAKA, 과 생활, 동아리 등 다양한 추억을 만든 우리 <br />

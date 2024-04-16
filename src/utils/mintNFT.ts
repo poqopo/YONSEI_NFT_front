@@ -7,21 +7,26 @@ function getRandomInt(max: number) {
   return Math.floor(Math.random() * max) + 1;
 }
 
-export default function mintNFT(
-  address: string | undefined,
-  major: string,
-  maxRand: number,
-) {
-  const random = getRandomInt(maxRand);
+export function getURL(major: string, max: number) {
+  const random = getRandomInt(max);
+  const imguri = `${META_BASE_URL}/${major}/img/${random}.png`;
+  const tokenuri = `${META_BASE_URL}/${major}/json/${random}.json`;
+  return { imguri, tokenuri };
+}
+
+export function mintNFT(address: string | undefined, tokenuri: string) {
   if (address !== undefined) {
     const params = {
       address,
-      tokenuri: `${META_BASE_URL}/${major}/json/${random}.json`,
+      tokenuri,
     };
-    console.log(params);
-    axios.get(API_URL, { params }).then((response) => {
-      return response.data;
-    });
+    try {
+      axios.get(API_URL, { params }).then((response) => {
+        return response.data;
+      });
+    } catch (e) {
+      return e;
+    }
   } else {
     return false;
   }
