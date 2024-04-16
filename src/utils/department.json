@@ -2,7 +2,8 @@
   "000": {
     "Department_KR": "TEST",
     "Department": "TEST",
-    "maxRand": 2
+    "maxRand": 2,
+    "Source_Pre": "xyz"
   },
   "101": {
     "Department_KR": "컴퓨터과학과",
@@ -13,6 +14,7 @@
   "102": {
     "Department_KR": "컴퓨터과학과",
     "Department": "Electrical Engineering",
+    "maxRand": 2,
     "Source_Pre": "abc"
   }
 }

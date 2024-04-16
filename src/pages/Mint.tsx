@@ -1,5 +1,3 @@
-'use client';
-
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import Modal from '../Components/Modal';
@@ -9,7 +7,8 @@ import mintNFT from '../utils/mintNFT';
 
 export default function Mint() {
   const [input, setInput] = useState('');
-  const departmentInfo = departmentData[input];
+  const departmentInfo = departmentData[input as keyof typeof departmentData];
+
   const [showModal, setShowModal] = useState(false);
   const params = useParams();
 

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Gallery from '../Components/gallery';
 import Howto from './Howto';
 import Event from './Event';
-import getAddress from '../utils/klip';
+import { getAddressPC, getAddressMB } from '../utils/klip';
 import Modal from '../Components/Modal';
 
 // QR코드와 지갑 주소를 초기화
@@ -17,17 +17,25 @@ export default function Home() {
   const [myAddress, setMyAddress] = useState(DEFAULT_ADDRESS);
 
   // 지갑 연동하는 함수 실행
-  const getUserData = () => {
-    getAddress(setqrvalueAuth, async (address: string) => {
+  const getUserDataPC = () => {
+    getAddressPC(setqrvalueAuth, async (address: string) => {
+      setMyAddress(address);
+      navigate(`/Mint/${address}`);
+    });
+  };
+
+  const getUserDataMB = () => {
+    getAddressMB(async (address: string) => {
       setMyAddress(address);
       navigate(`/Mint/${address}`);
     });
   };
 
   return (
-    <main className="flex flex-col place-content-between gap-y-5 mt-10 font-roboto text-[#090707]  text-center">
+    <main className="flex flex-col place-content-between gap-y-5 mt-8 font-roboto text-[#090707]  text-center">
       <h2 className=" font-bold text-[15px]">
-        연세대학교 블록블록과 Sui가 함께하는
+        연세대학교 블록체인 동아리 <br />
+        블록블록과 함께하는
       </h2>
       <h1 className="font-extrabold text-[24px] text-[#30A9DE]">
         MY YONSEI NFT
@@ -39,10 +47,17 @@ export default function Home() {
         <div className="my-10">
           <button
             type="button"
-            className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#30A9DE] text-[#D9E1E8]"
-            onClick={() => getUserData()}
+            className="max-[600px]:hidden mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#30A9DE] text-[#D9E1E8]"
+            onClick={() => getUserDataPC()}
           >
             NFT 발급하고 타투스티커 받기
+          </button>
+          <button
+            type="button"
+            className="min-[600px]:hidden mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#30A9DE] text-[#D9E1E8]"
+            onClick={() => getUserDataMB()}
+          >
+            TEST{' '}
           </button>
         </div>
         {qrvalueAuth !== DEFAULT_QR_CODE ? (
@@ -50,7 +65,7 @@ export default function Home() {
             <button
               type="button"
               className="text-end text-black"
-              onClick={() => setqrvalueAuth('DEFAULT')}
+              onClick={() => setqrvalueAuth(DEFAULT_QR_CODE)}
             >
               X
             </button>
