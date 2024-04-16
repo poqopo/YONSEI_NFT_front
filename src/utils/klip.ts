@@ -6,9 +6,9 @@ const A2P_API_PREPARE_URL = 'https://a2a-api.klipwallet.com/v2/a2a/prepare'; // 
 const APP_NAME = 'MY YONSEI NFT';
 
 const getKlipAccessUrl = (requestKey: string) => {
-  return `https://klipwallet.com/?target=/a2a?requestKey=${requestKey}`;
+  return `https://klipwallet.com/?target=/a2a?request_key=${requestKey}`;
 };
-type CallbackFunction = () => void;
+type CallbackFunction = (address: string) => void;
 
 export default function getAddress(
   setQrvalue: React.Dispatch<React.SetStateAction<string>>,
@@ -24,12 +24,12 @@ export default function getAddress(
     })
     .then((response) => {
       // request
-      const { requestKey } = response.data;
-      setQrvalue(getKlipAccessUrl(requestKey));
+      const { request_key } = response.data;
+      setQrvalue(getKlipAccessUrl(request_key));
       const timerId = setInterval(() => {
         axios
           .get(
-            `https://a2a-api.klipwallet.com/v2/a2a/result?requestKey=${requestKey}`,
+            `https://a2a-api.klipwallet.com/v2/a2a/result?request_key=${request_key}`,
           )
           .then((res) => {
             if (res.data.result) {

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Modal from '../Components/Modal';
 import Gallery from '../Components/gallery';
 import departmentData from '../utils/department.json';
-import { mintNFT } from '../utils/mintNFT';
+import mintNFT from '../utils/mintNFT';
 
 export default function Mint() {
   const [input, setInput] = useState('');

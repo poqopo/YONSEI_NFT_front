@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Gallery from '../Components/gallery';
 import Howto from './Howto';
 import Event from './Event';
-import { getAddress } from '../utils/klip';
+import getAddress from '../utils/klip';
 import Modal from '../Components/Modal';
 
 // QR코드와 지갑 주소를 초기화
@@ -45,26 +45,31 @@ export default function Home() {
             NFT 발급하고 타투스티커 받기
           </button>
         </div>
-        (qrvalueAuth !== DEFAULT_QR_CODE ? (
-        <Modal>
-          <button
-            type="button"
-            className="text-end text-black"
-            onClick={() => setqrvalueAuth('DEFAULT')}
-          >
-            X
-          </button>
-          <div>
-            <QRCode value={qrvalueAuth} size={200} style={{ margin: 'auto' }} />
-          </div>
-          <p className="mt-10 ">
-            카메라로 스캔 후, 카카오톡 로그인을 해주세요!
-          </p>
-        </Modal>
-        ) : myAddress !== DEFAULT_ADDRESS ? (<p>{myAddress}</p>
+        {qrvalueAuth !== DEFAULT_QR_CODE ? (
+          <Modal>
+            <button
+              type="button"
+              className="text-end text-black"
+              onClick={() => setqrvalueAuth('DEFAULT')}
+            >
+              X
+            </button>
+            <div>
+              <QRCode
+                value={qrvalueAuth}
+                size={200}
+                style={{ margin: 'auto' }}
+              />
+            </div>
+            <p className="mt-10 ">
+              카메라로 스캔 후, 카카오톡 로그인을 해주세요!
+            </p>
+          </Modal>
+        ) : myAddress !== DEFAULT_ADDRESS ? (
+          <p>{myAddress}</p>
         ) : (
-        <div />
-        ))
+          <div />
+        )}
       </div>
       <h3 className="mt-4 font-bold text-[15px]">ABOUT</h3>
       <h2 className="mb-5 font-bold text-[20px]">
