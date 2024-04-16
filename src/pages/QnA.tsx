@@ -25,8 +25,8 @@ export default function QnA() {
           3. 타투스티커 판매 수익으로는 무엇을 하나요?
         </h2>
         <p className="font-medium text-[13px]">
-          타투스티커 판매 수익은 운영비(Mint 가스비, AWS 비용 등)과 홍보비를
-          제하고 전액 연세대학교에 기부할 예정입니다.
+          타투스티커 판매 수익은 최소한의 운영비와 홍보비를 제외하고 전액
+          연세대학교에 기부할 예정입니다.
         </p>
       </div>
       <div className="w-4/5 m-auto text-start">
