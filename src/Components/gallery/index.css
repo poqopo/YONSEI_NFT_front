@@ -14,7 +14,7 @@
   place-content: center;
 }
 
-img {
+.embla__slide img {
   margin: auto;
   width: 60%;
   height: 60%;

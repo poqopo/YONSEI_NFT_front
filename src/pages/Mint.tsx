@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import Modal from '../Components/Modal';
+import { IoCloseCircleOutline } from 'react-icons/io5';
 import Gallery from '../Components/gallery';
 import departmentData from '../utils/department.json';
 import mintNFT from '../utils/mintNFT';
@@ -20,38 +20,43 @@ export default function Mint() {
       <h1 className="font-extrabold text-[24px] text-[#30A9DE]">
         MY YONSEI NFT
       </h1>
-      <h2 className="font-bold text-[15px]">AKARAKA EVENT</h2>
 
       {showModal ? (
-        <Modal>
+        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 h-fit bg-[#FEE500] z-50">
           <button
             type="button"
-            className="text-end text-black"
+            className="fixed top-[20px] right-[20px] text-[30px]"
             onClick={() => setShowModal(false)}
           >
-            X
+            <IoCloseCircleOutline />
           </button>
-          <p className="mt-10">
-            선택하신 과는 {departmentInfo.Department_KR}입니다. 맞다면 발급
-            버튼을 눌러주세요! <br />
-            카톡 아이디별로 1개밖에 발급이 되지 않으니 신중하게 선택해주세요
-          </p>
-          <button
-            type="button"
-            className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#30A9DE] text-[#D9E1E8]"
-            onClick={() => {
-              setShowModal(false);
-              mintNFT(
-                params.address,
-                departmentInfo.Department,
-                departmentInfo.maxRand,
-              );
-              window.alert('NFT 민팅 완료!');
-            }}
-          >
-            NFT 발급하기
-          </button>
-        </Modal>
+          <div className="py-10 px-5 flex flex-col place-content-between h-full">
+            <img
+              className="w-[100px] mx-auto my-3"
+              src="/logo.png"
+              alt="loading..."
+            />
+            <p className="my-10 text-[13px]">
+              선택하신 과는 {departmentInfo.Department_KR}입니다. NFT 제작
+              버튼을 누르면 NFT가 제작됩니다.
+            </p>
+            <button
+              type="button"
+              className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#191919] text-[#FFFFFF]"
+              onClick={() => {
+                setShowModal(false);
+                mintNFT(
+                  params.address,
+                  departmentInfo.Department,
+                  departmentInfo.maxRand,
+                );
+                window.alert('NFT 민팅 완료!');
+              }}
+            >
+              NFT 제작
+            </button>
+          </div>
+        </div>
       ) : (
         <div />
       )}
@@ -61,13 +66,13 @@ export default function Mint() {
         <div className="my-10 w-4/5 flex place-content-between m-auto ">
           <input
             type="text"
-            className="w-[240px] text-[13px] rounded-[15px] text-start"
-            placeholder="학번 가운데 3자리를 입력해주세요.(ex.110)"
+            className="w-2/3 m-auto text-[12px] p-3 rounded-l-[8px] text-start indent-1"
+            placeholder="학과 코드 (ex.110)"
             onChange={(e) => setInput(e.target.value)}
           />
           <button
             type="button"
-            className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#30A9DE] text-[#D9E1E8]"
+            className="w-1/3 font-extrabold rounded-r-[8px] p-3 bg-[#FEE500] text-[#191919] text-[12px]"
             onClick={() => {
               if (departmentInfo === undefined) {
                 window.alert('입력하신 학과가 존재하지 않습니다.');
@@ -76,18 +81,19 @@ export default function Mint() {
               }
             }}
           >
-            NFT 발급하기
+            NFT 제작
           </button>
         </div>
       </div>
-      <h3 className="mt-4 font-bold text-[15px]">ABOUT</h3>
-      <h2 className="mb-5 font-bold text-[20px]">
-        나의 과 특징을 살린 NFT와 함께 <br /> 2024 AKARAKA를 즐겨보세요!
+      <h2 className="my-5 font-bold text-[20px]">
+        다시 오지 않을 나의 소중한 학교생활, <br />
+        NFT로 영원히 기록하는 건 어떨까요? <br />
       </h2>
       <p className="font-medium text-[13px]">
-        2024 AKARAKA를 더욱 특별하게 보낼 수 있도록 <br />
-        다양한 모습을 가진 NFT와 타투스티커를 준비했습니다. <br /> 서로의 NFT를
-        공유해보며 더 재밌는 AKARAKA를 보내보아요!
+        AKARAKA, 과 생활, 동아리 등 다양한 추억을 만든 우리 <br />
+        이 순간이 영원히 기억되도록 NFT로 남겨보세요. <br />
+        당신이 낭만을 잃지 않도록{' '}
+        <span className="font-bold">MY YONSEI NFT</span>가 함께합니다.
       </p>
     </main>
   );
