@@ -22,7 +22,7 @@ export default function Mint() {
       </h1>
 
       {showModal ? (
-        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 h-fit bg-[#FEE500] z-50">
+        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 max-w-[500px] h-fit bg-[#FEE500] z-50">
           <button
             type="button"
             className="fixed top-[20px] right-[20px] text-[30px]"
