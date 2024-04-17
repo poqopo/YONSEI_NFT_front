@@ -123,7 +123,7 @@ export default function Home() {
         AKARAKA, 과 생활, 동아리 등 다양한 추억을 만든 우리 <br />
         이 순간이 영원히 기억되도록 NFT로 남겨보세요. <br />
         찬란한 순간을
-        <span className="font-bold">MY YONSEI NFT</span>가 함께합니다.
+        <span className="font-bold"> MY YONSEI NFT</span>가 함께합니다.
       </p>
       <Howto />
       <Event />
