@@ -52,7 +52,7 @@ export default function Mint() {
                 );
                 mintNFT(params.address, tokenuri);
                 window.alert(
-                  'NFT 민팅 제작 완료! NFT가 전송되기 까지 10~20초가 소요될 수 있습니다.',
+                  'NFT 제작 완료! NFT가 전송되기 까지 10~20초가 소요될 수 있습니다.',
                 );
                 console.log(imguri);
                 navigate('/MyPage', { state: { url: imguri } });
