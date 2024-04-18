@@ -26,13 +26,12 @@ export default function MyPage() {
           alt="loading..."
         />
         <div className="flex">
-          <a
-            className='"mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"'
-            href={url}
-            download
+          <button
+            type="button"
+            className="mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"
           >
-            {url}
-          </a>
+            이미지 다운로드
+          </button>
 
           <button
             type="button"
