@@ -23,6 +23,7 @@ export default function MyPage() {
         <img
           className="my-3 max-w-[300px] mx-auto"
           src={url}
+          // src="logo.png"
           alt="loading..."
         />
         <div className="flex">
@@ -41,9 +42,12 @@ export default function MyPage() {
           </button>
         </div>
       </div>
-      <p className="w-4/5 m-auto ">
-        NFT는 카카오톡 더보기 전체 서비스 클립 NFT에서 확인 가능합니다.
-      </p>
+      <div className="w-4/5 m-auto">
+        <p className="">
+          NFT는 카카오톡 내 클립 지갑 서비스에서 확인 가능합니다.
+        </p>
+        <img src="klip.png" alt="loading..." />
+      </div>
     </div>
   );
 }
