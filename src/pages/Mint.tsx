@@ -16,7 +16,8 @@ export default function Mint() {
   return (
     <main className="h-screen flex flex-col place-content-between gap-y-5 py-8 font-roboto text-[#090707]  text-center">
       <h2 className=" font-bold text-[15px]">
-        연세대학교 블록블록과 000이 함께하는
+        연세대학교 블록체인 동아리 <br />
+        블록블록과 함께하는
       </h2>
       <h1 className="font-extrabold text-[24px] text-[#30A9DE]">
         MY YONSEI NFT
