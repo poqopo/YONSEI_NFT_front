@@ -4,7 +4,13 @@ export default function QnA() {
       <h3 className="mt-9 font-bold text-[15px]">Q & A</h3>
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          1. 내가 받은 NFT를 어떻게 볼 수 있을까요?
+          1. NFT가 무엇인가요?
+        </h2>
+        <p className="font-medium text-[13px]">NFT는 어쩌구 저쩌구</p>
+      </div>
+      <div className="w-4/5 m-auto text-start">
+        <h2 className="mt-10 mb-5 font-bold text-[15px]">
+          2. 내가 받은 NFT를 어떻게 볼 수 있을까요?
         </h2>
         <p className="font-medium text-[13px]">
           NFT는 클립 지갑에 저장되며 카카오톡 내에서 확인 가능합니다. 자세한
@@ -12,17 +18,7 @@ export default function QnA() {
         </p>
         <img src="klip.png" alt="loading..." />
       </div>
-      <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          2. 블록블록은 어떤 동아리인가요?
-        </h2>
-        <img className="my-5" src="blockblock.png" alt="loading..." />
-        <p className="font-medium text-[13px]">
-          블록블록은 지난 2022년 10월, 블록체인을 함께 공부하고 싶은 연세대학교
-          학우들이 모여 시작되었습니다. 블록체인으로 돈을 버는 것이 아닌,
-          블록체인으로 어떻게 세상을 바꿀 수 있을지 토론하고 공부합니다.
-        </p>
-      </div>
+
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
           3. 타투스티커 판매 수익으로는 무엇을 하나요?

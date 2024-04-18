@@ -116,12 +116,12 @@ export default function Home() {
         )}
       </div>
       <h2 className="my-5 font-bold text-[20px]">
-        다시 오지 않을 이 순간, <br />
-        NFT로 영원히 남겨보세요 <br />
+        다시 오지 않을 이 순간 <br />
+        NFT로 영원히 간직하세요. <br />
       </h2>
       <p className="font-medium text-[13px]">
-        축제, 과 생활, 동아리를 하며 다양한 추억을 만든 우리 <br />
-        이 순간이 영원히 기억되도록 NFT로 남겨보세요. <br />
+        축제, 과생활, 동아리를 하며 다양한 추억을 만든 우리 <br />
+        지금을 영원히 기억할 수 있게 NFT로 남겨보는건 어떨까요? <br />
         당신의 찬란한 순간을
         <span className="font-bold"> MY YONSEI NFT</span>가 함께합니다.
       </p>
