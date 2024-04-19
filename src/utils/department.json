@@ -1,7 +1,7 @@
 {
   "000": {
     "Department_KR": "YONSEI",
-    "Department": "YONSEI",
+    "Department": "TEST",
     "maxRand": 2,
     "Source_Pre": "xyz"
   },
