@@ -14,21 +14,26 @@ export default function Howto() {
         <h2 className="mt-10 mb-5 font-medium text-[15px]">
           2. 정보 제공 동의(첫 로그인시 비밀번호 설정이 필요합니다.)
         </h2>
-        <img className="mx-auto" src="/klip_info.png" alt="loading..." />
+        <img
+          className="mx-auto max-w-2/3"
+          src="/klip_info.png"
+          alt="loading..."
+        />
         <p className="mt-10 mb-5 font-medium text-[15px]">
           <span>3. 내 학과코드(ex.2024</span>
           <span className="font-bold text-red-600">123</span>
           <span>000) 입력 후 발급하기 버튼 클릭</span>
         </p>
+        <img className="mx-auto max-w-2/3" src="/major.png" alt="loading..." />
         <p className="text-[10px]">일부 과는 학과코드가 4자리입니다.</p>
         <p className="mt-10 mb-5 font-medium text-[15px]">
           3. 학과명을 확인한 후 NFT 제작 버튼 클릭 (NFT가 랜덤으로 생성됩니다!)
         </p>
-
+        <img className="mx-auto max-w-2/3" src="/mint.png" alt="loading..." />
         <h2 className="mt-10 mb-5 font-medium text-[15px]">
           4. 카카오톡에서 NFT 확인하기
         </h2>
-
+        <img className="mx-auto max-w-2/3" src="/klip.png" alt="loading..." />
         <h2 className="mt-10 mb-5 font-medium text-[13px]">
           잠깐, 나만의 학교생활을 기록하고 싶으신가요?
           <a href="https://open.kakao.com/o/sRr7SKmg">

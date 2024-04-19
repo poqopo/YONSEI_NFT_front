@@ -14,17 +14,15 @@ export default function Mint() {
   const navigate = useNavigate();
 
   return (
-    <main className="h-screen flex flex-col place-content-between gap-y-5 py-8 font-roboto text-[#090707]  text-center">
+    <main className="min-h-screen flex flex-col place-content-between gap-y-3 py-8 font-roboto text-[#090707]  text-center">
       <h2 className=" font-bold text-[15px]">
         연세대학교 블록체인 동아리 <br />
         블록블록과 함께하는
       </h2>
-      <h1 className="font-extrabold text-[24px] text-[#30A9DE]">
-        MY YONSEI NFT
-      </h1>
+      <h2 className="font-extrabold text-[24px] text-black">MY YONSEI NFT</h2>
 
       {showModal ? (
-        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 max-w-[500px] bg-[#FEE500] z-50">
+        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 rounded-[15px] max-w-[500px] bg-[#FEE500] z-50">
           <button
             type="button"
             className="fixed top-[20px] right-[20px] text-[30px]"
@@ -39,8 +37,9 @@ export default function Mint() {
               alt="loading..."
             />
             <p className="my-10 text-[13px]">
-              선택하신 과(동아리)는 {departmentInfo.Department_KR}입니다. NFT
-              제작 버튼을 누르면 NFT가 제작됩니다.
+              <span>선택하신 학과는 </span>
+              <span className="font-bold">{departmentInfo.Department_KR}</span>
+              <span> 입니다. NFT 제작 버튼을 누르면 NFT가 제작됩니다.</span>
             </p>
             <button
               type="button"
@@ -66,7 +65,7 @@ export default function Mint() {
         <div />
       )}
 
-      <div className="w-full bg-[#D9E1E8]/20 rounded-[30px]">
+      <div className="w-full rounded-[30px]">
         <Gallery />
         <div className="my-10 w-4/5 flex place-content-between m-auto ">
           <input
@@ -90,15 +89,15 @@ export default function Mint() {
           </button>
         </div>
       </div>
-      <h2 className="my-5 font-bold text-[20px]">
-        다시 오지 않을 나의 소중한 학교생활, <br />
-        NFT로 영원히 기록하는 건 어떨까요? <br />
+      <h2 className="mb-3 Sfont-bold text-[20px]">
+        당신의 낭만이 영원하도록 <br />
+        NFT로 남겨보세요. <br />
       </h2>
       <p className="font-medium text-[13px]">
-        축제, 과 생활, 동아리를 하며 다양한 추억을 만든 우리 <br />
-        이 순간이 영원히 기억되도록 NFT로 남겨보세요. <br />
-        당신의 찬란한 순간을
-        <span className="font-bold"> MY YONSEI NFT</span>가 함께합니다.
+        학교생활을 하며 다양한 추억을 만든 우리 <br />
+        현실에 치여 낭만을 잃어버리진 않았나요? <br />
+        당신의 낭만을
+        <span className="font-bold"> MY YONSEI NFT</span>로 영원히 간직하세요
       </p>
     </main>
   );

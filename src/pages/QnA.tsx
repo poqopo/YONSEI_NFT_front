@@ -1,12 +1,17 @@
 export default function QnA() {
   return (
     <div className="h-full flex flex-col place-content-center pb-10">
-      <h3 className="mt-9 font-bold text-[15px]">Q & A</h3>
+      <h3 className="mt-9 font-bold text-[20px]">Q & A</h3>
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
           1. NFT가 무엇인가요?
         </h2>
-        <p className="font-medium text-[13px]">NFT는 어쩌구 저쩌구</p>
+        <p className="font-medium text-[13px]">
+          NFT는 블록체인으로 구현해낸 앨범입니다. 다만 잃어버리면 그 안에 담긴
+          추억도 모두 잃어버리는 앨범과 달리, NFT는 블록체인 상에 영원히
+          존재합니다. 이러한 특성은 우리의 추억을 포함하여서 잊고싶지 않은
+          것들을 기억하고자 할 때 유용하게 사용됩니다.
+        </p>
       </div>
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">

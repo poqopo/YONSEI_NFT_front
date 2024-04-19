@@ -11,11 +11,8 @@ export default function MyPage() {
           연세대학교 블록체인 동아리 <br />
           블록블록과 함께하는
         </h2>
-        <h1 className="font-extrabold text-[24px] text-[#30A9DE]">
-          MY YONSEI NFT
-        </h1>
+        <h1 className="font-extrabold text-[24px] text-black">MY YONSEI NFT</h1>
       </div>
-
       <div className="mx-auto ">
         <h3 className="font-bold text-center text-[17px]">
           나의 NFT를 확인해보세요
