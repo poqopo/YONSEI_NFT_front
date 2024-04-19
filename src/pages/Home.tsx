@@ -34,16 +34,14 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col place-content-between gap-y-2 mt-8 font-roboto text-[#090707]  text-center">
+    <main className="flex flex-col place-content-between gap-y-2 pt-8 font-roboto text-[#090707]  text-center">
       <h2 className=" font-bold text-[15px]">
         연세대학교 블록체인 동아리 <br />
         블록블록과 함께하는
       </h2>
-      <h1 className="font-extrabold text-[24px] text-[#30A9DE]">
-        MY YONSEI NFT
-      </h1>
+      <h1 className="font-extrabold text-[24px] text-black">MY YONSEI NFT</h1>
 
-      <div className="w-full bg-[#D9E1E8]/20 rounded-[30px]">
+      <div className="w-full rounded-[30px]">
         <Gallery />
         <div className="my-10">
           <button
@@ -115,7 +113,7 @@ export default function Home() {
           <div />
         )}
       </div>
-      <h2 className="my-5 font-bold text-[20px]">
+      <h2 className="my-5 font-bold text-[20px] text-black">
         다시 오지 않을 이 순간 <br />
         NFT로 영원히 간직하세요. <br />
       </h2>

@@ -11,13 +11,16 @@ export default function Gallery() {
     <div className="embla" ref={emblaRef}>
       <div className="embla__container">
         <div className="embla__slide">
-          <img src="/NFT_ex2.png" alt="loading..." />
+          <img src="/ex1.webp" alt="loading..." />
         </div>
         <div className="embla__slide">
-          <img src="/NFT_ex2.png" alt="loading..." />
+          <img src="/ex2.webp" alt="loading..." />
         </div>
         <div className="embla__slide">
-          <img src="/NFT_ex2.png" alt="loading..." />
+          <img src="/ex3.webp" alt="loading..." />
+        </div>
+        <div className="embla__slide">
+          <img src="/ex4.webp" alt="loading..." />
         </div>
       </div>
     </div>

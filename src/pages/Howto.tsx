@@ -1,7 +1,7 @@
 export default function Howto() {
   return (
     <div>
-      <h3 className="mt-9 font-bold text-[15px]">HOW TO</h3>
+      <h3 className="mt-9 font-bold text-[20px]">HOW TO</h3>
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-medium text-[15px]">
           1. 카카오 로그인 클릭
