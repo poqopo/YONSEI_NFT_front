@@ -14,8 +14,9 @@ export default function Howto() {
         <h2 className="mt-10 mb-5 font-medium text-[15px]">
           2. 정보 제공 동의(첫 로그인시 비밀번호 설정이 필요합니다.)
         </h2>
+        <img className="mx-auto" src="/klip_info.png" alt="loading..." />
         <p className="mt-10 mb-5 font-medium text-[15px]">
-          <span>2. 내 학과코드(ex.2024</span>
+          <span>3. 내 학과코드(ex.2024</span>
           <span className="font-bold text-red-600">123</span>
           <span>000) 입력 후 발급하기 버튼 클릭</span>
         </p>
