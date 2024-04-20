@@ -7,10 +7,12 @@ export default function QnA() {
           1. NFT가 무엇인가요?
         </h2>
         <p className="font-medium text-[13px]">
-          NFT는 블록체인으로 구현해낸 앨범입니다. 다만 잃어버리면 그 안에 담긴
-          추억도 모두 잃어버리는 앨범과 달리, NFT는 블록체인 상에 영원히
-          존재합니다. 이러한 특성은 우리의 추억을 포함하여서 잊고싶지 않은
-          것들을 기억하고자 할 때 유용하게 사용됩니다.
+          NFT는 블록체인 기술로 제작된 독특하고 소중한 디지털 자산입니다. 기존의
+          사진이나 물건들처럼 잃어버릴 위험이 있는 것들과 달리,
+          <span className="font-bold">NFT는 영구적으로 존재</span>하는 그 특성을
+          지니고 있습니다. MY YONSEI NFT 프로젝트는 이러한 NFT의 특성을 활용하여
+          <span className="font-bold"> 우리의 소중한 추억들을 영원히 보존</span>
+          하고자 합니다.
         </p>
       </div>
       <div className="w-4/5 m-auto text-start">
@@ -29,9 +31,9 @@ export default function QnA() {
           3. 타투스티커 판매 수익으로는 무엇을 하나요?
         </h2>
         <p className="font-medium text-[13px]">
-          블록블록에서 타투스티커를 판매하는 이유는 NFT를 홍보하기 위함입니다.
-          따라서 타투스티커 판매 수익은 최소한의 운영비와 홍보비를 제외하고 전액
-          연세대학교에 기부할 예정입니다.
+          MY YONSEI NFT는 NFT를 홍보하기 위해 타투스티커를 판매합니다. 판매
+          수익은 필수적인 운영비와 홍보비를 제외한 나머지 전액을 연세대학교에
+          기부할 예정입니다.
         </p>
       </div>
       <div className="w-4/5 m-auto text-start">
