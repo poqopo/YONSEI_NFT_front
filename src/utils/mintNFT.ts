@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-const API_URL = 'https://api.myyonseinft.com/makeNFT'; // prepare url
+// https://api.myyonseinft.com/makeNFT
+const API_URL = 'http://localhost:5555/makeNFT'; // prepare url
 const META_BASE_URL = 'https://myyonseinft.s3.amazonaws.com/MAJOR';
 
 function getRandomInt(max: number) {
@@ -14,21 +14,17 @@ export function getURL(major: string, max: number) {
   return { imguri, tokenuri };
 }
 
-export function mintNFT(address: string | undefined, tokenuri: string) {
-  if (address !== undefined) {
-    const params = {
-      address,
-      tokenuri,
-    };
-    try {
-      axios.get(API_URL, { params });
-    } catch (e) {
-      return false;
-    }
-  } else {
+export async function mintNFT(address: string | undefined, tokenuri: string) {
+  const params = {
+    address,
+    tokenuri,
+  };
+  try {
+    const res = await axios.get(API_URL, { params });
+    return res;
+  } catch (e) {
     return false;
   }
-  return true;
 }
 
 export function TEST() {

@@ -48,17 +48,15 @@ export default function Mint() {
               className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#191919] text-[#FFFFFF]"
               onClick={async () => {
                 setShowModal(false);
+                setLoading(true);
                 const { imguri, tokenuri } = await getURL(
                   departmentInfo.Department,
                   departmentInfo.maxRand,
                 );
-                setLoading(true);
                 const res = await mintNFT(params.address, tokenuri);
                 if (res) {
                   setLoading(false);
-                  window.alert(
-                    'NFT 제작 완료! NFT가 전송되기 까지 10~20초가 소요될 수 있습니다.',
-                  );
+                  window.alert('NFT 제작 완료!');
                   navigate('/MyPage', { state: { url: imguri } });
                 } else {
                   setLoading(false);
@@ -79,7 +77,10 @@ export default function Mint() {
       {loading ? (
         <div>
           <ReactLoading type="bubbles" color="black" className="m-auto" />
-          <p>NFT를 제작하고 있습니다.</p>
+          <p>
+            NFT를 만들고 있습니다 <br />
+            NFT가 만들어질 떄 까지 10~20초가 소요될 수 있습니다.
+          </p>
         </div>
       ) : (
         <div className="w-full rounded-[30px]">
