@@ -21,11 +21,9 @@ export function mintNFT(address: string | undefined, tokenuri: string) {
       tokenuri,
     };
     try {
-      axios.get(API_URL, { params }).then((response) => {
-        return response.data;
-      });
+      axios.get(API_URL, { params });
     } catch (e) {
-      return e;
+      return false;
     }
   } else {
     return false;
