@@ -1,6 +1,6 @@
 import axios from 'axios';
 // https://api.myyonseinft.com/makeNFT
-const API_URL = 'http://localhost:5555/makeNFT'; // prepare url
+const API_URL = 'https://api.myyonseinft.com/makeNFT'; // prepare url
 const META_BASE_URL = 'https://myyonseinft.s3.amazonaws.com/MAJOR';
 
 function getRandomInt(max: number) {
