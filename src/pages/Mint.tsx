@@ -2,9 +2,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import ReactLoading from 'react-loading';
+import Select from 'react-select';
 import Gallery from '../Components/gallery';
 import departmentData from '../utils/department.json';
 import { getURL, mintNFT } from '../utils/mintNFT';
+import department from '@/utils/department';
 
 export default function Mint() {
   const [input, setInput] = useState('');
@@ -79,22 +81,23 @@ export default function Mint() {
           <ReactLoading type="bubbles" color="black" className="m-auto" />
           <p>
             NFT를 만들고 있습니다 <br />
-            NFT가 만들어질 떄 까지 10~20초가 소요될 수 있습니다.
+            NFT가 만들어질 때 까지 10~20초가 소요될 수 있습니다.
           </p>
         </div>
       ) : (
         <div className="w-full rounded-[30px]">
           <Gallery />
           <div className="my-10 w-4/5 flex place-content-between m-auto ">
-            <input
-              type="text"
-              className="w-2/3 m-auto text-[12px] p-3 rounded-l-[8px] text-start indent-1"
-              placeholder="학과 코드 (ex.110)"
-              onChange={(e) => setInput(e.target.value)}
-            />
+            <div className="w-2/3 m-auto text-[12px] p-3 rounded-l-[8px] text-start indent-1">
+              <Select
+                options={department} // 위에서 만든 배열을 select로 넣기
+                onChange={(e) => setInput(e?.value)} // 값이 바뀌면 setState되게
+                defaultValue={department[0]}
+              />
+            </div>
             <button
               type="button"
-              className="w-1/3 font-extrabold rounded-r-[8px] p-3 bg-[#FEE500] text-[#191919] text-[12px]"
+              className="w-1/3 font-extrabold rounded-[15px] mx-4 my-[9px] bg-[#FEE500] text-[#191919] text-[12px]"
               onClick={() => {
                 if (departmentInfo === undefined) {
                   window.alert('입력하신 학과는 아직 준비중입니다.');
