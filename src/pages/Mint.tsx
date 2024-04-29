@@ -2,20 +2,34 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import ReactLoading from 'react-loading';
-import Select from 'react-select';
 import Gallery from '../Components/gallery';
-import departmentData from '../utils/department.json';
-import { getURL, mintNFT } from '../utils/mintNFT';
-import department from '@/utils/department';
+import { mintNFT } from '../utils/axios';
+import getMajor from '@/utils/getMajor';
 
 export default function Mint() {
   const [input, setInput] = useState('');
-  const departmentInfo = departmentData[input as keyof typeof departmentData];
-
+  const [major, setMajor] = useState<
+    { Department_KR: string; Department: string } | undefined
+  >(undefined);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const params = useParams();
   const navigate = useNavigate();
+
+  async function searchMajor(studentNumber: string) {
+    if (studentNumber.length !== 10) {
+      window.alert('잘못된 학번입니다.');
+      return false;
+    }
+    const majorDict = await getMajor(studentNumber);
+    if (majorDict === undefined) {
+      window.alert('입력하신 학과는 아직 준비중입니다.');
+      return false;
+    }
+    setMajor(majorDict);
+    setShowModal(true);
+    return true;
+  }
 
   return (
     <main className="min-h-screen flex flex-col place-content-between gap-y-3 py-8 font-roboto text-[#090707]  text-center">
@@ -42,7 +56,7 @@ export default function Mint() {
             />
             <p className="my-10 text-[13px]">
               <span>선택하신 학과는 </span>
-              <span className="font-bold">{departmentInfo.Department_KR}</span>
+              <span className="font-bold">{major?.Department_KR}</span>
               <span> 입니다. NFT 제작 버튼을 누르면 NFT가 제작됩니다.</span>
             </p>
             <button
@@ -51,20 +65,11 @@ export default function Mint() {
               onClick={async () => {
                 setShowModal(false);
                 setLoading(true);
-                const { imguri, tokenuri } = await getURL(
-                  departmentInfo.Department,
-                  departmentInfo.maxRand,
-                );
-                const res = await mintNFT(params.address, tokenuri);
+                const res = await mintNFT(params.address, major?.Department);
                 if (res) {
                   setLoading(false);
                   window.alert('NFT 제작 완료!');
-                  navigate('/MyPage', { state: { url: imguri } });
-                } else {
-                  setLoading(false);
-                  window.alert(
-                    'NFT 제작에 실패하였습니다. 잠시 후에 다시 시도해주세요.',
-                  );
+                  navigate('/MyPage', { state: { url: res.data.imgURI } });
                 }
               }}
             >
@@ -88,22 +93,17 @@ export default function Mint() {
         <div className="w-full rounded-[30px]">
           <Gallery />
           <div className="my-10 w-4/5 flex place-content-between m-auto ">
-            <div className="w-2/3 m-auto text-[12px] p-3 rounded-l-[8px] text-start indent-1">
-              <Select
-                options={department} // 위에서 만든 배열을 select로 넣기
-                onChange={(e) => setInput(e?.value)} // 값이 바뀌면 setState되게
-                defaultValue={department[0]}
-              />
-            </div>
+            <input
+              type="text"
+              placeholder="학번을 입력해주세요.(ex.2024123123)"
+              className="w-2/3 m-auto text-[12px] p-3 rounded-l-[8px] text-start indent-1"
+              onChange={(e) => setInput(e.target.value)}
+            />
             <button
               type="button"
-              className="w-1/3 font-extrabold rounded-[15px] mx-4 my-[9px] bg-[#FEE500] text-[#191919] text-[12px]"
+              className="w-1/3 font-extrabold rounded-r-[8px] p-3 bg-[#FEE500] text-[#191919] text-[12px]"
               onClick={() => {
-                if (departmentInfo === undefined) {
-                  window.alert('입력하신 학과는 아직 준비중입니다.');
-                } else {
-                  setShowModal(true);
-                }
+                searchMajor(input);
               }}
             >
               NFT 제작

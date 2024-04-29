@@ -1,356 +1,238 @@
 {
   "000": {
     "Department_KR": "YONSEI",
-    "Department": "TEST",
-    "maxRand": 4,
-    "Source_Pre": "xyz"
+    "Department": "TEST"
   },
   "106": {
     "Department_KR": "글로벌인재대학",
-    "Department": "GlobalLeaders",
-    "maxRand": 2,
-    "Source_Pre": "xyz"
+    "Department": "GlobalLeaders"
   },
   "110": {
     "Department_KR": "국어 국문학과",
-    "Department": "KoreanLanguageLiterature",
-    "maxRand": 3,
-    "Source_Pre": "xyz"
+    "Department": "KoreanLanguageLiterature"
   },
   "111": {
     "Department_KR": "중어 중문학과",
-    "Department": "ChineseLanguageLiterature",
-    "maxRand": 3,
-    "Source_Pre": "xyz"
+    "Department": "ChineseLanguageLiterature"
   },
   "112": {
     "Department_KR": "영어 영문학과",
-    "Department": "EnglishLanguageLiterature",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "EnglishLanguageLiterature"
   },
   "113": {
     "Department_KR": "독어 독문학과",
-    "Department": "GermanLanguageLiterature",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "GermanLanguageLiterature"
   },
   "114": {
     "Department_KR": "불어 불문학과",
-    "Department": "FrenchLanguageLiterature",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "FrenchLanguageLiterature"
   },
   "115": {
     "Department_KR": "노어 노문학과",
-    "Department": "RussianLanguageLiterature",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "RussianLanguageLiterature"
   },
   "116": {
     "Department_KR": "사학과",
-    "Department": "History",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "History"
   },
   "117": {
     "Department_KR": "철학과",
-    "Department": "Philosophy",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Philosophy"
   },
   "118": {
     "Department_KR": "문헌 정보학과",
-    "Department": "LibraryInformationScience",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "LibraryInformationScience"
   },
   "119": {
     "Department_KR": "심리학과",
-    "Department": "Psychology",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Psychology"
   },
   "121": {
     "Department_KR": "경제학부",
-    "Department": "Economics",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Economics"
   },
   "122": {
     "Department_KR": "응용통계학과",
-    "Department": "AppliedStatistics",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "AppliedStatistics"
   },
   "123": {
     "Department_KR": "경영학과",
-    "Department": "Business",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Business"
   },
   "124": {
     "Department_KR": "정치 외교학과",
-    "Department": "PoliticalScienceandInternationalStudies",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "PoliticalScienceandInternationalStudies"
   },
   "125": {
     "Department_KR": "행정학과",
-    "Department": "PublicPolicyandManagement",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "PublicPolicyandManagement"
   },
   "126": {
     "Department_KR": "사회복지학과",
-    "Department": "SocialWelfare",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "SocialWelfare"
   },
   "127": {
     "Department_KR": "사회학과",
-    "Department": "Sociology",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Sociology"
   },
   "128": {
     "Department_KR": "문화인류학과",
-    "Department": "CulturalAnthropology",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "CulturalAnthropology"
   },
   "129": {
     "Department_KR": "언론홍보영상학부",
-    "Department": "Communication",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Communication"
   },
   "131": {
     "Department_KR": "수학과",
-    "Department": "Mathematics",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Mathematics"
   },
   "132": {
     "Department_KR": "물리학과",
-    "Department": "Physics",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Physics"
   },
   "133": {
     "Department_KR": "화학과",
-    "Department": "Chemistry",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Chemistry"
   },
   "134": {
     "Department_KR": "지구시스템과학과",
-    "Department": "EarthSystemSciences",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "EarthSystemSciences"
   },
   "135": {
     "Department_KR": "천문우주학과",
-    "Department": "Astronomy",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Astronomy"
   },
   "136": {
     "Department_KR": "대기과학과",
-    "Department": "AtmosphericSciences",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "AtmosphericSciences"
   },
   "141": {
     "Department_KR": "화공생명공학부",
-    "Department": "ChemicalBiomolecularEngineering",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "ChemicalBiomolecularEngineering"
   },
   "142": {
     "Department_KR": "전기전자공학부",
-    "Department": "ElectricalElectronicEngineering",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "ElectricalElectronicEngineering"
   },
   "1430": {
     "Department_KR": "건축공학과",
-    "Department": "ArchitectureArchitecturalEngineering",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "ArchitectureArchitecturalEngineering"
   },
   "1435": {
     "Department_KR": "도시공학과",
-    "Department": "UrbanPlanningEngineering",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "UrbanPlanningEngineering"
   },
   "144": {
     "Department_KR": "사회환경시스템공학부",
-    "Department": "CivilEnvironmentalEngineering",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "CivilEnvironmentalEngineering"
   },
   "145": {
     "Department_KR": "기계공학부",
-    "Department": "MechanicalEngineering",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "MechanicalEngineering"
   },
   "146": {
     "Department_KR": "신소재공학부",
-    "Department": "MaterialsScienceEngineering",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "MaterialsScienceEngineering"
   },
   "1470": {
     "Department_KR": "산업공학과",
-    "Department": "IndustrialEngineering",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "IndustrialEngineering"
   },
   "1475": {
     "Department_KR": "컴퓨터과학과",
-    "Department": "MaterialsScienceEngineering",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "MaterialsScienceEngineering"
   },
   "151": {
     "Department_KR": "의류환경학과",
-    "Department": "ClothingTextiles",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "ClothingTextiles"
   },
   "152": {
     "Department_KR": "식품영양학과",
-    "Department": "FoodandNutrition",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "FoodandNutrition"
   },
   "153": {
     "Department_KR": "실내건축학과",
-    "Department": "InteriorArchitectureandBuiltEnvironment",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "InteriorArchitectureandBuiltEnvironment"
   },
   "154": {
     "Department_KR": "아동가족학과",
-    "Department": "ChildandFamilyStudies",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "ChildandFamilyStudies"
   },
   "155": {
     "Department_KR": "통합디자인학과",
-    "Department": "IntegratedDesign",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "IntegratedDesign"
   },
   "161": {
     "Department_KR": "시스템생물학과",
-    "Department": "SystemsBiology",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "SystemsBiology"
   },
   "162": {
     "Department_KR": "생화학과",
-    "Department": "Biochemistry",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Biochemistry"
   },
   "163": {
     "Department_KR": "생명공학과",
-    "Department": "Biotechnology",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Biotechnology"
   },
   "171": {
     "Department_KR": "신학과",
-    "Department": "Theology",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Theology"
   },
   "172": {
     "Department_KR": "음악대학",
-    "Department": "MUSIC",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "MUSIC"
   },
   "175": {
     "Department_KR": "간호학과",
-    "Department": "Nursing",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Nursing"
   },
   "180": {
     "Department_KR": "체육교육학과",
-    "Department": "PhysicalEducation",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "PhysicalEducation"
   },
   "181": {
     "Department_KR": "스포츠응용산업학과",
-    "Department": "SportIndustryStudies",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "SportIndustryStudies"
   },
   "182": {
     "Department_KR": "교육학부",
-    "Department": "Education",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Education"
   },
   "189": {
     "Department_KR": "시스템반도체공학과",
-    "Department": "SystemSemiconductorEngineering",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "SystemSemiconductorEngineering"
   },
   "190": {
     "Department_KR": "UIC",
-    "Department": "UIC",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "UIC"
   },
   "191": {
     "Department_KR": "의과대학",
-    "Department": "Medicine",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Medicine"
   },
   "192": {
     "Department_KR": "치과대학",
-    "Department": "Dentistry",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Dentistry"
   },
   "193": {
     "Department_KR": "글로벌융합공학부",
-    "Department": "IntegratedTechnology",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "IntegratedTechnology"
   },
   "194": {
     "Department_KR": "약학과",
-    "Department": "Pharmacy",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "Pharmacy"
   },
   "195": {
     "Department_KR": "UIC(HASS)",
-    "Department": "HASS",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "HASS"
   },
   "197": {
     "Department_KR": "UIC(AS)",
-    "Department": "AS",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "AS"
   },
   "199": {
     "Department_KR": "UIC(ISE)",
-    "Department": "ISE",
-    "maxRand": 2,
-    "Source_Pre": "abc"
+    "Department": "ISE"
   }
 }

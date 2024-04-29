@@ -9,26 +9,20 @@ import { getAddressPC, getAddressMB } from '../utils/klip';
 import Modal from '../Components/Modal';
 import QnA from './QnA';
 
-// QR코드와 지갑 주소를 초기화
 const DEFAULT_QR_CODE = 'DEFAULT';
-const DEFAULT_ADDRESS = '0x00000000000000000000000000000';
 
 export default function Home() {
   const navigate = useNavigate();
   const [qrvalueAuth, setqrvalueAuth] = useState(DEFAULT_QR_CODE);
-  const [myAddress, setMyAddress] = useState(DEFAULT_ADDRESS);
 
-  // 지갑 연동하는 함수 실행
   const getUserDataPC = () => {
     getAddressPC(setqrvalueAuth, async (address: string) => {
-      setMyAddress(address);
       navigate(`/Mint/${address}`);
     });
   };
 
   const getUserDataMB = () => {
     getAddressMB(async (address: string) => {
-      setMyAddress(address);
       navigate(`/Mint/${address}`);
     });
   };
@@ -47,18 +41,9 @@ export default function Home() {
           <button
             type="button"
             className="max-[500px]:hidden w-2/3"
-            onClick={() => getUserDataPC()}
-          >
-            <img
-              className="w-full"
-              src="/kakao_login_pc.png"
-              alt="loading..."
-            />
-          </button>
-          <button
-            type="button"
-            className="min-[500px]:hidden w-2/3"
-            onClick={() => getUserDataMB()}
+            onClick={() =>
+              window.innerWidth > 500 ? getUserDataPC() : getUserDataMB()
+            }
           >
             <img
               className="w-full"
@@ -107,8 +92,6 @@ export default function Home() {
               </div>
             </div>
           </Modal>
-        ) : myAddress !== DEFAULT_ADDRESS ? (
-          <p>{myAddress}</p>
         ) : (
           <div />
         )}
