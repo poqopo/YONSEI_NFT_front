@@ -1,4 +1,6 @@
 // import { useLocation } from 'react-router-dom'; // 1번 라인
+import { FaShareAlt } from 'react-icons/fa';
+import { IoDownload } from 'react-icons/io5';
 import share from '@/utils/share';
 
 export default function MyPage() {
@@ -6,8 +8,8 @@ export default function MyPage() {
   // const { url } = state;
   const data = {
     url: 'https://file.notion.so/f/f/58b160c3-fe00-4852-8c42-471415797086/5a906a99-7cab-42f8-9b54-64bbdc3ee1e4/Untitled.png?id=a181325a-9498-4acb-8d88-108bd4bb982a&table=block&spaceId=58b160c3-fe00-4852-8c42-471415797086&expirationTimestamp=1714608000000&signature=1XYKdPJhtpyH21lzfo-zwCvx7Zk6Qa8vNYnCtA9AD2Y&downloadName=Untitled.png',
-    text: 'Test',
-    title: 'Test',
+    text: 'https://file.notion.so/f/f/58b160c3-fe00-4852-8c42-471415797086/5a906a99-7cab-42f8-9b54-64bbdc3ee1e4/Untitled.png?id=a181325a-9498-4acb-8d88-108bd4bb982a&table=block&spaceId=58b160c3-fe00-4852-8c42-471415797086&expirationTimestamp=1714608000000&signature=1XYKdPJhtpyH21lzfo-zwCvx7Zk6Qa8vNYnCtA9AD2Y&downloadName=Untitled.png',
+    title: 'Eagle',
   };
 
   return (
@@ -19,7 +21,7 @@ export default function MyPage() {
         </h2>
         <h1 className="font-extrabold text-[24px] text-black">MY YONSEI NFT</h1>
       </div>
-      <div className="mx-auto ">
+      <div className="mx-auto">
         <h3 className="font-bold text-center text-[17px]">
           나의 00이를 확인해보세요
         </h3>
@@ -30,14 +32,23 @@ export default function MyPage() {
           alt="loading..."
         /> */}
         <img className="mx-auto w-[250px]" src="base.png" alt="loading..." />
-
-        <button
-          type="button"
-          className="mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"
-          onClick={() => share(data)}
-        >
-          자랑하기
-        </button>
+        <div className="flex place-content-center">
+          <a className="mx-auto" href={data.url} download>
+            <button
+              type="button"
+              className="mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"
+            >
+              <IoDownload className="m-auto" />
+            </button>
+          </a>
+          <button
+            type="button"
+            className="mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"
+            onClick={() => share(data)}
+          >
+            <FaShareAlt className="m-auto" />
+          </button>
+        </div>
       </div>
       <div className="w-4/5 m-auto">
         <p className="">00이는 카카오톡에서도 확인 가능합니다.</p>
