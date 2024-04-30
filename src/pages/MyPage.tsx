@@ -1,12 +1,12 @@
 // import { useLocation } from 'react-router-dom'; // 1번 라인
 import { FaShareAlt } from 'react-icons/fa';
 import { IoDownload } from 'react-icons/io5';
-import share from '@/utils/share';
+import { share } from '@/utils/axios';
 
 export default function MyPage() {
   // const { state } = useLocation(); // 2번 라인
   // const { url } = state;
-  const url = '';
+  const url = 'https://myyonseinft.s3.amazonaws.com/MAJOR/TEST/img/1.png';
 
   return (
     <div className="min-h-screen flex flex-col place-content-between py-10 gap-y-5 font-roboto text-[#090707]  text-center">
@@ -28,23 +28,17 @@ export default function MyPage() {
           alt="loading..."
         /> */}
         <img className="mx-auto w-[250px]" src="base.png" alt="loading..." />
-        <div className="flex place-content-center">
-          <a className="mx-auto" href={url} download>
-            <button
-              type="button"
-              className="mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"
-            >
-              <IoDownload className="m-auto" />
-            </button>
-          </a>
-          <button
-            type="button"
-            className="mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"
-            onClick={() => share(url)}
-          >
+
+        {/* <button
+          type="button"
+          className="mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"
+          onClick={() => share(url)}
+        >
+          <div className="flex gap-x-4">
+            <span>공유하기</span>
             <FaShareAlt className="m-auto" />
-          </button>
-        </div>
+          </div>
+        </button> */}
       </div>
       <div className="w-4/5 m-auto">
         <p className="">00이는 카카오톡에서도 확인 가능합니다.</p>

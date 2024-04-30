@@ -86,3 +86,19 @@ export function joinEvent(address: string | undefined, referral: string) {
       window.alert(error);
     });
 }
+
+export async function share(dataUrl: string) {
+  const blob = await axios.get(dataUrl).then((res) => {
+    return res.data.blob(); // 여기서는 응답의 데이터만 반환하도록 함
+  });
+  const filesArray = [
+    new File([blob], 'animation.png', {
+      type: blob.type,
+      lastModified: new Date().getTime(),
+    }),
+  ];
+  const shareData = {
+    files: filesArray,
+  };
+  navigator.share(shareData);
+}
