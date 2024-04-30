@@ -6,11 +6,7 @@ import share from '@/utils/share';
 export default function MyPage() {
   // const { state } = useLocation(); // 2번 라인
   // const { url } = state;
-  const data = {
-    url: 'https://file.notion.so/f/f/58b160c3-fe00-4852-8c42-471415797086/5a906a99-7cab-42f8-9b54-64bbdc3ee1e4/Untitled.png?id=a181325a-9498-4acb-8d88-108bd4bb982a&table=block&spaceId=58b160c3-fe00-4852-8c42-471415797086&expirationTimestamp=1714608000000&signature=1XYKdPJhtpyH21lzfo-zwCvx7Zk6Qa8vNYnCtA9AD2Y&downloadName=Untitled.png',
-    text: 'https://file.notion.so/f/f/58b160c3-fe00-4852-8c42-471415797086/5a906a99-7cab-42f8-9b54-64bbdc3ee1e4/Untitled.png?id=a181325a-9498-4acb-8d88-108bd4bb982a&table=block&spaceId=58b160c3-fe00-4852-8c42-471415797086&expirationTimestamp=1714608000000&signature=1XYKdPJhtpyH21lzfo-zwCvx7Zk6Qa8vNYnCtA9AD2Y&downloadName=Untitled.png',
-    title: 'Eagle',
-  };
+  const url = '';
 
   return (
     <div className="min-h-screen flex flex-col place-content-between py-10 gap-y-5 font-roboto text-[#090707]  text-center">
@@ -33,7 +29,7 @@ export default function MyPage() {
         /> */}
         <img className="mx-auto w-[250px]" src="base.png" alt="loading..." />
         <div className="flex place-content-center">
-          <a className="mx-auto" href={data.url} download>
+          <a className="mx-auto" href={url} download>
             <button
               type="button"
               className="mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"
@@ -44,7 +40,7 @@ export default function MyPage() {
           <button
             type="button"
             className="mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"
-            onClick={() => share(data)}
+            onClick={() => share(url)}
           >
             <FaShareAlt className="m-auto" />
           </button>

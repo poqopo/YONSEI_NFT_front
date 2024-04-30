@@ -1,37 +1,23 @@
-const isShareSupported = () => navigator.share ?? false;
+export const share = async (url: string) => {
+  const blob = await fetch(url).then((r) => r.blob());
 
-type Data = {
-  url: string;
-  text: string;
-  title: string;
-  files?: File[];
-};
-
-/**
- * 인자로 받은 data를 OS 기본옵션으로 공유합니다.
- * 기본 공유옵션이 지원되지 않을 경우, url만을 클립보드에 링크를 복사하는 기능으로 대체됩니다.
- * @param data 공유할 data 객체
- * @param data.url 공유될 또는 클립복드에 복사될 url
- * @param data.text 공유시 해당 메신저에 추가적인 텍스트로 전달되는 문구
- * @param data.title 공유시 썸네일에 제공되는 타이틀 문구
- * @param data.files 공유할 file 리스트
- * ```
- */
-
-export const share = (data: Data) => {
-  return new Promise<boolean>((resolve) => {
-    if (isShareSupported()) {
-      navigator
-        .share(data)
-        .then(() => {
-          resolve(true);
-        })
-        .catch(() => {
-          resolve(false);
-        });
-    } else {
-      resolve(false);
+  const data = {
+    files: [
+      new File([blob], 'file.png', {
+        type: blob.type,
+      }),
+    ],
+    title: 'MY YONSEI NFT',
+    text: '',
+  };
+  try {
+    if (!navigator.canShare(data)) {
+      throw new Error("Can't share data.");
     }
-  });
+    await navigator.share(data);
+  } catch (err: any) {
+    console.error(err.name, err.message);
+  }
 };
+
 export default share;
