@@ -1,7 +1,6 @@
 // import { useLocation } from 'react-router-dom'; // 1번 라인
 import { FaShareAlt } from 'react-icons/fa';
 import { IoDownload } from 'react-icons/io5';
-import { share } from '@/utils/axios';
 
 export default function MyPage() {
   // const { state } = useLocation(); // 2번 라인

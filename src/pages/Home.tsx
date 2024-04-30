@@ -15,15 +15,15 @@ export default function Home() {
   const navigate = useNavigate();
   const [qrvalueAuth, setqrvalueAuth] = useState(DEFAULT_QR_CODE);
 
-  const getUserDataPC = () => {
+  const getUserDataPC = (to: string) => {
     getAddressPC(setqrvalueAuth, async (address: string) => {
-      navigate(`/Mint/${address}`);
+      navigate(`/${to}/${address}`);
     });
   };
 
-  const getUserDataMB = () => {
+  const getUserDataMB = (to: string) => {
     getAddressMB(async (address: string) => {
-      navigate(`/Mint/${address}`);
+      navigate(`/${to}/${address}`);
     });
   };
 
@@ -37,12 +37,14 @@ export default function Home() {
 
       <div className="w-full rounded-[30px]">
         <Gallery />
-        <div className="my-8">
+        <div className="mt-8">
           <button
             type="button"
             className="w-2/3"
             onClick={() =>
-              window.innerWidth > 500 ? getUserDataPC() : getUserDataMB()
+              window.innerWidth > 500
+                ? getUserDataPC('Mint')
+                : getUserDataMB('Mint')
             }
           >
             <img
@@ -96,6 +98,17 @@ export default function Home() {
           <div />
         )}
       </div>
+      <button
+        type="button"
+        className="w-2/3 mx-auto my-3 rounded-[15px] bg-[#40C6FF]/40 hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold"
+        onClick={() =>
+          window.innerWidth > 500
+            ? getUserDataPC('Event')
+            : getUserDataMB('Event')
+        }
+      >
+        야 너두? 야 나두! 이벤트 참여
+      </button>
       <a href="kakaotalk://klipwallet/open?url=https://klipwallet.com/">
         <p className="text-[14px] font-bold text-center underline">
           내가 받은 NFT 확인하러가기

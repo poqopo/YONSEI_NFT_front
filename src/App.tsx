@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Mint from './pages/Mint';
 import DefaultLayout from './pages/DefaultLayout';
 import MyPage from './pages/MyPage';
+import Referral from './pages/Referral';
 
 function App() {
   const element = useRoutes([
@@ -20,6 +21,10 @@ function App() {
         {
           path: '/MyPage',
           element: <MyPage />,
+        },
+        {
+          path: '/Event/:address',
+          element: <Referral />,
         },
       ],
     },

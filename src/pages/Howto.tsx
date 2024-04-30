@@ -4,7 +4,7 @@ export default function Howto() {
       <h3 className="mt-9 font-bold text-[20px]">HOW TO</h3>
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          1. 카카오 로그인 클릭
+          1. 카카오 로그인 (카카오톡으로 계속하기를 눌러주세요!!)
         </h2>
         <img
           className="mx-auto w-2/3"
