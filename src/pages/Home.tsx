@@ -37,7 +37,7 @@ export default function Home() {
 
       <div className="w-full rounded-[30px]">
         <Gallery />
-        <div className="my-10">
+        <div className="my-8">
           <button
             type="button"
             className="w-2/3"
@@ -96,6 +96,11 @@ export default function Home() {
           <div />
         )}
       </div>
+      <a href="kakaotalk://klipwallet/open?url=https://klipwallet.com/">
+        <p className="text-[14px] font-bold text-center underline">
+          내가 받은 NFT 확인하러가기
+        </p>
+      </a>
       <h2 className="my-5 font-bold text-[20px] text-black">
         시간이 흘러도 변하지 않는 것은 <br />
         바로 여러분의 추억입니다. <br />
