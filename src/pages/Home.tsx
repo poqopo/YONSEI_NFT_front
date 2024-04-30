@@ -40,7 +40,7 @@ export default function Home() {
         <div className="my-10">
           <button
             type="button"
-            className="max-[500px]:hidden w-2/3"
+            className="w-2/3"
             onClick={() =>
               window.innerWidth > 500 ? getUserDataPC() : getUserDataMB()
             }

@@ -1,38 +1,51 @@
 export default function Event() {
   return (
-    <div className="h-screen flex flex-col place-content-center pb-10">
+    <div className="h-full flex flex-col place-content-center pb-10">
       <h3 className="mt-9 font-bold text-[20px]">Event</h3>
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          EVENT 1. 타투스티커 신청하고 우리 과만의 타투스티커까지 받자!
+          EVENT 1. 인스타그램 팔로우 이벤트
         </h2>
         <p className="font-medium text-[13px]">
-          MY YONSEI NFT가 제작한 타투스티커를 구매하고 우리 과만의 특별함을 가진
-          타투스티커까지 받아보세요!
-        </p>
-        <p className="text-[11px] my-5">
-          본 이벤트는 5명 이상 신청한 과(동아리)에 한해서 증정해 드립니다.
+          <span>@My_Yonsei_NFT 인스타그램 팔로우 하고 기프티콘을 받자!</span>
+          <img
+            className="w-full mx-auto my-5 rounded-[8px]"
+            src="gifts.png"
+            alt="loading..."
+          />
+          <span>팔로워 중 추첨을 통해 </span>
+          <span className="font-bold">
+            BBQ 황금 올리브 치킨 세트(1명)와 스타벅스 기프티콘(5명)
+          </span>
+          <span>을 드립니다.</span>
         </p>
       </div>
 
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          EVENT 2. 아카라카 인증 이벤트
+          EVENT 2. 야 너두? 야 나두!
         </h2>
         <p className="font-medium text-[13px]">
-          타투스티커, NFT와 함께 아카라카를 즐기는 모습과 함께 @My_Yonsei_NFT
-          태그해서 올려주세요! 추첨을 통해 치킨 기프티콘을 드립니다. 자세한
-          내용은 @My_Yonsei_NFT 인스타그램을 참고해주세요
+          <span>
+            캐릭터가 똑같은 친구를 찾으셨나요? 이거 혹시 운명일지도..?!{' '}
+          </span>
+          <span className="font-bold">
+            운명의 그대에게 타투스티커 1장을 드립니다!
+          </span>
+          <img
+            className="w-2/3 mx-auto my-5 rounded-[8px]"
+            src="tatoo.png"
+            alt="loading..."
+          />
         </p>
       </div>
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          EVENT 3. 나만의 추억을 NFT로!
+          EVENT 3. 00이와 함께하는 아카라카!
         </h2>
         <p className="font-medium text-[13px]">
-          대학생활을 하며 기억하고 싶은 활동을 NFT로 남겨보세요. NFT를 제작한
-          사람들에게는 추가 이벤트도 있을 예정이니 @My_Yonsei_NFT 인스타그램을
-          확인해주세요.
+          00이와 함께하는 아카라카 스토리를 @My_Yonsei_NFT를 태그해 올려주세요!
+          추첨을 통해 00을 드립니다.
         </p>
       </div>
     </div>

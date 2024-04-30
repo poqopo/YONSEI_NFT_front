@@ -40,7 +40,7 @@ export default function Mint() {
       <h2 className="font-extrabold text-[24px] text-black">MY YONSEI NFT</h2>
 
       {showModal ? (
-        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 rounded-[15px] max-w-[500px] bg-[#FEE500] z-50">
+        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 rounded-[15px] w-2/3 max-w-[500px] bg-[#FEE500] z-50">
           <button
             type="button"
             className="fixed top-[20px] right-[20px] text-[30px]"
@@ -57,7 +57,10 @@ export default function Mint() {
             <p className="my-10 text-[13px]">
               <span>선택하신 학과는 </span>
               <span className="font-bold">{major?.Department_KR}</span>
-              <span> 입니다. NFT 제작 버튼을 누르면 NFT가 제작됩니다.</span>
+              <span>
+                {' '}
+                입니다. <br /> NFT 제작 버튼을 누르면 NFT가 제작됩니다.
+              </span>
             </p>
             <button
               type="button"

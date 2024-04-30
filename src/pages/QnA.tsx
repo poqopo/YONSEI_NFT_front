@@ -17,18 +17,27 @@ export default function QnA() {
       </div>
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          2. 내가 받은 NFT를 어떻게 볼 수 있을까요?
+          2. 내가 받은 00이를 어떻게 볼 수 있을까요?
         </h2>
-        <p className="font-medium text-[13px]">
-          NFT는 클립 지갑에 저장되며 카카오톡 내에서 확인 가능합니다. 자세한
+        <p className="font-medium text-[13px] mb-5">
+          00이는 클립 지갑에 저장되며 카카오톡 내에서 확인 가능합니다. 자세한
           내용은 아래를 참고해주세요.
         </p>
         <img src="klip.png" alt="loading..." />
       </div>
-
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          3. 타투스티커 판매 수익으로는 무엇을 하나요?
+          3. NFT를 더 제작하고 싶어요!
+        </h2>
+        <p className="font-medium text-[13px]">
+          MY YONSEI NFT는 인당 1개의 00이를 분양 받는 것을 기본 원칙으로 하고
+          있습니다. 하지만 타투스티커 구매자분들 께는 구매 매수만큼 00이를 더
+          분양할 수 있으니 참고해주세요!
+        </p>
+      </div>
+      <div className="w-4/5 m-auto text-start">
+        <h2 className="mt-10 mb-5 font-bold text-[15px]">
+          4. 타투스티커 판매 수익으로는 무엇을 하나요?
         </h2>
         <p className="font-medium text-[13px]">
           MY YONSEI NFT는 NFT를 홍보하기 위해 타투스티커를 판매합니다. 판매
@@ -36,9 +45,10 @@ export default function QnA() {
           기부할 예정입니다.
         </p>
       </div>
+
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          4. 앞으로의 MY YONSEI NFT는 어떤 모습일까요?
+          5. 앞으로의 MY YONSEI NFT는 어떤 모습일까요?
         </h2>
         <p className="font-medium text-[13px]">
           MY YONSEI NFT는 앞으로도 여러분의 소중한 추억을 기록할 것입니다.
