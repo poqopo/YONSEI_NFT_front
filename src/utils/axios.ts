@@ -2,19 +2,18 @@ import axios from 'axios';
 
 const API_URL = 'https://api.myyonseinft.com/makeNFT';
 const API_PATH = {
-  getRefInfo: '/getRefInfo',
-  getUserNFTInfo: '/getUserNFTInfo',
-  mint: '/mintNFT',
+  getUserInfo: '/getUserInfo',
+  postClaim: '/getUserNFTInfo',
+  mintNFT: '/mintNFT',
   postReferral: '/postReferral',
-  joinEvent: '/joinEvent',
 };
 
-export function getRefInfo(address: string | undefined) {
+export function getUserInfo(address: string | undefined) {
   const params = {
     address,
   };
   axios
-    .get(API_URL + API_PATH.getRefInfo, { params })
+    .get(API_URL + API_PATH.getUserInfo, { params })
     .then((res) => {
       return res;
     })
@@ -23,12 +22,12 @@ export function getRefInfo(address: string | undefined) {
     });
 }
 
-export function getUserNFTInfo(address: string | undefined) {
+export function postClaim(address: string | undefined) {
   const params = {
     address,
   };
   axios
-    .get(API_URL + API_PATH.getRefInfo, { params })
+    .post(API_URL + API_PATH.postClaim, { params })
     .then((res) => {
       return res;
     })
@@ -47,7 +46,7 @@ export function mintNFT(
   };
 
   return axios
-    .post(API_URL + API_PATH.mint, { params })
+    .post(API_URL + API_PATH.mintNFT, { params })
     .then((res) => {
       return res.data; // 여기서는 응답의 데이터만 반환하도록 함
     })
@@ -67,7 +66,7 @@ export function postReferral(
     studentNumber,
   };
   return axios
-    .post(API_URL + API_PATH.mint, { params })
+    .post(API_URL + API_PATH.postReferral, { params })
     .then((res) => {
       return res.data; // 여기서는 응답의 데이터만 반환하도록 함
     })
@@ -75,20 +74,5 @@ export function postReferral(
       window.alert(error.message);
       window.location.reload();
       return Promise.reject(error);
-    });
-}
-
-export function joinEvent(address: string | undefined, referral: string) {
-  const params = {
-    address,
-    referral,
-  };
-  axios
-    .post(API_URL + API_PATH.joinEvent, { params })
-    .then((res) => {
-      return res;
-    })
-    .catch((error) => {
-      window.alert(error);
     });
 }

@@ -27,17 +27,6 @@ export default function MyPage() {
           alt="loading..."
         /> */}
         <img className="mx-auto w-[250px]" src="base.png" alt="loading..." />
-
-        {/* <button
-          type="button"
-          className="mx-auto font-extrabold rounded-[15px] w-fit px-4 py-3 bg-[#FEE500] text-[#191919]"
-          onClick={() => share(url)}
-        >
-          <div className="flex gap-x-4">
-            <span>공유하기</span>
-            <FaShareAlt className="m-auto" />
-          </div>
-        </button> */}
       </div>
       <div className="w-4/5 m-auto">
         <p className="">00이는 카카오톡에서도 확인 가능합니다.</p>

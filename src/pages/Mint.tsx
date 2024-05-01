@@ -38,6 +38,10 @@ export default function Mint() {
         블록블록과 함께하는
       </h2>
       <h2 className="font-extrabold text-[24px] text-black">MY YONSEI NFT</h2>
+      <div className="text-[12px] font-bold">
+        <p>분양 가능한 00이 : 1</p>
+        <p>이미 분양한 00이 : 0</p>
+      </div>
 
       {showModal ? (
         <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 rounded-[15px] w-2/3 max-w-[500px] bg-[#FEE500] z-50">
