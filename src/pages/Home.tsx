@@ -3,6 +3,8 @@ import QRCode from 'qrcode.react';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
+import { TiThMenu } from 'react-icons/ti';
+import { FaArrowAltCircleUp } from 'react-icons/fa';
 import Gallery from '../Components/gallery';
 import Howto from './Howto';
 import Event from './Event';
@@ -10,43 +12,51 @@ import { getAddressPC, getAddressMB } from '../utils/klip';
 import Modal from '../Components/Modal';
 import QnA from './QnA';
 import { setAddress } from '@/store/store';
+import Menu from '@/Components/Menu';
 
 const DEFAULT_QR_CODE = 'DEFAULT';
 
 export default function Home() {
   const [qrvalueAuth, setqrvalueAuth] = useState(DEFAULT_QR_CODE);
+  const [toggleMenu, setToggleMenu] = useState(false);
   const dispatch = useDispatch();
   const userAddress = useSelector((state: any) => state.user.address);
   const navigate = useNavigate();
 
-  const getUserDataPC = (to: string) => {
-    getAddressPC(setqrvalueAuth, async (address: string) => {
-      dispatch(setAddress(address));
-    });
-  };
-
-  const getUserDataMB = (to: string) => {
-    getAddressMB(async (address: string) => {
-      dispatch(setAddress(address));
-    });
+  const getUserData = () => {
+    if (window.innerWidth > 500) {
+      getAddressPC(setqrvalueAuth, async (address: string) => {
+        dispatch(setAddress(address));
+      });
+    } else {
+      getAddressMB(async (address: string) => {
+        dispatch(setAddress(address));
+      });
+    }
   };
 
   return (
-    <main className="flex flex-col place-content-between gap-y-2 pt-8 font-roboto text-[#090707]  text-center">
-      <h1 className="font-extrabold text-[24px] text-black">MY YONSEI NFT</h1>
+    <main className="flex flex-col place-content-between font-roboto text-[#090707]  text-center">
+      <button
+        type="button"
+        className="absolute top-5 ml-4 text-[30px]"
+        onClick={() => setToggleMenu(true)}
+      >
+        <TiThMenu />
+      </button>
 
+      {toggleMenu ? <Menu toggleMenu={() => setToggleMenu(false)} /> : <div />}
       <div className="w-full rounded-[30px]">
-        <Gallery />
+        <div className=" w-[300px] mx-auto ">
+          <img src="/sample/2.png" alt="loading..." />
+        </div>
+
         {userAddress === '' ? (
-          <div className="mt-8">
+          <div>
             <button
               type="button"
               className="w-2/3"
-              onClick={() =>
-                window.innerWidth > 500
-                  ? getUserDataPC('Mint')
-                  : getUserDataMB('Mint')
-              }
+              onClick={() => getUserData()}
             >
               <img
                 className="w-full"
@@ -77,7 +87,6 @@ export default function Home() {
             </button>
           </div>
         )}
-
         {qrvalueAuth !== DEFAULT_QR_CODE ? (
           <Modal>
             <button
@@ -107,7 +116,7 @@ export default function Home() {
                 <p className="font-extrabold text-[20px]">MY YONSEI NFT</p>
                 <p className="my-5 font-bold">
                   카메라로 스캔 후, <br />
-                  카톡으로 간편가입하세요!
+                  카톡으로 로그인하세요!
                 </p>
               </div>
               <div className="w-2/3 text-start font-medium mx-auto text-[13px]">
@@ -122,9 +131,8 @@ export default function Home() {
           <div />
         )}
       </div>
-
       <a href="kakaotalk://klipwallet/open?url=https://klipwallet.com/">
-        <p className="text-[14px] font-bold text-center underline">
+        <p className="text-[14px] font-bold my-2 text-center underline">
           내가 받은 NFT 확인하러가기
         </p>
       </a>
@@ -139,6 +147,10 @@ export default function Home() {
       </p>
       <Howto />
       <Event />
+      <div id="Characters">
+        <Gallery />
+      </div>
+
       <QnA />
     </main>
   );

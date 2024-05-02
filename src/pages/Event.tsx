@@ -1,6 +1,6 @@
 export default function Event() {
   return (
-    <div className="h-full flex flex-col place-content-center pb-10">
+    <div id="Event" className="h-full flex flex-col place-content-center pb-10">
       <h3 className="mt-9 font-bold text-[20px]">Event</h3>
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
