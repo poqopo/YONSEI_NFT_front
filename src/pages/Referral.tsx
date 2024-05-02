@@ -1,19 +1,19 @@
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Gallery from '../Components/gallery';
 import { postReferral } from '@/utils/axios';
+import checkAddress from '@/utils/checkParams';
 
 export default function Referral() {
   const [input, setInput] = useState('');
   const params = useParams();
 
+  useEffect(() => {
+    checkAddress(params.address);
+  }, []);
+
   return (
     <main className="min-h-screen flex flex-col place-content-between gap-y-3 py-8 font-roboto text-[#090707]  text-center">
-      <h2 className=" font-bold text-[15px]">
-        연세대학교 블록체인 동아리 <br />
-        블록블록과 함께하는
-      </h2>
-      <h2 className="font-extrabold text-[24px] text-black">MY YONSEI NFT</h2>
       <div className="w-full rounded-[30px]">
         <Gallery />
         <div className="my-10 w-4/5 flex place-content-between m-auto ">

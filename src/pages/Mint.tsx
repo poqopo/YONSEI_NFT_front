@@ -1,10 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import ReactLoading from 'react-loading';
 import Gallery from '../Components/gallery';
 import { mintNFT } from '../utils/axios';
 import getMajor from '@/utils/getMajor';
+import checkAddress from '@/utils/checkParams';
 
 export default function Mint() {
   const [input, setInput] = useState('');
@@ -30,6 +31,10 @@ export default function Mint() {
     setShowModal(true);
     return true;
   }
+
+  useEffect(() => {
+    checkAddress(params.address);
+  }, []);
 
   return (
     <main className="min-h-screen flex flex-col place-content-between gap-y-3 py-8 font-roboto text-[#090707]  text-center">
@@ -71,7 +76,9 @@ export default function Mint() {
                 if (res) {
                   setLoading(false);
                   window.alert('NFT 제작 완료!');
-                  navigate('/MyPage', { state: { url: res.data.imgURI } });
+                  navigate(`/MyPage/${params.address}`, {
+                    state: { url: res.data.imgURI },
+                  });
                 }
               }}
             >

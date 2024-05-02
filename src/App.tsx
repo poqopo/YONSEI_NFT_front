@@ -19,7 +19,7 @@ function App() {
           element: <Mint />,
         },
         {
-          path: '/MyPage',
+          path: '/MyPage/:address',
           element: <MyPage />,
         },
         {
