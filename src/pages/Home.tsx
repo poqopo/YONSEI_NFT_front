@@ -1,59 +1,83 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import QRCode from 'qrcode.react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoCloseCircleOutline } from 'react-icons/io5';
+import { useDispatch, useSelector } from 'react-redux';
 import Gallery from '../Components/gallery';
 import Howto from './Howto';
 import Event from './Event';
 import { getAddressPC, getAddressMB } from '../utils/klip';
 import Modal from '../Components/Modal';
 import QnA from './QnA';
+import { setAddress } from '@/store/store';
 
 const DEFAULT_QR_CODE = 'DEFAULT';
 
 export default function Home() {
-  const navigate = useNavigate();
   const [qrvalueAuth, setqrvalueAuth] = useState(DEFAULT_QR_CODE);
+  const dispatch = useDispatch();
+  const userAddress = useSelector((state: any) => state.user.address);
+  const navigate = useNavigate();
 
   const getUserDataPC = (to: string) => {
     getAddressPC(setqrvalueAuth, async (address: string) => {
-      navigate(`/${to}/${address}`);
+      dispatch(setAddress(address));
     });
   };
 
   const getUserDataMB = (to: string) => {
     getAddressMB(async (address: string) => {
-      navigate(`/${to}/${address}`);
+      dispatch(setAddress(address));
     });
   };
 
   return (
     <main className="flex flex-col place-content-between gap-y-2 pt-8 font-roboto text-[#090707]  text-center">
-      <h2 className=" font-bold text-[15px]">
-        연세대학교 블록체인 동아리 <br />
-        블록블록과 함께하는
-      </h2>
       <h1 className="font-extrabold text-[24px] text-black">MY YONSEI NFT</h1>
 
       <div className="w-full rounded-[30px]">
         <Gallery />
-        <div className="mt-8">
-          <button
-            type="button"
-            className="w-2/3"
-            onClick={() =>
-              window.innerWidth > 500
-                ? getUserDataPC('Mint')
-                : getUserDataMB('Mint')
-            }
-          >
-            <img
-              className="w-full"
-              src="/kakao_login_pc.png"
-              alt="loading..."
-            />
-          </button>
-        </div>
+        {userAddress === '' ? (
+          <div className="mt-8">
+            <button
+              type="button"
+              className="w-2/3"
+              onClick={() =>
+                window.innerWidth > 500
+                  ? getUserDataPC('Mint')
+                  : getUserDataMB('Mint')
+              }
+            >
+              <img
+                className="w-full"
+                src="/kakao_login_pc.png"
+                alt="loading..."
+              />
+            </button>
+          </div>
+        ) : (
+          <div>
+            <button
+              type="button"
+              className="w-2/3 mx-auto my-3 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold"
+              onClick={() => {
+                navigate(`/Mint/${userAddress}`);
+              }}
+            >
+              NFT 발급하러 가기
+            </button>
+            <button
+              type="button"
+              className="w-2/3 mx-auto my-3 rounded-[15px] bg-[#40C6FF]/40 hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold"
+              onClick={() => {
+                navigate(`/Event/${userAddress}`);
+              }}
+            >
+              야 너두? 야 나두! 이벤트 참여
+            </button>
+          </div>
+        )}
+
         {qrvalueAuth !== DEFAULT_QR_CODE ? (
           <Modal>
             <button
@@ -98,17 +122,7 @@ export default function Home() {
           <div />
         )}
       </div>
-      <button
-        type="button"
-        className="w-2/3 mx-auto my-3 rounded-[15px] bg-[#40C6FF]/40 hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold"
-        onClick={() =>
-          window.innerWidth > 500
-            ? getUserDataPC('Event')
-            : getUserDataMB('Event')
-        }
-      >
-        야 너두? 야 나두! 이벤트 참여
-      </button>
+
       <a href="kakaotalk://klipwallet/open?url=https://klipwallet.com/">
         <p className="text-[14px] font-bold text-center underline">
           내가 받은 NFT 확인하러가기

@@ -6,22 +6,17 @@ export default function Gallery() {
   const [emblaRef] = useEmblaCarousel({ loop: true, inViewThreshold: 0.7 }, [
     Autoplay({ delay: 2000 }),
   ]);
-
+  const imgSrcList = ['/sample/1.png', '/sample/2.png'];
   return (
     <div className="embla" ref={emblaRef}>
       <div className="embla__container">
-        <div className="embla__slide">
-          <img src="/base.png" alt="loading..." />
-        </div>
-        <div className="embla__slide">
-          <img src="/base.png" alt="loading..." />
-        </div>
-        <div className="embla__slide">
-          <img src="/base.png" alt="loading..." />
-        </div>
-        <div className="embla__slide">
-          <img src="/base.png" alt="loading..." />
-        </div>
+        {imgSrcList.map((src, idx) => {
+          return (
+            <div className="embla__slide">
+              <img src={src} alt={`Slide ${idx + 1}`} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
