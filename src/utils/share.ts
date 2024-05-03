@@ -1,4 +1,7 @@
-export default async function shareImage(url: string, address: string) {
+export default async function shareImage(
+  url: string,
+  address: string | undefined,
+) {
   const response = await fetch(url);
   const blob = await response.blob();
   const filesArray = [

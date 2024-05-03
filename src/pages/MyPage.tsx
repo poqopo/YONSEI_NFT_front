@@ -13,7 +13,6 @@ export default function MyPage() {
   const params = useParams();
   const url = 'https://myyonseinft.s3.amazonaws.com/MAJOR/TEST/img/1.png';
   const navigate = useNavigate();
-  const userAddress = useSelector((state: any) => state.user.address);
   useEffect(() => {
     checkAddress(params.address);
   }, []);
@@ -33,7 +32,7 @@ export default function MyPage() {
           type="button"
           className="mx-auto my-3 rounded-[15px] bg-[#40C6FF] text-black px-2 py-3 font-bold"
           onClick={() => {
-            shareImage(url, userAddress);
+            shareImage(url, params.userAddress);
           }}
         >
           공유하기
@@ -43,7 +42,7 @@ export default function MyPage() {
         type="button"
         className="w-2/3 mx-auto my-3 rounded-[15px] bg-[#40C6FF]/40 hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold"
         onClick={() => {
-          navigate(`/Event/${userAddress}`);
+          navigate(`/Event/${params.userAddress}`);
         }}
       >
         이벤트 참여하러가기

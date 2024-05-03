@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import ReactLoading from 'react-loading';
 import Gallery from '../Components/gallery';
-import { mintNFT } from '../utils/axios';
+import { getUserByAdress, mint } from '../utils/axios';
 import getMajor from '@/utils/getMajor';
 import checkAddress from '@/utils/checkParams';
+import { mintInfo } from '@/utils/type';
 
 export default function Mint() {
   const [input, setInput] = useState('');
@@ -14,6 +15,10 @@ export default function Mint() {
   >(undefined);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [mintInfos, setMintInfo] = useState<mintInfo>({
+    maxMintCount: 0,
+    nftCount: 0,
+  });
   const params = useParams();
   const navigate = useNavigate();
 
@@ -32,15 +37,19 @@ export default function Mint() {
     return true;
   }
 
+  async function getInfo() {
+    setMintInfo(await getUserByAdress(params.address));
+  }
   useEffect(() => {
     checkAddress(params.address);
+    getInfo();
   }, []);
 
   return (
     <main className="min-h-screen flex flex-col place-content-between gap-y-3 py-8 font-roboto text-[#090707]  text-center">
       <div className="text-[12px] font-bold">
-        <p>분양 가능한 00이 : 1</p>
-        <p>이미 분양한 00이 : 0</p>
+        <p>분양 가능한 00이 : {mintInfos.maxMintCount - mintInfos.nftCount}</p>
+        <p>이미 분양한 00이 : {mintInfos.nftCount}</p>
       </div>
 
       {showModal ? (
@@ -72,12 +81,12 @@ export default function Mint() {
               onClick={async () => {
                 setShowModal(false);
                 setLoading(true);
-                const res = await mintNFT(params.address, major?.Department);
-                if (res) {
-                  setLoading(false);
-                  window.alert('NFT 제작 완료!');
+                const res = await mint(params.address, major?.Department);
+                setLoading(false);
+                window.alert(res.result);
+                if (res.status === 200) {
                   navigate(`/MyPage/${params.address}`, {
-                    state: { url: res.data.imgURI },
+                    state: { url: res.url },
                   });
                 }
               }}
