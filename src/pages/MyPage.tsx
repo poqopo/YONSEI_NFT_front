@@ -5,6 +5,7 @@ import { IoDownload } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import checkAddress from '@/utils/checkParams';
+import shareImage from '@/utils/share';
 
 export default function MyPage() {
   // const { state } = useLocation(); // 2번 라인
@@ -16,23 +17,27 @@ export default function MyPage() {
   useEffect(() => {
     checkAddress(params.address);
   }, []);
+
   return (
     <div className="min-h-screen flex flex-col place-content-between py-10 gap-y-5 font-roboto text-[#090707]  text-center">
       <div className="mx-auto">
         <h3 className="font-bold text-center text-[17px]">
           나의 00이를 확인해보세요
         </h3>
-        {/* <img
-          className="my-3 max-w-[300px] mx-auto"
-          src={url}
-          // src="logo.png"
-          alt="loading..."
-        /> */}
         <img
           className="mx-auto w-[250px]"
           src="sample/2.png"
           alt="loading..."
         />
+        <button
+          type="button"
+          className="mx-auto my-3 rounded-[15px] bg-[#40C6FF] text-black px-2 py-3 font-bold"
+          onClick={() => {
+            shareImage(url, userAddress);
+          }}
+        >
+          공유하기
+        </button>
       </div>
       <button
         type="button"
