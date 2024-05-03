@@ -6,7 +6,7 @@ function DefaultLayout() {
       <Link to="/" className="mx-auto w-fit text-center">
         <img
           className="w-[100px] mx-auto py-4"
-          src="logo.png"
+          src="/logo.png"
           alt="loading..."
         />
       </Link>

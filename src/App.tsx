@@ -4,7 +4,6 @@ import Mint from './pages/Mint';
 import DefaultLayout from './pages/DefaultLayout';
 import MyPage from './pages/MyPage';
 import Referral from './pages/Referral';
-import Claim from './pages/Claim';
 
 function App() {
   const element = useRoutes([
@@ -26,10 +25,6 @@ function App() {
         {
           path: '/Event/:address',
           element: <Referral />,
-        },
-        {
-          path: '/Admin/ClaimEvent',
-          element: <Claim />,
         },
       ],
     },

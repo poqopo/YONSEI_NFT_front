@@ -26,7 +26,7 @@ export default function MyPage() {
         </h3>
         <img
           className="mx-auto w-[250px]"
-          src="sample/2.png"
+          src="/sample/1.png"
           alt="loading..."
         />
         <button
