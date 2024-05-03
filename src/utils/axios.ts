@@ -6,7 +6,7 @@ const API_PATH = {
   getUserInfo: 'getUserByAddress',
   postClaim: '/getUserNFTInfo',
   mint: 'mint',
-  postReferral: '/postReferral',
+  findFriend: 'findFriend',
 };
 
 export async function getUserByAdress(
@@ -66,22 +66,24 @@ export async function mint(
   }
 }
 
-export function postReferral(
+export async function findFriend(
   address: string | undefined,
-  studentNumber: string,
-) {
-  const params = {
-    address,
-    studentNumber,
-  };
-  return axios
-    .post(API_URL + API_PATH.postReferral, { params })
-    .then((res) => {
-      return res.data; // 여기서는 응답의 데이터만 반환하도록 함
-    })
-    .catch((error) => {
-      window.alert(error.message);
-      window.location.reload();
-      return Promise.reject(error);
-    });
+  friendNumber: number | undefined,
+): Promise<MintResult> {
+  try {
+    // axios.post 메소드를 사용하여 서버에 데이터 전송
+    const response = await axios.post<MintResult>(
+      `${API_URL}/${API_PATH.findFriend}`,
+      { address, friendNumber }, // 데이터를 본문에 직접 전달
+    );
+    // 응답 데이터 반환
+    return {
+      status: response.status,
+      result: response.data.result,
+    };
+  } catch (error: any) {
+    console.error(error);
+    // 에러 발생 시 기본값 반환
+    return { status: 403, result: error.response.data.result };
+  }
 }

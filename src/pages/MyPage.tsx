@@ -1,9 +1,7 @@
 // import { useLocation } from 'react-router-dom'; // 1번 라인
 import { useEffect } from 'react';
-import { FaShareAlt } from 'react-icons/fa';
-import { IoDownload } from 'react-icons/io5';
-import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { AiFillHome } from 'react-icons/ai';
 import checkAddress from '@/utils/checkParams';
 import shareImage from '@/utils/share';
 
@@ -19,6 +17,13 @@ export default function MyPage() {
 
   return (
     <div className="min-h-screen flex flex-col place-content-between py-10 gap-y-5 font-roboto text-[#090707]  text-center">
+      <button
+        type="button"
+        className="absolute top-5 ml-4 text-[30px]"
+        onClick={() => navigate('/')}
+      >
+        <AiFillHome />
+      </button>
       <div className="mx-auto">
         <h3 className="font-bold text-center text-[17px]">
           나의 00이를 확인해보세요

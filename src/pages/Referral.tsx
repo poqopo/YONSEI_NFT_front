@@ -1,12 +1,16 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { AiFillHome } from 'react-icons/ai';
+
 import Gallery from '../Components/gallery';
-import { postReferral } from '@/utils/axios';
+import { findFriend } from '@/utils/axios';
 import checkAddress from '@/utils/checkParams';
+import '../styles/input.css';
 
 export default function Referral() {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState();
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     checkAddress(params.address);
@@ -14,25 +18,30 @@ export default function Referral() {
 
   return (
     <main className="min-h-screen flex flex-col place-content-between gap-y-3 py-8 font-roboto text-[#090707]  text-center">
+      <button
+        type="button"
+        className="absolute top-5 ml-4 text-[30px]"
+        onClick={() => navigate('/')}
+      >
+        <AiFillHome />
+      </button>
       <div className="w-full rounded-[30px]">
         <Gallery />
         <div className="my-10 w-4/5 flex place-content-between m-auto ">
           <input
-            type="text"
+            type="number"
             placeholder="학번을 입력해주세요.(ex.2024123123)"
             className="w-2/3 m-auto text-[12px] p-3 rounded-l-[8px] text-start indent-1"
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e: any) => setInput(e.target.value)}
           />
           <button
             type="button"
             className="w-1/3 font-extrabold rounded-r-[8px] p-3 bg-[#FEE500] text-[#191919] text-[12px]"
             onClick={async () => {
-              const res = await postReferral(params.address, input);
-              if (res) {
-                window.alert(
-                  '친구 찾기 성공! 타투스티커 배부 할 때 받아가세요!',
-                );
-                window.location.href = 'https://myyonseinft.com/';
+              const res = await findFriend(params.address, input);
+              window.alert(res.result);
+              if (res.status === 200) {
+                navigate('/');
               }
             }}
           >

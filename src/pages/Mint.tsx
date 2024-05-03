@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import ReactLoading from 'react-loading';
+import { AiFillHome } from 'react-icons/ai';
 import Gallery from '../Components/gallery';
 import { getUserByAdress, mint } from '../utils/axios';
 import getMajor from '@/utils/getMajor';
@@ -47,6 +48,13 @@ export default function Mint() {
 
   return (
     <main className="min-h-screen flex flex-col place-content-between gap-y-3 py-8 font-roboto text-[#090707]  text-center">
+      <button
+        type="button"
+        className="absolute top-5 ml-4 text-[30px]"
+        onClick={() => navigate('/')}
+      >
+        <AiFillHome />
+      </button>
       <div className="text-[12px] font-bold">
         <p>분양 가능한 00이 : {mintInfos.maxMintCount - mintInfos.nftCount}</p>
         <p>이미 분양한 00이 : {mintInfos.nftCount}</p>
