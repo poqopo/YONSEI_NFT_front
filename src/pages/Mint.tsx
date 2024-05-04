@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import ReactLoading from 'react-loading';
 import { AiFillHome } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 import Gallery from '../Components/gallery';
 import { getUserByAdress, mint } from '../utils/axios';
 import getMajor from '@/utils/getMajor';
@@ -22,6 +23,7 @@ export default function Mint() {
   });
   const params = useParams();
   const navigate = useNavigate();
+  const userAddress = useSelector((state: any) => state.user.address);
 
   async function searchMajor(studentNumber: string) {
     if (studentNumber.length !== 10) {
@@ -47,7 +49,7 @@ export default function Mint() {
   }, []);
 
   return (
-    <main className="min-h-screen flex flex-col place-content-between gap-y-3 py-8 font-roboto text-[#090707]  text-center">
+    <main className="flex flex-col h-full min-h-screen font-roboto text-[#090707]  text-center">
       <button
         type="button"
         className="absolute top-5 ml-4 text-[30px]"
@@ -55,37 +57,27 @@ export default function Mint() {
       >
         <AiFillHome />
       </button>
-      <div className="text-[12px] font-bold">
-        <p>분양 가능한 00이 : {mintInfos.maxMintCount - mintInfos.nftCount}</p>
-        <p>이미 분양한 00이 : {mintInfos.nftCount}</p>
-      </div>
 
       {showModal ? (
-        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-4/5 rounded-[15px] w-2/3 max-w-[500px] bg-[#FEE500] z-50">
-          <button
-            type="button"
-            className="fixed top-[20px] right-[20px] text-[30px]"
-            onClick={() => setShowModal(false)}
-          >
-            <IoCloseCircleOutline />
-          </button>
-          <div className="py-10 px-5 flex flex-col place-content-between h-full">
-            <img
-              className="w-[100px] mx-auto my-3"
-              src="/logo.png"
-              alt="loading..."
-            />
-            <p className="my-10 text-[13px]">
-              <span>선택하신 학과는 </span>
-              <span className="font-bold">{major?.Department_KR}</span>
-              <span>
-                {' '}
-                입니다. <br /> NFT 제작 버튼을 누르면 NFT가 제작됩니다.
-              </span>
-            </p>
+        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-5/6 rounded-[12px] w-2/3 max-w-[500px] bg-white z-50 px-5">
+          <div className="mt-5 flex place-content-between">
+            <h2 className="text-[18px] font-extrabold">도팜희 학과 확인</h2>
             <button
               type="button"
-              className="mx-auto font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#191919] text-[#FFFFFF]"
+              className="text-[30px]"
+              onClick={() => setShowModal(false)}
+            >
+              <IoCloseCircleOutline />
+            </button>
+          </div>
+          <div className="text-[16px] text-start my-2">
+            <span className="font-bold">{major?.Department_KR}</span>
+            <span>가 맞으신가요?</span>
+          </div>
+          <div>
+            <button
+              type="button"
+              className="mx-auto mt-5 w-full font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#FEE500] text-[#191919] border border-black"
               onClick={async () => {
                 setShowModal(false);
                 setLoading(true);
@@ -93,13 +85,26 @@ export default function Mint() {
                 setLoading(false);
                 window.alert(res.result);
                 if (res.status === 200) {
-                  navigate(`/MyPage/${params.address}`, {
-                    state: { url: res.url },
+                  navigate(`/MyPage`, {
+                    state: {
+                      address: params.address,
+                      major: major?.Department_KR,
+                      url: res.url,
+                    },
                   });
                 }
               }}
             >
-              NFT 제작
+              네, 맞아요 -NFT 제작하기
+            </button>
+            <button
+              type="button"
+              className="mx-auto my-5 w-full font-extrabold rounded-[15px] w-fit px-6 py-3 bg-white text-[#191919] border border-black"
+              onClick={async () => {
+                setShowModal(false);
+              }}
+            >
+              아니에요 -학번 다시 확인하기
             </button>
           </div>
         </div>
@@ -117,12 +122,24 @@ export default function Mint() {
         </div>
       ) : (
         <div className="w-full rounded-[30px]">
-          <Gallery />
-          <div className="my-10 w-4/5 flex place-content-between m-auto ">
+          <img
+            className="mx-auto w-full"
+            src="/character.png"
+            alt="loading..."
+          />
+          <h2 className="my-2 text-[16px] text-black">
+            <span>여러분의 </span>
+            <span className="font-bold">학과별 특징</span>
+            <span>이 담긴 </span>
+            <span className="font-bold">팜희 NFT를</span> <br />
+            <span className="font-bold">{mintInfos.maxMintCount} 개</span>
+            <span>받을 수 있어요</span>
+          </h2>
+          <div className="my-10 w-3/4 flex place-content-between m-auto rounded-[8px] border border-black">
             <input
               type="text"
               placeholder="학번을 입력해주세요.(ex.2024123123)"
-              className="w-2/3 m-auto text-[12px] p-3 rounded-l-[8px] text-start indent-1"
+              className="w-2/3 h-[45px] m-auto text-[12px] p-3 rounded-l-[8px] text-start indent-1"
               onChange={(e) => setInput(e.target.value)}
             />
             <button
@@ -138,15 +155,23 @@ export default function Mint() {
         </div>
       )}
 
-      <h2 className="my-5 font-bold text-[20px] text-black">
-        시간이 흘러도 변하지 않는 것은 <br />
-        바로 여러분의 추억입니다. <br />
-      </h2>
-      <p className="font-medium text-[15px]">
-        찬란한 당신의 추억을 <br />
-        시간이 지나도 기억할 수 있게 <br />
-        <span className="font-bold">NFT로 영원히 남겨보세요!</span>
+      <p className="font-medium text-[16px]">
+        나 싱크로나이즈드비행학과 도팜희, <br /> 너희와 함께 있는 시간이 너무
+        즐거워! <br />
+        우리가 함께한 시간을 NFT로 남기는 게 어때? <br /> <br />
+        같은 과 친구들과 함께 NFT를 발급받고, <br />
+        타투 스티커 이벤트에 참여할 수도 있다구! <br />
+        도파민.. 아니 도팜희에 추l한ㄷr 추l@ㅐ//..
       </p>
+      <button
+        type="button"
+        className="w-3/4 mx-auto my-3 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
+        onClick={() => {
+          navigate(`/`);
+        }}
+      >
+        나의 NFT 확인하기
+      </button>
     </main>
   );
 }

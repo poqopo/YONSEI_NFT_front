@@ -44,18 +44,15 @@ export default function Home() {
       >
         <TiThMenu />
       </button>
-
       {toggleMenu ? <Menu toggleMenu={() => setToggleMenu(false)} /> : <div />}
-      <div className="w-full rounded-[30px]">
-        <div className=" w-[300px] mx-auto ">
-          <img src="/sample/2.png" alt="loading..." />
-        </div>
 
+      <div className="w-full h-screen">
+        <img className="w-full" src="/background.png" alt="loading..." />
         {userAddress === '' ? (
           <div>
             <button
               type="button"
-              className="w-2/3"
+              className="w-3/4 -translate-y-10"
               onClick={() => getUserData()}
             >
               <img
@@ -66,24 +63,33 @@ export default function Home() {
             </button>
           </div>
         ) : (
-          <div>
+          <div className="-translate-y-3/4">
             <button
               type="button"
-              className="w-2/3 mx-auto my-3 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold"
+              className="w-3/4 mx-auto my-3 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
               onClick={() => {
                 navigate(`/Mint/${userAddress}`);
               }}
             >
-              NFT 발급하러 가기
+              NFT 발급하기
             </button>
             <button
               type="button"
-              className="w-2/3 mx-auto my-3 rounded-[15px] bg-[#40C6FF]/40 hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold"
+              className="w-3/4 mx-auto my-3 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
               onClick={() => {
                 navigate(`/Event/${userAddress}`);
               }}
             >
-              야 너두? 야 나두! 이벤트 참여
+              나의 NFT 확인하기
+            </button>
+            <button
+              type="button"
+              className="w-3/4 mx-auto my-3 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
+              onClick={() => {
+                navigate(`/Event/${userAddress}`);
+              }}
+            >
+              팜동희 찾기 이벤트 참여하기
             </button>
           </div>
         )}
@@ -131,16 +137,6 @@ export default function Home() {
           <div />
         )}
       </div>
-
-      <h2 className="my-5 font-bold text-[20px] text-black">
-        시간이 흘러도 변하지 않는 것은 <br />
-        바로 여러분의 추억입니다. <br />
-      </h2>
-      <p className="font-medium text-[15px]">
-        찬란한 당신의 추억을 <br />
-        시간이 지나도 기억할 수 있게 <br />
-        <span className="font-bold">NFT로 영원히 남겨보세요!</span>
-      </p>
       <Howto />
       <Event />
       <div id="Characters">

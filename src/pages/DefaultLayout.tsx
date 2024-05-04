@@ -2,10 +2,10 @@ import { Link, Outlet } from 'react-router-dom';
 
 function DefaultLayout() {
   return (
-    <div className="m-auto w-screen max-w-[500px] bg-[#40C6FF]/20">
+    <div className="m-auto w-screen max-w-[500px] bg-[#86B3D2]">
       <Link to="/" className="mx-auto w-fit text-center">
         <img
-          className="w-[100px] mx-auto py-4"
+          className="w-[180px] mx-auto py-6"
           src="/logo.png"
           alt="loading..."
         />
