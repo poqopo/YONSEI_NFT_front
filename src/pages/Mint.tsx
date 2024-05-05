@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import ReactLoading from 'react-loading';
@@ -8,45 +8,45 @@ import Select from 'react-select';
 import { getUserByAdress, mint } from '../utils/axios';
 import getMajor from '@/utils/getMajor';
 import checkAddress from '@/utils/checkParams';
-import { mintInfo } from '@/utils/type';
+import { mintInfo, userDetail } from '@/utils/type';
+import CustomButton from '@/Components/Button';
+
+const DEFAULT = 'DEFAULT';
 
 export default function Mint() {
-  const [input, setInput] = useState('');
-  const [major, setMajor] = useState<
-    { Department_KR: string; Department: string } | undefined
-  >(undefined);
-  const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [mintInfos, setMintInfo] = useState<mintInfo>({
-    maxMintCount: 0,
-    nftCount: 0,
+  const [user, setUser] = useState<userDetail>({
+    userAddress: DEFAULT,
+    major: DEFAULT,
+    studentNumber: DEFAULT,
+    maxMintableNumber: 1,
+    ownedNFTNumber: 0,
+    friendAddress: '',
   });
   const params = useParams();
   const navigate = useNavigate();
-  const userAddress = useSelector((state: any) => state.user.address);
-
-  async function searchMajor(studentNumber: string) {
-    if (studentNumber.length !== 10) {
-      window.alert('잘못된 학번입니다.');
-      return false;
-    }
-    const majorDict = await getMajor(studentNumber);
-    if (majorDict === undefined) {
-      window.alert('입력하신 학과는 아직 준비중입니다.');
-      return false;
-    }
-    setMajor(majorDict);
-    setShowModal(true);
-    return true;
-  }
+  const { state } = useLocation(); // 2번 라인
+  const { major } = state;
 
   async function getInfo() {
-    setMintInfo(await getUserByAdress(params.address));
+    setUser(await getUserByAdress(params.address));
   }
   useEffect(() => {
     checkAddress(params.address);
     getInfo();
   }, []);
+
+  const onMintClick = async () => {
+    setLoading(true);
+    const res = await mint(user.userAddress, user.major);
+    setLoading(false);
+    window.alert(res.result);
+    if (res.status === 200) {
+      navigate(`/AfterMint/${user.userAddress}`, {
+        state: { major, url: res.url },
+      });
+    }
+  };
 
   return (
     <main className="h-full min-h-screen flex flex-col h-full min-h-screen font-roboto text-[#090707]  text-center">
@@ -57,62 +57,6 @@ export default function Mint() {
       >
         <AiFillHome />
       </button>
-
-      {}
-
-      {showModal ? (
-        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-5/6 rounded-[12px] max-w-[500px] bg-white z-50 px-5">
-          <div className="mt-5 flex place-content-between">
-            <h2 className="text-[18px] font-extrabold">도팜희 학과 확인</h2>
-            <button
-              type="button"
-              className="text-[30px]"
-              onClick={() => setShowModal(false)}
-            >
-              <IoCloseCircleOutline />
-            </button>
-          </div>
-          <div className="text-[16px] text-start my-2">
-            <span className="font-bold">{major?.Department_KR}</span>
-            <span>가 맞으신가요?</span>
-          </div>
-          <div>
-            <button
-              type="button"
-              className="mx-auto mt-5 w-full font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#FEE500] text-[#191919] border border-black"
-              onClick={async () => {
-                setShowModal(false);
-                setLoading(true);
-                const res = await mint(
-                  params.address,
-                  major?.Department,
-                  input,
-                );
-                setLoading(false);
-                window.alert(res.result);
-                if (res.status === 200) {
-                  navigate(
-                    `/MyPage/${params.address}/${major?.Department_KR}/${res.url}`,
-                  );
-                }
-              }}
-            >
-              네, 맞아요 -NFT 제작하기
-            </button>
-            <button
-              type="button"
-              className="mx-auto my-5 w-full font-extrabold rounded-[15px] w-fit px-6 py-3 bg-white text-[#191919] border border-black"
-              onClick={async () => {
-                setShowModal(false);
-              }}
-            >
-              아니에요 -학번 다시 확인하기
-            </button>
-          </div>
-        </div>
-      ) : (
-        <div />
-      )}
 
       {loading ? (
         <div>
@@ -135,27 +79,16 @@ export default function Mint() {
             <span>이 담긴 </span>
             <span className="font-bold">팜희 NFT를</span> <br />
             <span className="font-bold">
-              {mintInfos.maxMintCount - mintInfos.nftCount} 개
+              {user.maxMintableNumber - user.ownedNFTNumber} 개
             </span>
             <span>받을 수 있어요</span>
           </h2>
-          <div className="my-10 w-3/4 flex place-content-between m-auto rounded-[8px] border border-black">
-            <input
-              type="text"
-              placeholder="학번을 입력해주세요.(ex.2024123123)"
-              className="w-2/3 h-[45px] m-auto text-[12px] p-3 rounded-l-[8px] text-start indent-1"
-              onChange={(e) => setInput(e.target.value)}
-            />
-            <button
-              type="button"
-              className="w-1/3 font-extrabold rounded-r-[8px] p-3 bg-[#FEE500] text-[#191919] text-[12px]"
-              onClick={() => {
-                searchMajor(input);
-              }}
-            >
-              NFT 제작
-            </button>
-          </div>
+          <CustomButton
+            text="우리 과 독팜희 NFT 받기"
+            onClick={() => {
+              onMintClick();
+            }}
+          />
         </div>
       )}
 
@@ -167,15 +100,12 @@ export default function Mint() {
         타투 스티커 이벤트에 참여할 수도 있다구! <br />
         도파민.. 아니 도팜희에 추l한ㄷr 추l@ㅐ//..
       </p>
-      <button
-        type="button"
-        className="w-3/4 mx-auto my-3 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
+      <CustomButton
+        text="나의 NFT 확인하기"
         onClick={() => {
           navigate(`/`);
         }}
-      >
-        나의 NFT 확인하기
-      </button>
+      />
     </main>
   );
 }

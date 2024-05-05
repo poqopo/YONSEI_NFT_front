@@ -1,9 +1,10 @@
 export interface userDetail {
   userAddress: string;
   studentNumber: string;
-  maxMintableCount: number;
-  ownedNFT: number;
+  maxMintableNumber: number;
+  ownedNFTNumber: number;
   friendAddress: string;
+  major: string;
 }
 
 // API 응답을 나타내는 인터페이스
@@ -17,8 +18,30 @@ export interface mintInfo {
   nftCount: number;
 }
 
+export interface userInfo {
+  userAddress: string;
+  studentNumber: string;
+}
+
 export interface MintResult {
   status: number;
   result: string;
   url?: string;
+}
+
+export interface addUserResult {
+  status: number;
+  result: string;
+}
+
+export interface NFTDetail {
+  tokenURI: string;
+  nftName: string;
+  description: string;
+  major_KR: string;
+}
+
+// API 응답을 나타내는 인터페이스
+export interface NFTReponse {
+  results: NFTDetail[];
 }

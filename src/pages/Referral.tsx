@@ -17,7 +17,7 @@ export default function Referral() {
   }, []);
 
   return (
-    <main className="min-h-screen flex flex-col place-content-between gap-y-3 py-8 font-roboto text-[#090707]  text-center">
+    <main className="h-screen flex flex-col gap-y-3 py-8 font-roboto text-[#090707]  text-center">
       <button
         type="button"
         className="absolute top-5 ml-4 text-[30px]"
@@ -26,8 +26,12 @@ export default function Referral() {
         <AiFillHome />
       </button>
       <div className="w-full rounded-[30px]">
-        <Gallery />
-        <div className="my-10 w-4/5 flex place-content-between m-auto ">
+        <img
+          className="mx-auto w-[300px]"
+          src="/character.png"
+          alt="loading..."
+        />
+        <div className="my-10 w-4/5 flex place-content-between m-auto rounded-[8px] border border-black ">
           <input
             type="number"
             placeholder="학번을 입력해주세요.(ex.2024123123)"
@@ -45,7 +49,7 @@ export default function Referral() {
               }
             }}
           >
-            타투스티커 신청
+            참여하기
           </button>
         </div>
       </div>

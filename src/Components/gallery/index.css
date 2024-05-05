@@ -2,22 +2,26 @@
   overflow: hidden;
 }
 .embla__container {
-  margin-top: 20px;
+  margin-top: 50px;
   display: flex;
+  width: 'max-content';
+  width: 100%;
+  height: 100%;
+  column-gap: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
+  place-content: space-between;
 }
 .embla__slide {
   width: 100%;
   flex: 0 0 100%;
   min-width: 0;
-  height: 30%;
-  max-height: 600px;
-  place-content: center;
 }
 
 .embla__slide img {
   margin: auto;
-  width: 60%;
-  height: 60%;
+  width: 300px;
+  height: 300px;
   max-width: 300px;
   max-height: 300px;
   border-radius: 30px;

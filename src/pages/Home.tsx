@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import QRCode from 'qrcode.react';
 import { useNavigate } from 'react-router-dom';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiThMenu } from 'react-icons/ti';
-import Gallery from '../Components/gallery';
 import Howto from './Howto';
 import Event from './Event';
 import { getAddressPC, getAddressMB } from '../utils/klip';
@@ -14,13 +13,14 @@ import { setAddress } from '@/store/store';
 import Menu from '@/Components/Menu';
 import { userDetail } from '@/utils/type';
 import getMajor from '@/utils/getMajor';
+import { addNewUser, getUserByAdress } from '@/utils/axios';
 
-const DEFAULT_QR_CODE = 'DEFAULT';
+const DEFAULT = 'DEFAULT';
 
 export default function Home() {
-  const [qrvalueAuth, setqrvalueAuth] = useState(DEFAULT_QR_CODE);
+  const [qrvalueAuth, setqrvalueAuth] = useState(DEFAULT);
   const [toggleMenu, setToggleMenu] = useState(false);
-  const [userToggle, setUserToggle] = useState(true);
+  const [userToggle, setUserToggle] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showconfirmModal, setShowConfirmModal] = useState(false);
   const [studentNumber, setStudentNumber] = useState('');
@@ -30,42 +30,64 @@ export default function Home() {
   const dispatch = useDispatch();
   const userAddress = useSelector((state: any) => state.user.address);
   const navigate = useNavigate();
-  const [userInfo, setUserInfo] = useState<userDetail>({
-    userAddress: '',
-    studentNumber: '',
-    maxMintableCount: 1,
-    ownedNFT: 0,
-    friendAddress: '',
-  });
+
+  const checkInfo = (info: userDetail) => {
+    if (info.studentNumber === DEFAULT || info.studentNumber === '') {
+      setUserToggle(true);
+    } else {
+      setShowMenu(true);
+    }
+  };
   const getUserData = () => {
     if (window.innerWidth > 500) {
       getAddressPC(setqrvalueAuth, async (address: string) => {
         dispatch(setAddress(address));
-        setShowMenu(true);
+        checkInfo(await getUserByAdress(address));
       });
     } else {
       getAddressMB(async (address: string) => {
         dispatch(setAddress(address));
         setShowMenu(true);
+        checkInfo(await getUserByAdress(address));
       });
+    }
+  };
+  const NewUser = async (
+    _address: string,
+    _studentNumber: string,
+    _major: string | undefined,
+  ) => {
+    const res = await addNewUser(_address, _studentNumber, _major);
+    if (res.status === 200) {
+      setShowConfirmModal(false);
+      setUserToggle(false);
+      setShowMenu(true);
+    } else {
+      window.alert(res.result);
     }
   };
   async function searchMajor(input: string) {
     if (input.length !== 10) {
       window.alert('잘못된 학번입니다.');
       setShowConfirmModal(false);
-      setStudentNumber('');
     }
     const majorDict = await getMajor(input);
     if (majorDict === undefined) {
       window.alert('입력하신 학과는 아직 준비중입니다.');
       setShowConfirmModal(false);
-      setStudentNumber('');
     }
 
     setMajor(majorDict);
     setShowConfirmModal(true);
   }
+  useEffect(() => {
+    if (userAddress !== '') {
+      getUserByAdress(userAddress).then((info: userDetail) => {
+        checkInfo(info);
+      });
+    }
+  }, []);
+
   return (
     <main className="h-full min-h-screen flex flex-col place-content-between font-roboto text-[#090707]  text-center">
       <button
@@ -91,8 +113,7 @@ export default function Home() {
                   type="button"
                   className="mx-auto mt-5 w-full font-extrabold rounded-[15px] w-fit px-6 py-3 bg-[#FEE500] text-[#191919] border border-black"
                   onClick={async () => {
-                    setShowConfirmModal(false);
-                    setUserToggle(false);
+                    NewUser(userAddress, studentNumber, major?.Department);
                   }}
                 >
                   네, 맞아요
@@ -138,26 +159,14 @@ export default function Home() {
       <div className="w-full">
         <img className="w-full" src="/background.png" alt="loading..." />
         {showMenu ? (
-          <div>
-            <button
-              type="button"
-              className="w-3/4 -translate-y-full"
-              onClick={() => getUserData()}
-            >
-              <img
-                className="w-full"
-                src="/kakao_login_pc.png"
-                alt="loading..."
-              />
-            </button>
-          </div>
-        ) : (
           <div className="-translate-y-full pb-10">
             <button
               type="button"
               className="w-3/4 mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
               onClick={() => {
-                navigate(`/Mint/${userAddress}`);
+                navigate(`/Mint/${userAddress}`, {
+                  state: { major: major?.Department_KR },
+                });
               }}
             >
               NFT 발급하기
@@ -166,7 +175,7 @@ export default function Home() {
               type="button"
               className="w-3/4 mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
               onClick={() => {
-                navigate(`/Event/${userAddress}`);
+                navigate(`/MyPage/${userAddress}`);
               }}
             >
               나의 NFT 확인하기
@@ -181,13 +190,27 @@ export default function Home() {
               팜동희 찾기 이벤트 참여하기
             </button>
           </div>
+        ) : (
+          <div>
+            <button
+              type="button"
+              className="w-3/4 -translate-y-full"
+              onClick={() => getUserData()}
+            >
+              <img
+                className="w-full"
+                src="/kakao_login_pc.png"
+                alt="loading..."
+              />
+            </button>
+          </div>
         )}
-        {qrvalueAuth !== DEFAULT_QR_CODE ? (
+        {qrvalueAuth !== DEFAULT ? (
           <Modal>
             <button
               type="button"
               className="fixed top-[20px] right-[20px] text-[30px]"
-              onClick={() => setqrvalueAuth(DEFAULT_QR_CODE)}
+              onClick={() => setqrvalueAuth(DEFAULT)}
             >
               <IoCloseCircleOutline />
             </button>
@@ -227,9 +250,6 @@ export default function Home() {
       </div>
       <Howto />
       <Event />
-      <div id="Characters">
-        <Gallery />
-      </div>
 
       <QnA />
     </main>
