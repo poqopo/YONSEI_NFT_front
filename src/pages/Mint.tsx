@@ -4,7 +4,7 @@ import { IoCloseCircleOutline } from 'react-icons/io5';
 import ReactLoading from 'react-loading';
 import { AiFillHome } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
-import Gallery from '../Components/gallery';
+import Select from 'react-select';
 import { getUserByAdress, mint } from '../utils/axios';
 import getMajor from '@/utils/getMajor';
 import checkAddress from '@/utils/checkParams';
@@ -49,7 +49,7 @@ export default function Mint() {
   }, []);
 
   return (
-    <main className="flex flex-col h-full min-h-screen font-roboto text-[#090707]  text-center">
+    <main className="h-full min-h-screen flex flex-col h-full min-h-screen font-roboto text-[#090707]  text-center">
       <button
         type="button"
         className="absolute top-5 ml-4 text-[30px]"
@@ -58,8 +58,10 @@ export default function Mint() {
         <AiFillHome />
       </button>
 
+      {}
+
       {showModal ? (
-        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-5/6 rounded-[12px] w-2/3 max-w-[500px] bg-white z-50 px-5">
+        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-5/6 rounded-[12px] max-w-[500px] bg-white z-50 px-5">
           <div className="mt-5 flex place-content-between">
             <h2 className="text-[18px] font-extrabold">도팜희 학과 확인</h2>
             <button
@@ -81,17 +83,17 @@ export default function Mint() {
               onClick={async () => {
                 setShowModal(false);
                 setLoading(true);
-                const res = await mint(params.address, major?.Department);
+                const res = await mint(
+                  params.address,
+                  major?.Department,
+                  input,
+                );
                 setLoading(false);
                 window.alert(res.result);
                 if (res.status === 200) {
-                  navigate(`/MyPage`, {
-                    state: {
-                      address: params.address,
-                      major: major?.Department_KR,
-                      url: res.url,
-                    },
-                  });
+                  navigate(
+                    `/MyPage/${params.address}/${major?.Department_KR}/${res.url}`,
+                  );
                 }
               }}
             >
@@ -123,7 +125,7 @@ export default function Mint() {
       ) : (
         <div className="w-full rounded-[30px]">
           <img
-            className="mx-auto w-full"
+            className="mx-auto w-[300px]"
             src="/character.png"
             alt="loading..."
           />
@@ -132,7 +134,9 @@ export default function Mint() {
             <span className="font-bold">학과별 특징</span>
             <span>이 담긴 </span>
             <span className="font-bold">팜희 NFT를</span> <br />
-            <span className="font-bold">{mintInfos.maxMintCount} 개</span>
+            <span className="font-bold">
+              {mintInfos.maxMintCount - mintInfos.nftCount} 개
+            </span>
             <span>받을 수 있어요</span>
           </h2>
           <div className="my-10 w-3/4 flex place-content-between m-auto rounded-[8px] border border-black">

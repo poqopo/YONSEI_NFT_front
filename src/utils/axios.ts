@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { MintResult, mintInfo, mintResponse } from './type';
 
-const API_URL = 'http://ec2-44-220-217-48.compute-1.amazonaws.com:5555';
+const API_URL = 'https://api.myyonseinft.com';
 const API_PATH = {
   getUserInfo: 'getUserByAddress',
-  postClaim: '/getUserNFTInfo',
   mint: 'mint',
   findFriend: 'findFriend',
 };
@@ -45,12 +44,13 @@ export async function getUserByAdress(
 export async function mint(
   address: string | undefined,
   major: string | undefined,
+  studentNumber: string | undefined,
 ): Promise<MintResult> {
   try {
     // axios.post 메소드를 사용하여 서버에 데이터 전송
     const response = await axios.post<MintResult>(
       `${API_URL}/${API_PATH.mint}`,
-      { address, major }, // 데이터를 본문에 직접 전달
+      { address, major, studentNumber }, // 데이터를 본문에 직접 전달
     );
 
     // 응답 데이터 반환

@@ -19,6 +19,9 @@ module.exports = {
         },
       },
     },
+    fontFamily: {
+      pretendard: ['pretendard'],
+    },
   },
   darkMode: 'class',
   plugins: [],

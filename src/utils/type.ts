@@ -1,11 +1,9 @@
 export interface userDetail {
-  address: string;
+  userAddress: string;
   studentNumber: string;
-  maxMintCount: number;
-  claim: number;
-  nftCount: number;
-  friend: string;
-  participateEvent: number;
+  maxMintableCount: number;
+  ownedNFT: number;
+  friendAddress: string;
 }
 
 // API 응답을 나타내는 인터페이스
