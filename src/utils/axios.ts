@@ -14,9 +14,9 @@ const API_URL = 'https://api.myyonseinft.com';
 const API_PATH = {
   getUserInfo: 'getUserByAddress',
   mint: 'mint',
-  findFriend: 'findFriend',
+  registerFriend: 'registerFriend',
   addNewUser: 'addNewUser',
-  getUserNFTs: 'getUserNFTs',
+  getNFTsByUserAddress: 'getNFTsByUserAddress',
 };
 const DEFAULT = 'DEFAULT';
 
@@ -72,10 +72,10 @@ export async function getUserNFTs(
 
   try {
     const response = await axios.get<NFTReponse>( // NFTDetail[] 타입으로 지정
-      `${API_URL}/${API_PATH.getUserNFTs}`,
+      `${API_URL}/${API_PATH.getNFTsByUserAddress}`,
       { params },
     );
-    const res: NFTDetail[] = response.data.results; // response.data는 NFTDetail[] 타입
+    const res: NFTDetail[] = response.data.nftsResults; // response.data는 NFTDetail[] 타입
     if (res.length > 0) {
       return res; // NFTReponse 객체로 반환
     }
@@ -121,8 +121,8 @@ export async function findFriend(
   try {
     // axios.post 메소드를 사용하여 서버에 데이터 전송
     const response = await axios.post<MintResult>(
-      `${API_URL}/${API_PATH.findFriend}`,
-      { address, friendNumber }, // 데이터를 본문에 직접 전달
+      `${API_URL}/${API_PATH.registerFriend}`,
+      { userAddress: address, friendStudentNumber: friendNumber }, // 데이터를 본문에 직접 전달
     );
     // 응답 데이터 반환
     return {

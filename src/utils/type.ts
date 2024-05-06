@@ -43,5 +43,5 @@ export interface NFTDetail {
 
 // API 응답을 나타내는 인터페이스
 export interface NFTReponse {
-  results: NFTDetail[];
+  nftsResults: NFTDetail[];
 }

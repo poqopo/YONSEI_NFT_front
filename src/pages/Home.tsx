@@ -74,15 +74,16 @@ export default function Home() {
     if (input.length !== 10) {
       window.alert('잘못된 학번입니다.');
       setShowConfirmModal(false);
+    } else {
+      const majorDict = await getMajor(input);
+      if (majorDict === undefined) {
+        window.alert('입력하신 학과는 아직 준비중입니다.');
+        setShowConfirmModal(false);
+      } else {
+        setMajor(majorDict);
+        setShowConfirmModal(true);
+      }
     }
-    const majorDict = await getMajor(input);
-    if (majorDict === undefined) {
-      window.alert('입력하신 학과는 아직 준비중입니다.');
-      setShowConfirmModal(false);
-    }
-
-    setMajor(majorDict);
-    setShowConfirmModal(true);
   }
   useEffect(() => {
     if (userAddress !== '') {
@@ -167,9 +168,9 @@ export default function Home() {
         <div />
       )}
       <div className="w-full">
-        <img className="w-full h-3/4" src="/background.png" alt="loading..." />
+        <img className="w-full h-3/4" src="/background.jpg" alt="loading..." />
         {showMenu ? (
-          <div className="relative -translate-y-full pb-10">
+          <div className="relative -translate-y-full pb-5">
             <button
               type="button"
               className="w-3/4 mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
@@ -204,7 +205,7 @@ export default function Home() {
           <div>
             <button
               type="button"
-              className="w-3/4 mx-auto -translate-y-full"
+              className="w-3/4 mx-auto -translate-y-full pb-20"
               onClick={() => getUserData()}
             >
               <img

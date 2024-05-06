@@ -40,11 +40,12 @@ export default function Mint() {
     setLoading(true);
     const res = await mint(user.userAddress, user.major);
     setLoading(false);
-    window.alert(res.result);
     if (res.status === 200) {
       navigate(`/AfterMint/${user.userAddress}`, {
         state: { major, url: res.url },
       });
+    } else {
+      window.alert(res.result);
     }
   };
 

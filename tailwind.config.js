@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        background: "url('/background.png')",
+        gradation: "url('/gradation.png')",
+        gradation2: "url('/gradation2.png')",
       },
       keyframes: {
         fadeInLeft: {
