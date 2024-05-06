@@ -14,7 +14,7 @@ function Menu({ toggleMenu }: MenuProps) {
   };
 
   return (
-    <div className="fixed w-2/3 max-w-[350px] top-0 h-screen bg-slate-50 z-10">
+    <div className="fixed w-2/3 max-w-[350px] top-0 h-screen bg-slate-50 z-10 overflow-hidden">
       <div className="w-full flex place-content-end pt-4 pr-4">
         <button
           type="button"
@@ -30,10 +30,9 @@ function Menu({ toggleMenu }: MenuProps) {
           <button type="button" className="w-fit" onClick={scrollToTop}>
             Home
           </button>
-          <a href="#Character">How to</a>
+          <a href="#Character">Character</a>
           <a href="#Howto">How to</a>
           <a href="#Event">Event</a>
-          <a href="#Characters">Characters</a>
           <a href="#QNA">QNA</a>
         </div>
       </div>

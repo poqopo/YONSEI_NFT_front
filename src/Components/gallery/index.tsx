@@ -27,20 +27,18 @@ export default function Gallery({ nfts }: GalleryProps) {
         {nfts.map((nft, idx) => {
           descriptionSplit(nft.description);
           return (
-            <div className="">
-              <div className="embla__slide">
-                <img
-                  className="w-[300px]"
-                  src={toImgSrc(nft.tokenURI)}
-                  alt={`Slide ${idx + 1}`}
-                />
-                <h2 className="my-4 text-center font-bold text-[20px]">
-                  {nft.nftName}
-                </h2>
-                {descriptionSplit(nft.description).map((line, index) => (
-                  <p>{line}</p>
-                ))}
-              </div>
+            <div className="embla__slide">
+              <img
+                className="w-[300px]"
+                src={toImgSrc(nft.tokenURI)}
+                alt={`Slide ${idx + 1}`}
+              />
+              <h2 className="my-4 text-center font-bold text-[20px]">
+                {nft.nftName}
+              </h2>
+              {descriptionSplit(nft.description).map((line, index) => (
+                <p>{line}</p>
+              ))}
             </div>
           );
         })}

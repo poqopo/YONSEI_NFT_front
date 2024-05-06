@@ -1,6 +1,6 @@
 export default function Character() {
   return (
-    <div id="Character" className="h-screen flex flex-col pb-10">
+    <div id="Character" className="h-screen pb-10">
       <img className="mx-auto w-3/4" src="/intro.png" alt="loading..." />
       <p className="w-3/4 mx-auto text-start">
         안녕, 난 독팜희라고 해!

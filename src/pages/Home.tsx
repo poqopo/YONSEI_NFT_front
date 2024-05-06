@@ -167,9 +167,9 @@ export default function Home() {
         <div />
       )}
       <div className="w-full">
-        <img className="w-full" src="/background.png" alt="loading..." />
+        <img className="w-full h-3/4" src="/background.png" alt="loading..." />
         {showMenu ? (
-          <div className="-translate-y-full pb-10">
+          <div className="relative -translate-y-full pb-10">
             <button
               type="button"
               className="w-3/4 mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
@@ -204,11 +204,11 @@ export default function Home() {
           <div>
             <button
               type="button"
-              className="w-3/4 -translate-y-full"
+              className="w-3/4 mx-auto -translate-y-full"
               onClick={() => getUserData()}
             >
               <img
-                className="w-full"
+                className="w-full mx-auto"
                 src="/kakao_login_pc.png"
                 alt="loading..."
               />

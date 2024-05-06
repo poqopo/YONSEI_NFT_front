@@ -3,13 +3,15 @@ export default function Event() {
     <div id="Event" className="h-full flex flex-col place-content-center pb-10">
       <h3 className="mt-9 font-bold text-[20px]">Event</h3>
       <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-bold text-[15px]">
+        <h2 className="mt-10 mb-5 font-extrabold text-[18px]">
           EVENT 1. 인스타그램 팔로우 이벤트
         </h2>
-        <p className="font-medium text-[13px]">
-          <span>@My_Yonsei_NFT 인스타그램 팔로우 하고 기프티콘을 받자!</span>
+        <p className="font-medium text-[13px] bg-white rounded-[15px] p-5">
+          <span className="font-bold">
+            @My_Yonsei_NFT 인스타그램 팔로우 하고 기프티콘을 받자!
+          </span>
           <img
-            className="w-full mx-auto my-5 rounded-[8px]"
+            className="w-full mx-auto my-5 rounded-[8px] border border-black"
             src="gifts.png"
             alt="loading..."
           />
@@ -25,7 +27,7 @@ export default function Event() {
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
           EVENT 2. 야 너두? 야 나두!
         </h2>
-        <p className="font-medium text-[13px]">
+        <p className="font-medium text-[13px] bg-white rounded-[15px] p-5">
           <span>
             캐릭터가 똑같은 친구를 찾으셨나요? 이거 혹시 운명일지도..?!{' '}
           </span>
@@ -43,7 +45,7 @@ export default function Event() {
         <h2 className="mt-10 mb-5 font-bold text-[15px]">
           EVENT 3. 00이와 함께하는 아카라카!
         </h2>
-        <p className="font-medium text-[13px]">
+        <p className="font-medium text-[13px] bg-white rounded-[15px] p-5">
           00이와 함께하는 아카라카 스토리를 @My_Yonsei_NFT를 태그해 올려주세요!
           추첨을 통해 00을 드립니다.
         </p>
