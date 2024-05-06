@@ -49,7 +49,7 @@ export default function Mint() {
   };
 
   return (
-    <main className="h-full min-h-screen flex flex-col h-full min-h-screen font-roboto text-[#090707]  text-center">
+    <main className="h-screen flex flex-col place-content-evenly pb-[80px] font-roboto text-[#090707]  text-center">
       <button
         type="button"
         className="absolute top-5 ml-4 text-[30px]"
@@ -63,7 +63,7 @@ export default function Mint() {
           <ReactLoading type="bubbles" color="black" className="m-auto" />
           <p>
             NFT를 만들고 있습니다 <br />
-            NFT가 만들어질 때 까지 10~20초가 소요될 수 있습니다.
+            NFT가 만들어질 때 까지 <br /> 10~20초가 소요될 수 있습니다.
           </p>
         </div>
       ) : (
@@ -93,17 +93,17 @@ export default function Mint() {
       )}
 
       <p className="font-medium text-[16px]">
-        나 싱크로나이즈드비행학과 도팜희, <br /> 너희와 함께 있는 시간이 너무
+        나 싱크로나이즈드비행학과 독팜희, <br /> 너희와 함께 있는 시간이 너무
         즐거워! <br />
         우리가 함께한 시간을 NFT로 남기는 게 어때? <br /> <br />
         같은 과 친구들과 함께 NFT를 발급받고, <br />
         타투 스티커 이벤트에 참여할 수도 있다구! <br />
-        도파민.. 아니 도팜희에 추l한ㄷr 추l@ㅐ//..
+        도파민.. 아니 독팜희에 추l한ㄷr 추l@ㅐ//..
       </p>
       <CustomButton
         text="나의 NFT 확인하기"
         onClick={() => {
-          navigate(`/`);
+          navigate(`/MyPage/${user.userAddress}`);
         }}
       />
     </main>

@@ -14,6 +14,8 @@ import Menu from '@/Components/Menu';
 import { userDetail } from '@/utils/type';
 import getMajor from '@/utils/getMajor';
 import { addNewUser, getUserByAdress } from '@/utils/axios';
+import CustomButton from '@/Components/Button';
+import Character from './Character';
 
 const DEFAULT = 'DEFAULT';
 
@@ -31,10 +33,12 @@ export default function Home() {
   const userAddress = useSelector((state: any) => state.user.address);
   const navigate = useNavigate();
 
-  const checkInfo = (info: userDetail) => {
+  const checkInfo = async (info: userDetail) => {
     if (info.studentNumber === DEFAULT || info.studentNumber === '') {
       setUserToggle(true);
     } else {
+      const majorDict = await getMajor(info.studentNumber);
+      setMajor(majorDict);
       setShowMenu(true);
     }
   };
@@ -101,7 +105,15 @@ export default function Home() {
 
       {userToggle ? (
         <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-5/6 rounded-[12px] max-w-[400px] bg-white z-50 p-5">
-          <h2 className="text-start font-bold ">처음 오셨군요!</h2>
+          <div className="p-3">
+            <h2 className="text-start font-bold text-[18px]">
+              여러분의 학번을 입력해주세요.
+            </h2>
+            <h3 className="text-[#475467] text-[17px] text-start">
+              수정할 수 없으니 신중히 확인해 주세요!
+            </h3>
+          </div>
+
           {showconfirmModal ? (
             <div>
               <div className="text-[16px] text-start my-2">
@@ -131,25 +143,23 @@ export default function Home() {
               </div>
             </div>
           ) : (
-            <div>
-              <img className="py-5" src="character.png" alt="loading..." />
-              <div className="">
-                <input
-                  type="text"
-                  placeholder="학번을 입력해주세요.(ex.2024123123)"
-                  className="w-2/3 h-[45px] m-auto text-[12px] p-3 rounded-l-[8px] text-start indent-1"
-                  onChange={(e) => setStudentNumber(e.target.value)}
-                />
-                <button
-                  type="button"
-                  className="w-1/3 font-extrabold rounded-r-[8px] p-3 bg-[#FEE500] text-[#191919] text-[12px]"
-                  onClick={() => {
-                    searchMajor(studentNumber);
-                  }}
-                >
-                  제출하기
-                </button>
-              </div>
+            <div className="px-3 py-1">
+              <p className="pb-3 text-[#344054] text-start text-[14px]">
+                학번*
+              </p>
+              <input
+                type="text"
+                placeholder="학번 10자리를 입력해주세요."
+                className="w-full h-[45px] m-auto text-[12px] p-3 rounded-[8px] border-2 border-[#D0D5DD] text-start indent-1"
+                onChange={(e) => setStudentNumber(e.target.value)}
+              />
+              <button
+                type="button"
+                className="w-full mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 font-bold border-2 border-black"
+                onClick={() => searchMajor(studentNumber)}
+              >
+                제출하기
+              </button>
             </div>
           )}
         </div>
@@ -248,6 +258,7 @@ export default function Home() {
           <div />
         )}
       </div>
+      <Character />
       <Howto />
       <Event />
 

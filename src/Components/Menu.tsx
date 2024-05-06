@@ -30,6 +30,7 @@ function Menu({ toggleMenu }: MenuProps) {
           <button type="button" className="w-fit" onClick={scrollToTop}>
             Home
           </button>
+          <a href="#Character">How to</a>
           <a href="#Howto">How to</a>
           <a href="#Event">Event</a>
           <a href="#Characters">Characters</a>
