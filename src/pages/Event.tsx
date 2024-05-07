@@ -1,54 +1,88 @@
 export default function Event() {
   return (
     <div id="Event" className="h-full flex flex-col place-content-center pb-10">
-      <h3 className="mt-9 font-bold text-[20px]">Event</h3>
+      <h3 className="mt-9 font-extrabold text-[20px]">Event</h3>
       <div className="w-4/5 m-auto text-start">
         <h2 className="mt-10 mb-5 font-extrabold text-[18px]">
-          EVENT 1. 인스타그램 팔로우 이벤트
+          첫 번쨰, 팜희를 자랑해팜!
         </h2>
-        <p className="font-medium text-[13px] bg-white rounded-[15px] p-5">
-          <span className="font-bold">
-            @My_Yonsei_NFT 인스타그램 팔로우 하고 기프티콘을 받자!
-          </span>
+        <div className="font-medium text-[13px] bg-white rounded-[15px] p-5">
           <img
             className="w-full mx-auto my-5 rounded-[8px] border border-black"
             src="gifts.png"
             alt="loading..."
           />
-          <span>팔로워 중 추첨을 통해 </span>
-          <span className="font-bold">
-            BBQ 황금 올리브 치킨 세트(1명)와 스타벅스 기프티콘(5명)
-          </span>
-          <span>을 드립니다.</span>
-        </p>
+          <ul className="list-decimal text-[15px] font-bold pl-5">
+            <li>
+              인스타그램에서 팜희를 팔로우해 주세요. <br />{' '}
+              <span className="font-extrabold">🐥@dokpamee.nft</span>
+            </li>
+
+            <li className="my-2">
+              여러분이 받은 팜희 NFT를 캡쳐한 후, 팜희를 <br />
+              태그해서 스토리에 공유해 주세요.
+            </li>
+            <li>추첨을 통해 치킨과 커피, 바나나우유를 드려요!</li>
+          </ul>
+          <p className="my-2 font-extrabold text-[15px]">
+            🩵 이벤트 기간: 5월 9일부터 5월 22일까지 <br /> 💙 결과 발표: 5월
+            23일
+          </p>
+        </div>
       </div>
 
       <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          EVENT 2. 야 너두? 야 나두!
+        <h2 className="mt-10 mb-5 font-extrabold text-[18px]">
+          두 번째, 팜둥희를 찾아팜!
         </h2>
-        <p className="font-medium text-[13px] bg-white rounded-[15px] p-5">
-          <span>
-            캐릭터가 똑같은 친구를 찾으셨나요? 이거 혹시 운명일지도..?!{' '}
-          </span>
-          <span className="font-bold">
-            운명의 그대에게 타투스티커 1장을 드립니다!
-          </span>
+        <div className="font-medium text-[13px] bg-white rounded-[15px] p-5">
           <img
-            className="w-2/3 mx-auto my-5 rounded-[8px]"
-            src="tatoo.png"
+            className="w-full mx-auto my-5 rounded-[8px] border border-black"
+            src="gifts.png"
             alt="loading..."
           />
-        </p>
+          <ul className="list-decimal text-[15px] font-bold pl-5">
+            <li>여러분의 NFT를 과 친구에게 소개해주세요.</li>
+            <li className="my-2">
+              친구가 NFT를 발급했을 때, 여러분의 팜희와 똑같이 생긴 팜둥이 NFT가
+              나타날 수도 있어요!
+            </li>
+            <li>
+              팜둥이인걸 확인했다면 이벤트 페이지에서 팜둥이 친구의 학번을
+              입력해 주세요.
+            </li>
+            <li className="my-2">
+              이벤트 참여자에겐 친구와 함께 쓸 수 있는 귀여운 타투스티커를
+              증정해 드려요.
+            </li>
+          </ul>
+          <p className="my-2 font-extrabold text-[15px] break-words">
+            🩵 이벤트 기간: 5월 9일부터 5월 21일까지 <br />
+            💙 타투 스티커 수령: 5월 22일(송도), 5월 23일(신촌)
+          </p>
+        </div>
       </div>
       <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          EVENT 3. 00이와 함께하는 아카라카!
+        <h2 className="mt-10 mb-5 font-extrabold text-[18px]">
+          세 번째, 아카라카를 기록해팜!
         </h2>
-        <p className="font-medium text-[13px] bg-white rounded-[15px] p-5">
-          00이와 함께하는 아카라카 스토리를 @My_Yonsei_NFT를 태그해 올려주세요!
-          추첨을 통해 00을 드립니다.
-        </p>
+        <div className="font-medium text-[13px] bg-white rounded-[15px] p-5">
+          <ul className="list-decimal text-[15px] font-bold pl-5">
+            <li>
+              2024 아카라카 기간에 사용할 수 있도록 저희가 팜희 인스타그램
+              필터를 준비했어요.
+            </li>
+            <li className="my-2">
+              여러분의 즐거웠던 아카라카의 기억을 팜희 필터와 함께 인스타에
+              공유해주세요.
+            </li>
+            <li>추첨을 통해 ~~을 드려요!</li>
+          </ul>
+          <p className="my-2 font-extrabold text-[15px] break-words">
+            🩵 이벤트 기간: 5월 22일부터 5월 27일까지 <br /> 💙 결과 발표: 5월
+            28일
+          </p>
+        </div>
       </div>
     </div>
   );
