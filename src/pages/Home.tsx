@@ -168,7 +168,7 @@ export default function Home() {
         <div />
       )}
       <div className="w-full">
-        <img className="w-full h-3/4" src="/background.jpg" alt="loading..." />
+        <img className="w-full h-3/4" src="/background.svg" alt="loading..." />
         {showMenu ? (
           <div className="relative -translate-y-full pb-5">
             <button
