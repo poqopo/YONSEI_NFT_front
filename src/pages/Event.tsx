@@ -6,13 +6,13 @@ export default function Event() {
         <h2 className="mt-10 mb-5 font-extrabold text-[18px]">
           첫 번쨰, 팜희를 자랑해팜!
         </h2>
-        <div className="font-medium text-[13px] bg-white rounded-[15px] p-5">
+        <div className="font-medium text-[13px] bg-[#FCFCF4] rounded-[15px] p-5">
           <img
             className="w-full mx-auto my-5 rounded-[8px] border border-black"
             src="gifts.png"
             alt="loading..."
           />
-          <ul className="list-decimal text-[15px] font-bold pl-5">
+          <ul className="list-decimal text-[15px] font-medium pl-5">
             <li>
               인스타그램에서 팜희를 팔로우해 주세요. <br />{' '}
               <span className="font-extrabold">🐥@dokpamee.nft</span>
@@ -35,13 +35,13 @@ export default function Event() {
         <h2 className="mt-10 mb-5 font-extrabold text-[18px]">
           두 번째, 팜둥희를 찾아팜!
         </h2>
-        <div className="font-medium text-[13px] bg-white rounded-[15px] p-5">
+        <div className="font-medium text-[13px] bg-[#FCFCF4] rounded-[15px] p-5">
           <img
             className="w-full mx-auto my-5 rounded-[8px] border border-black"
             src="gifts.png"
             alt="loading..."
           />
-          <ul className="list-decimal text-[15px] font-bold pl-5">
+          <ul className="list-decimal text-[15px] font-medium pl-5">
             <li>여러분의 NFT를 과 친구에게 소개해주세요.</li>
             <li className="my-2">
               친구가 NFT를 발급했을 때, 여러분의 팜희와 똑같이 생긴 팜둥이 NFT가
@@ -66,8 +66,8 @@ export default function Event() {
         <h2 className="mt-10 mb-5 font-extrabold text-[18px]">
           세 번째, 아카라카를 기록해팜!
         </h2>
-        <div className="font-medium text-[13px] bg-white rounded-[15px] p-5">
-          <ul className="list-decimal text-[15px] font-bold pl-5">
+        <div className="font-medium text-[13px] bg-[#FCFCF4] rounded-[15px] p-5">
+          <ul className="list-decimal text-[15px] font-medium pl-5">
             <li>
               2024 아카라카 기간에 사용할 수 있도록 저희가 팜희 인스타그램
               필터를 준비했어요.
