@@ -53,11 +53,7 @@ export default function AfterMinting() {
         아래 공유하기 버튼을 눌러서 <br /> 바로 나 도팜희를 친구들에게
         소개해줘!🐥
       </p>
-
-      <CustomButton
-        text="공유하기"
-        onClick={() => shareImage(toImgSrc(url), params.address)}
-      />
+      <CustomButton text="홈으로 돌아가기" onClick={() => navigate(`/`)} />
       <CustomButton
         text="팜동희 찾기 이벤트 참여하기"
         onClick={() => navigate(`/Event/${params.address}`)}
