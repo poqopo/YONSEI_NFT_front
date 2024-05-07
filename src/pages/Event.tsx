@@ -37,8 +37,8 @@ export default function Event() {
         </h2>
         <div className="font-medium text-[13px] bg-[#FCFCF4] rounded-[15px] p-5">
           <img
-            className="w-full mx-auto my-5 rounded-[8px] border border-black"
-            src="gifts.png"
+            className="w-full mx-auto rounded-[8px] -translate-y-1/4"
+            src="friend.png"
             alt="loading..."
           />
           <ul className="list-decimal text-[15px] font-medium pl-5">
