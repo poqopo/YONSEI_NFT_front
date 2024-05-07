@@ -2,7 +2,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 function DefaultLayout() {
   return (
-    <div className="m-auto w-screen max-w-[500px] bg-[#98CDE3] font-sans break-words">
+    <div className="m-auto w-screen max-w-[500px] bg-[#88D0E5] font-sans break-words">
       <Link to="/" className="mx-auto w-fit text-center">
         <img className="w-fit mx-auto py-6" src="/logo.svg" alt="loading..." />
       </Link>
