@@ -45,3 +45,7 @@ export interface NFTDetail {
 export interface NFTReponse {
   nftsResults: NFTDetail[];
 }
+
+export interface jsonType {
+  name: string;
+}

@@ -1,25 +1,36 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { AiFillHome } from 'react-icons/ai';
 import checkAddress from '@/utils/checkParams';
 import shareImage from '@/utils/share';
 import CustomButton from '@/Components/Button';
+import { jsonType } from '@/utils/type';
 
 export default function AfterMinting() {
   const params = useParams(); // 2번 라인
   const navigate = useNavigate();
 
   const { state } = useLocation(); // 2번 라인
-  const { major, url } = state;
-
-  console.log(major, url);
+  const { url } = state;
+  const [name, setName] = useState('');
 
   const toImgSrc = (src: string) => {
     const temp = src.replace('json', 'img');
     return temp.replace('json', 'png');
   };
+  const getNFTInfo = () => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((json) => {
+        setName(json.name);
+      })
+      .catch(() => {
+        window.alert('Error fetching NFT info');
+      });
+  };
   useEffect(() => {
     checkAddress(params.address);
+    getNFTInfo();
   }, []);
 
   return (
@@ -35,7 +46,7 @@ export default function AfterMinting() {
         <img className="mx-auto " src={toImgSrc(url)} alt="loading..." />
       </div>
 
-      <h2 className="my-4 text-center font-bold text-[20px]">{major} 독팜희</h2>
+      <h2 className="my-4 text-center font-bold text-[20px]">{name}</h2>
       <p className="text-[#090707]">
         어라, 얼떨결에 전과해버렸잖아⁉️ <br /> <br /> 오히려 좋아!! <br />{' '}
         새로운 건 언제나 즐거우니까😎 <br /> 이제 우리 더 친해져 보자구! <br />

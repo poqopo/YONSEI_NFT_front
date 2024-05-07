@@ -15,7 +15,7 @@ export default function Howto() {
           2. klip에서 정보 제공 동의를 해주세요. <br />
           klip을 처음 이용하신다면 비밀번호 설정이 필요할 수 있어요.
         </h2>
-        <img className="mx-auto w-3/4" src="/klip_info.png" alt="loading..." />
+        <img className="mx-auto w-3/4" src="/klip_info.svg" alt="loading..." />
         <p className="mt-10 mb-5 font-bold text-[15px]">
           <span>3. 내 학번(ex.</span>
           <span className="font-bold text-red-600">2024123456</span>

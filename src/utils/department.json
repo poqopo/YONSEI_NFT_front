@@ -234,5 +234,9 @@
   "199": {
     "Department_KR": "UIC(ISE)",
     "Department": "ISE"
+  },
+  "999": {
+    "Department_KR": "싱크로나이즈드비행학과",
+    "Department": "ISE"
   }
 }
