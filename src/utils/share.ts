@@ -7,7 +7,7 @@ export async function captureAndShare() {
     // Create the screenshot using html2canvas with the useCORS option
     const canvas = await html2canvas(element, {
       useCORS: true, // Allow cross-origin images if they have appropriate CORS headers
-      backgroundColor: null, // Set to `null` to preserve transparency
+      backgroundColor: '#88D0E5', // Set to `null` to preserve transparency
     });
 
     // Convert the canvas to a Blob object
@@ -25,8 +25,6 @@ export async function captureAndShare() {
         try {
           await navigator.share({
             files: [file],
-            title: 'Captured Screenshot',
-            text: 'Check out this screenshot!',
           });
         } catch (error) {
           console.error('Error sharing:', error);
