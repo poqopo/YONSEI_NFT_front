@@ -204,8 +204,8 @@
     "Department": "SystemSemiconductorEngineering"
   },
   "190": {
-    "Department_KR": "UIC",
-    "Department": "UIC"
+    "Department_KR": "UIC(UD)",
+    "Department": "UD"
   },
   "191": {
     "Department_KR": "의과대학",
@@ -237,6 +237,6 @@
   },
   "999": {
     "Department_KR": "싱크로나이즈드비행학과",
-    "Department": "ISE"
+    "Department": "TEST"
   }
 }

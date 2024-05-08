@@ -2,8 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { AiFillHome } from 'react-icons/ai';
 
-import Gallery from '../Components/gallery';
-import { findFriend } from '@/utils/axios';
+import { registerFriend } from '@/utils/axios';
 import checkAddress from '@/utils/checkParams';
 import '../styles/input.css';
 
@@ -53,10 +52,12 @@ export default function Referral() {
               type="text"
               placeholder="학번 10자리를 입력해주세요."
               className="w-full h-[45px] m-auto text-[12px] p-3 rounded-[8px] border-2 border-[#D0D5DD] text-start indent-1"
+              onClick={(e: any) => setInput(e.target.value)}
             />
             <button
               type="button"
               className="w-full mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 font-bold border-2 border-black"
+              onClick={() => registerFriend(params.address, input)}
             >
               제출하기
             </button>

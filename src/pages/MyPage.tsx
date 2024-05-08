@@ -2,7 +2,6 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { AiFillHome } from 'react-icons/ai';
 import checkAddress from '@/utils/checkParams';
-import shareImage from '@/utils/share';
 import CustomButton from '@/Components/Button';
 import { getUserNFTs } from '@/utils/axios';
 import { NFTDetail } from '@/utils/type';

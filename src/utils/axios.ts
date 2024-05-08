@@ -4,10 +4,8 @@ import {
   NFTDetail,
   NFTReponse,
   addUserResult,
-  mintInfo,
   mintResponse,
   userDetail,
-  userInfo,
 } from './type';
 
 const API_URL = 'https://api.myyonseinft.com';
@@ -114,7 +112,7 @@ export async function mint(
   }
 }
 
-export async function findFriend(
+export async function registerFriend(
   address: string | undefined,
   friendNumber: number | undefined,
 ): Promise<MintResult> {
