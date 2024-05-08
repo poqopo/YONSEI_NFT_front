@@ -103,12 +103,12 @@ export default function Mint() {
               onMintClick();
             }}
           />
-          <CustomButton
+          {/* <CustomButton
             text="블록블록 독팜희 NFT 받기"
             onClick={() => {
               onBlockBlockMintClick();
             }}
-          />
+          /> */}
         </div>
       )}
 
