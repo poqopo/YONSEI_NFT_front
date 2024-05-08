@@ -114,13 +114,13 @@ export async function mint(
 
 export async function registerFriend(
   address: string | undefined,
-  friendNumber: number | undefined,
+  friendStudentNumber: string | undefined,
 ): Promise<MintResult> {
   try {
     // axios.post 메소드를 사용하여 서버에 데이터 전송
     const response = await axios.post<MintResult>(
       `${API_URL}/${API_PATH.registerFriend}`,
-      { userAddress: address, friendStudentNumber: friendNumber }, // 데이터를 본문에 직접 전달
+      { userAddress: address, friendStudentNumber }, // 데이터를 본문에 직접 전달
     );
     // 응답 데이터 반환
     return {

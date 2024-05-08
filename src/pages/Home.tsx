@@ -171,35 +171,26 @@ export default function Home() {
         <img className="w-full h-3/4" src="/background.png" alt="loading..." />
         {showMenu ? (
           <div className="relative -translate-y-full pb-5">
-            <button
-              type="button"
-              className="w-3/4 mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
+            <CustomButton
+              text="NFT 발급하기"
               onClick={() => {
                 navigate(`/Mint/${userAddress}`, {
                   state: { major: major?.Department_KR },
                 });
               }}
-            >
-              NFT 발급하기
-            </button>
-            <button
-              type="button"
-              className="w-3/4 mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
+            />
+            <CustomButton
+              text="나의 NFT 확인하기"
               onClick={() => {
                 navigate(`/MyPage/${userAddress}`);
               }}
-            >
-              나의 NFT 확인하기
-            </button>
-            <button
-              type="button"
-              className="w-3/4 mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 drop-shadow-md font-bold border-2 border-black"
+            />
+            <CustomButton
+              text="팜둥이 찾기 이벤트 참여하기"
               onClick={() => {
                 navigate(`/Event/${userAddress}`);
               }}
-            >
-              팜동희 찾기 이벤트 참여하기
-            </button>
+            />
           </div>
         ) : (
           <div>
