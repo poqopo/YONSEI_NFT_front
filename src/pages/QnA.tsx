@@ -23,7 +23,7 @@ export default function QnA() {
       <FAQModal
         title="타투스티커가 궁금해요!"
         text="팜희와 함께하는 시간을 더 즐겁게 추억하기 위해 타투스티커를 제작했어요. 운영비와 홍보비를 제외한 모든 판매 수익 전액은 연세대학교에 기부할 예정이에요:) 타투스티커 구매처 및 세부 사항은 아래 링크에서 확인할 수 있어요."
-        link="https://myyonseinft.com/"
+        link="https://forms.gle/2iCWLzTd5AfSDDPr8"
       />
     </div>
   );
