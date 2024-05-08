@@ -16,6 +16,8 @@ import getMajor from '@/utils/getMajor';
 import { addNewUser, getUserByAdress } from '@/utils/axios';
 import CustomButton from '@/Components/Button';
 import Character from './Character';
+import StudentInput from '@/Components/StudentNumberInput';
+import PersonalInfo from '@/Components/PersonalInfo';
 
 const DEFAULT = 'DEFAULT';
 
@@ -93,6 +95,16 @@ export default function Home() {
     }
   }, []);
 
+  // Function that updates student number based on input change
+  const handleInputChange = (value: string) => {
+    setStudentNumber(value);
+  };
+
+  // Function that processes the submitted student number
+  const handleSubmit = () => {
+    searchMajor(studentNumber);
+  };
+
   return (
     <main className="h-full min-h-screen flex flex-col place-content-between font-roboto text-[#090707]  text-center">
       <button
@@ -105,7 +117,7 @@ export default function Home() {
       {toggleMenu ? <Menu toggleMenu={() => setToggleMenu(false)} /> : <div />}
 
       {userToggle ? (
-        <div className="fixed top-1/3 right-1/2 translate-x-1/2 w-5/6 rounded-[12px] max-w-[400px] bg-white z-50 p-5">
+        <div className="fixed top-1/4 right-1/2 translate-x-1/2 w-5/6 rounded-[12px] max-w-[400px] bg-white z-50 p-5">
           <div className="p-3">
             <h2 className="text-start font-bold text-[18px]">
               여러분의 학번을 입력해주세요.
@@ -114,7 +126,6 @@ export default function Home() {
               수정할 수 없으니 신중히 확인해 주세요!
             </h3>
           </div>
-
           {showconfirmModal ? (
             <div>
               <div className="text-[16px] text-start my-2">
@@ -144,23 +155,17 @@ export default function Home() {
               </div>
             </div>
           ) : (
-            <div className="px-3 py-1">
-              <p className="pb-3 text-[#344054] text-start text-[14px]">
-                학번*
-              </p>
-              <input
-                type="text"
-                placeholder="학번 10자리를 입력해주세요."
-                className="w-full h-[45px] m-auto text-[12px] p-3 rounded-[8px] border-2 border-[#D0D5DD] text-start indent-1"
-                onChange={(e) => setStudentNumber(e.target.value)}
+            <div>
+              <h2 className="text-start text-[15px] font-bold p-3">
+                개인정보 수집 동의
+              </h2>
+              <PersonalInfo />
+              <StudentInput
+                inputText="학번 10자리를 입력해주세요"
+                onChange={handleInputChange}
+                onClick={handleSubmit}
+                buttonText="동의하고 제출하기"
               />
-              <button
-                type="button"
-                className="w-full mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 font-bold border-2 border-black"
-                onClick={() => searchMajor(studentNumber)}
-              >
-                제출하기
-              </button>
             </div>
           )}
         </div>

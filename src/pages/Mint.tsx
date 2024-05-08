@@ -49,18 +49,18 @@ export default function Mint() {
     }
   };
 
-  const onBlockBlockMintClick = async () => {
-    setLoading(true);
-    const res = await mint(user.userAddress, 'BlockBlock');
-    setLoading(false);
-    if (res.status === 200) {
-      navigate(`/AfterMint/${user.userAddress}`, {
-        state: { major, url: res.url },
-      });
-    } else {
-      window.alert(res.result);
-    }
-  };
+  // const onBlockBlockMintClick = async () => {
+  //   setLoading(true);
+  //   const res = await mint(user.userAddress, 'BlockBlock');
+  //   setLoading(false);
+  //   if (res.status === 200) {
+  //     navigate(`/AfterMint/${user.userAddress}`, {
+  //       state: { major, url: res.url },
+  //     });
+  //   } else {
+  //     window.alert(res.result);
+  //   }
+  // };
 
   return (
     <main className="h-screen flex flex-col place-content-evenly pb-[80px] font-roboto text-[#090707]  text-center">
@@ -103,12 +103,12 @@ export default function Mint() {
               onMintClick();
             }}
           />
-          <CustomButton
+          {/* <CustomButton
             text="블록블록 독팜희 NFT 받기"
             onClick={() => {
               onBlockBlockMintClick();
             }}
-          />
+          /> */}
         </div>
       )}
 

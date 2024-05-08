@@ -5,6 +5,7 @@ import { AiFillHome } from 'react-icons/ai';
 import { registerFriend } from '@/utils/axios';
 import checkAddress from '@/utils/checkParams';
 import '../styles/input.css';
+import StudentInput from '@/Components/StudentNumberInput';
 
 export default function Referral() {
   const [input, setInput] = useState('');
@@ -15,7 +16,13 @@ export default function Referral() {
     checkAddress(params.address);
   }, []);
 
-  async function onRegisterClick() {
+  // Function that updates student number based on input change
+  const handleInputChange = (value: string) => {
+    setInput(value);
+  };
+
+  // Function that processes the submitted student number
+  const handleSubmit = async () => {
     const res = await registerFriend(params.address, input);
     if (res.status === 200) {
       window.alert(res.result);
@@ -23,7 +30,7 @@ export default function Referral() {
     } else {
       window.alert(res.result);
     }
-  }
+  };
 
   return (
     <main className="h-screen flex flex-col gap-y-3 font-roboto text-[#090707]  text-center">
@@ -55,22 +62,12 @@ export default function Referral() {
             <h3 className="text-[#475467] text-[16px] text-start">
               수정할 수 없으니 신중히 확인해 주세요!
             </h3>
-          </div>
-          <div className="px-3 py-1">
-            <p className="pb-3 text-[#344054] text-start text-[14px]">학번*</p>
-            <input
-              type="text"
-              placeholder="학번 10자리를 입력해주세요."
-              className="w-full h-[45px] m-auto text-[12px] p-3 rounded-[8px] border-2 border-[#D0D5DD] text-start indent-1"
-              onChange={(e: any) => setInput(e.target.value)}
+            <StudentInput
+              inputText="학번 10자리를 입력해주세요"
+              onChange={handleInputChange}
+              onClick={handleSubmit}
+              buttonText="이벤트 참여하기"
             />
-            <button
-              type="button"
-              className="w-full mx-auto my-2 rounded-[15px] bg-[#FEE500] hover:bg-white text-black px-2 py-3 font-bold border-2 border-black"
-              onClick={() => onRegisterClick()}
-            >
-              제출하기
-            </button>
           </div>
         </div>
       </div>
