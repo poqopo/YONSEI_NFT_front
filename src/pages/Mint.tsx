@@ -10,6 +10,7 @@ import getMajor from '@/utils/getMajor';
 import checkAddress from '@/utils/checkParams';
 import { mintInfo, userDetail } from '@/utils/type';
 import CustomButton from '@/Components/Button';
+import StudentInput from '@/Components/StudentNumberInput';
 
 const DEFAULT = 'DEFAULT';
 
@@ -25,9 +26,10 @@ export default function Mint() {
   });
   const params = useParams();
   const navigate = useNavigate();
-  const { state } = useLocation(); // 2번 라인
-  const { major } = state;
-
+  const [input, setInput] = useState('');
+  const [major, setMajor] = useState<
+    { Department_KR: string; Department: string } | undefined
+  >(undefined);
   async function getInfo() {
     setUser(await getUserByAdress(params.address));
   }
@@ -56,6 +58,30 @@ export default function Mint() {
     if (res.status === 200) {
       navigate(`/AfterMint/${user.userAddress}`, {
         state: { major, url: res.url },
+      });
+    } else {
+      window.alert(res.result);
+    }
+  };
+
+  async function searchMajor(inputs: string) {
+    const majorDict = await getMajor(inputs);
+    setMajor(majorDict);
+  }
+
+  const handleInputChange = (value: string) => {
+    setInput(value);
+    searchMajor(input);
+  };
+
+  // Function that processes the submitted student number
+  const handleSubmit = async () => {
+    setLoading(true);
+    const res = await mint(user.userAddress, major?.Department);
+    setLoading(false);
+    if (res.status === 200) {
+      navigate(`/AfterMint/${user.userAddress}`, {
+        state: { major: major?.Department_KR, url: res.url },
       });
     } else {
       window.alert(res.result);
@@ -109,16 +135,20 @@ export default function Mint() {
               onBlockBlockMintClick();
             }}
           />
+          <StudentInput
+            inputText="학번 10자리를 입력해주세요"
+            onChange={handleInputChange}
+            onClick={handleSubmit}
+            buttonText="민팅하기"
+          />
         </div>
       )}
 
       <p className="font-medium text-[16px]">
-        나 싱크로나이즈드비행학과 독팜희, <br /> 너희와 함께 있는 시간이 너무
-        즐거워! <br />
-        우리가 함께한 시간을 NFT로 남기는 게 어때? <br /> <br />
-        같은 과 친구들과 함께 NFT를 발급받고, <br />
-        타투 스티커 이벤트에 참여할 수도 있다구! <br />
-        도파민.. 아니 독팜희에 추l한ㄷr 추l@ㅐ//..
+        0000144000 : 사환시 <br />
+        0000142000 : 전전 <br />
+        0000145000 : 기공 <br />
+        0000143000 : 건축학부
       </p>
       <CustomButton
         text="나의 NFT 확인하기"
