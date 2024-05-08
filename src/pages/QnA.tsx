@@ -4,7 +4,7 @@ export default function QnA() {
   return (
     <div
       id="QNA"
-      className="h-full pb-10 w-5/6 flex flex-col m-auto text-start gap-y-10"
+      className="h-full pb-10 w-5/6 flex flex-col m-auto text-start gap-y-[10px]"
     >
       <h3 className="my-9 font-bold text-[20px] text-center">FAQ</h3>
       <FAQModal
@@ -25,6 +25,9 @@ export default function QnA() {
         text="팜희와 함께하는 시간을 더 즐겁게 추억하기 위해 타투스티커를 제작했어요. 운영비와 홍보비를 제외한 모든 판매 수익 전액은 연세대학교에 기부할 예정이에요:) 타투스티커 구매처 및 세부 사항은 아래 링크에서 확인할 수 있어요."
         link="https://forms.gle/2iCWLzTd5AfSDDPr8"
       />
+      <p className="font-bold text-center">
+        기타 문의사항은 <br /> 🐥@dokpamee.nft로 부탁드려요!
+      </p>
     </div>
   );
 }

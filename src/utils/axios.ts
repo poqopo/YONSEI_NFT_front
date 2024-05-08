@@ -8,7 +8,7 @@ import {
   userDetail,
 } from './type';
 
-const API_URL = 'https://api.myyonseinft.com';
+const API_URL = 'https://test.myyonseinft.com';
 const API_PATH = {
   getUserInfo: 'getUserByAddress',
   mint: 'mint',

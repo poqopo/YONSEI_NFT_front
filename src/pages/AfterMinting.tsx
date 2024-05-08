@@ -53,13 +53,12 @@ export default function AfterMinting() {
           </div>
           <h2 className="my-4 text-center font-bold text-[20px]">{name}</h2>
           <p className="text-[#090707]">
-            <span className="font-bold">
-              나는 이제부터 {major} 아기독수리🐣💙
-            </span>
-            <br /> <br /> 오히려 좋아!! <br /> 새로운 건 언제나 즐거우니까😎{' '}
-            <br /> 이제 우리 더 친해져 보자구! <br />
-            내 독팜희 자랑하기 버튼을 눌러서 <br /> 바로 나 독팜희를 친구들에게
-            소개해줘!🐥
+            나 「 {major} 」 가 되어버렸어! <br />
+            어느새 심장이 두근거리기 시작했는걸😎 <br /> <br />
+            아래 공유하기 버튼을 눌러서 <br />
+            바로 나, 독팜희를 친구들에게 소개해줘!🐥 <br />
+            만약 나랑 똑같이 생긴 쌍둥이 팜둥이를 만나면 <br />
+            타투스티커 선물을 줄 테니 얼른 찾아봐!
           </p>
         </div>
       </div>
