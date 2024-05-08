@@ -4,7 +4,7 @@ export default function QnA() {
   return (
     <div
       id="QNA"
-      className="h-full pb-10 w-4/5 flex flex-col m-auto text-start gap-y-10"
+      className="h-full pb-10 w-5/6 flex flex-col m-auto text-start gap-y-10"
     >
       <h3 className="my-9 font-bold text-[20px] text-center">FAQ</h3>
       <FAQModal

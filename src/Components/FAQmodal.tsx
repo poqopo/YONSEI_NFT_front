@@ -29,7 +29,11 @@ export default function FAQModal({ title, text, link }: FAQModalProps) {
       {show ? (
         <div>
           <p className="text-[15px] my-3">{text}</p>
-          {link && <a href={link}>{link}</a>}
+          {link && (
+            <a className="underline underline-offset-2" href={link}>
+              {link}
+            </a>
+          )}
         </div>
       ) : (
         <div />
