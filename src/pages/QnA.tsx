@@ -1,65 +1,30 @@
+import FAQModal from '@/Components/FAQmodal';
+
 export default function QnA() {
   return (
     <div
       id="QNA"
-      className="h-full flex flex-col place-content-center pb-[80px]"
+      className="h-full pb-10 w-4/5 flex flex-col m-auto text-start gap-y-10"
     >
-      <h3 className="mt-9 font-bold text-[20px]">FAQ</h3>
-      <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          1. NFT가 무엇인가요?
-        </h2>
-        <p className="font-medium text-[13px]">
-          NFT는 블록체인 기술로 제작된 독특하고 소중한 디지털 자산입니다. 기존의
-          사진이나 물건들처럼 잃어버릴 위험이 있는 것들과 달리,
-          <span className="font-bold">NFT는 영구적으로 존재</span>하는 그 특성을
-          지니고 있습니다. MY YONSEI NFT 프로젝트는 이러한 NFT의 특성을 활용하여
-          <span className="font-bold"> 우리의 소중한 추억들을 영원히 보존</span>
-          하고자 합니다.
-        </p>
-      </div>
-      <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          2. 내가 받은 00이를 어떻게 볼 수 있을까요?
-        </h2>
-        <p className="font-medium text-[13px] mb-5">
-          00이는 클립 지갑에 저장되며 카카오톡 내에서 확인 가능합니다. 자세한
-          내용은 아래를 참고해주세요.
-        </p>
-        <img src="klip.png" alt="loading..." />
-      </div>
-      <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          3. NFT를 더 제작하고 싶어요!
-        </h2>
-        <p className="font-medium text-[13px]">
-          MY YONSEI NFT는 인당 1개의 00이를 분양 받는 것을 기본 원칙으로 하고
-          있습니다. 하지만 타투스티커 구매자분들 께는 구매 매수만큼 00이를 더
-          분양할 수 있으니 참고해주세요!
-        </p>
-      </div>
-      <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          4. 타투스티커 판매 수익으로는 무엇을 하나요?
-        </h2>
-        <p className="font-medium text-[13px]">
-          MY YONSEI NFT는 NFT를 홍보하기 위해 타투스티커를 판매합니다. 판매
-          수익은 필수적인 운영비와 홍보비를 제외한 나머지 전액을 연세대학교에
-          기부할 예정입니다.
-        </p>
-      </div>
-
-      <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-bold text-[15px]">
-          5. 앞으로의 MY YONSEI NFT는 어떤 모습일까요?
-        </h2>
-        <p className="font-medium text-[13px]">
-          MY YONSEI NFT는 앞으로도 여러분의 소중한 추억을 기록할 것입니다.
-          여러분이 직접 경험하고 느낀 연세를 그리고 공유해주세요. MY YONSEI
-          NFT와 함께 여러분의 빛나는 대학생활을, 찬란한 순간을 쌓아가시길
-          바랍니다.
-        </p>
-      </div>
+      <h3 className="my-9 font-bold text-[20px] text-center">FAQ</h3>
+      <FAQModal
+        title="NFT란 무엇인가요?"
+        text="NFT는 블록체인을 활용하여 영원히 보존하고 사용자가 소유할 수 있도록 만든 디지털 자산이에요. 일반적인 사진이나 그림이 온라인에서 무분별하게 복제되고 쓰이는 것과 달리, NFT는 소유자를 증명하며 영원히 존재한다는 특성이 있어요. MY YONSEI NFT 에서는 이러한 NFT의 특성을 활용하여 여러분들의 소중한 추억들을 영원히 보존하고자 해요. 바로 우리 귀여운 팜희와 함께 말이에요."
+      />
+      <FAQModal
+        title="발급한 팜희를 어떻게 확인할 수 있나요?"
+        text="팜희는 카카오톡 안에 내장된 klip이나, Opensea에서 확인할 수 있어요. klip은 카카오톡 어플에서 우측 하단 ‘더보기’ >  ‘전체서비스’ > ‘클립’ 으로 들어갈 수 있어요. Opensea에서는 ‘www.opensea.com’으로 접속해서 검색란에 “[2024 AKARAKA] DOKPAMI EDITION”, 혹은 “DOKPAMI” 만 검색해도 찾을 수 있어요.
+        그 외에도 팜희는 Polygon 블록체인에서 살고 있기 때문에 Polygon을 지원하는 곳에선 어디서나  확인할 수 있어요!"
+      />
+      <FAQModal
+        title="팜희 NFT를 더 만들고 싶어요!"
+        text="MY YONSEI NFT에서는 인당 1개의 팜희만 받을 수 있도록 제한하고 있어요. 팜희를 더 받고 싶으신 분들을 위해, MY YONSEI NFT 팀에서 제작하는 아카라카 기념 타투스티커를 구매하신 분께는 구매 매수만큼 팜희 NFT를 더 받을 수 있는 기회를 드리고 있어요!"
+      />
+      <FAQModal
+        title="타투스티커가 궁금해요!"
+        text="팜희와 함께하는 시간을 더 즐겁게 추억하기 위해 타투스티커를 제작했어요. 운영비와 홍보비를 제외한 모든 판매 수익 전액은 연세대학교에 기부할 예정이에요:) 타투스티커 구매처 및 세부 사항은 아래 링크에서 확인할 수 있어요."
+        link="https://myyonseinft.com/"
+      />
     </div>
   );
 }

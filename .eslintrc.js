@@ -25,5 +25,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-use-before-define': 'off',
     'no-nested-ternary': 'off',
+    'react/require-default-props': 'off',
   },
 };
