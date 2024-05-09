@@ -24,7 +24,6 @@ export default function Home() {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [userToggle, setUserToggle] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [showconfirmModal, setShowConfirmModal] = useState(false);
   const [studentNumber, setStudentNumber] = useState('');
   const [major, setMajor] = useState<
     { Department_KR: string; Department: string } | undefined
@@ -117,7 +116,14 @@ export default function Home() {
         ) : (
           <KakaoLoginButton getUserData={getUserData} />
         )}
-        {qrvalueAuth !== DEFAULT ? <KakaoQRModal /> : <div />}
+        {qrvalueAuth !== DEFAULT ? (
+          <KakaoQRModal
+            qrvalueAuth={qrvalueAuth}
+            setqrvalueAuth={setqrvalueAuth}
+          />
+        ) : (
+          <div />
+        )}
       </div>
 
       <Character />

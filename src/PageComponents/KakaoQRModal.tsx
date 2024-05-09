@@ -5,9 +5,13 @@ import Modal from '../Components/Modal';
 
 const DEFAULT = 'DEFAULT';
 
-export default function KakaoQRModal() {
-  const [qrvalueAuth, setqrvalueAuth] = useState(DEFAULT);
-
+export default function KakaoQRModal({
+  qrvalueAuth,
+  setqrvalueAuth,
+}: {
+  qrvalueAuth: any;
+  setqrvalueAuth: any;
+}) {
   return (
     <Modal>
       <button
