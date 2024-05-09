@@ -14,10 +14,9 @@ export default function Event() {
           />
           <ul className="list-decimal text-[15px] font-medium pl-5">
             <li>
-              인스타그램에서 팜희를 팔로우해 주세요. <br />{' '}
+              인스타그램에서 팜희를 팔로우해 주세요. <br />
               <span className="font-extrabold">🐥@dokpamee.nft</span>
             </li>
-
             <li className="my-2">
               여러분이 받은 팜희 NFT를 캡쳐한 후, 팜희를 태그해서 스토리에
               공유해 주세요.
@@ -76,7 +75,7 @@ export default function Event() {
               여러분의 즐거웠던 아카라카의 기억을 팜희 필터와 함께 인스타에
               공유해주세요.
             </li>
-            <li>추첨을 통해 ~~을 드려요!</li>
+            <li>추첨을 통해 경품을 드려요!</li>
           </ul>
           <p className="my-2 font-extrabold text-[15px] break-words">
             🩵 이벤트 기간: 5월 22일부터 5월 27일까지 <br /> 💙 결과 발표: 5월

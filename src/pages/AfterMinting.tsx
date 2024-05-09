@@ -41,7 +41,7 @@ export default function AfterMinting() {
       >
         <AiFillHome />
       </button>
-      <div id="nftcapture" className="py-8">
+      <div className="py-8">
         <div className="w-3/4 m-auto">
           <div className="mx-auto w-4/5 max-w-[300px] p-3 bg-[#FCFCF4] rounded-[10px]">
             <img

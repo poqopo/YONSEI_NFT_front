@@ -38,7 +38,7 @@ export default function Gallery({ nfts }: GalleryProps) {
                 {nft.nftName}
               </h2>
               {descriptionSplit(nft.description).map((line, index) => (
-                <p>{line}</p>
+                <p className="w-3/4 mx-auto">{line}</p>
               ))}
             </div>
           );
