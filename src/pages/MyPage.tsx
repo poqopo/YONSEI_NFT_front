@@ -6,6 +6,7 @@ import CustomButton from '@/Components/Button';
 import { getUserNFTs } from '@/utils/axios';
 import { NFTDetail } from '@/utils/type';
 import Gallery from '@/Components/gallery';
+import captureAndShare from '@/utils/share';
 
 export default function MyPage() {
   const params = useParams(); // 2번 라인
@@ -45,6 +46,10 @@ export default function MyPage() {
           </p>
         </div>
       )}
+      <CustomButton
+        text="내 독팜희 자랑하기"
+        onClick={() => captureAndShare()}
+      />
       <CustomButton text="홈으로 돌아가기" onClick={() => navigate('/')} />
     </div>
   );

@@ -1,16 +1,19 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import { NFTDetail } from '@/utils/type';
 import './index.css';
+import { useCallback } from 'react';
+import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
+import { NFTDetail } from '@/utils/type';
 
 interface GalleryProps {
   nfts: NFTDetail[];
 }
 
 export default function Gallery({ nfts }: GalleryProps) {
-  const [emblaRef] = useEmblaCarousel({ loop: true, inViewThreshold: 0.7 }, [
-    Autoplay({ delay: 2000 }),
-  ]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, inViewThreshold: 0.7 },
+    [],
+  );
 
   const toImgSrc = (src: string) => {
     const temp = src.replace('json', 'img');
@@ -22,16 +25,16 @@ export default function Gallery({ nfts }: GalleryProps) {
   };
 
   return (
-    <div className="embla" ref={emblaRef}>
+    <div id="nftcapture" className="embla" ref={emblaRef}>
       <div className="embla__container">
         {nfts.map((nft, idx) => {
           descriptionSplit(nft.description);
           return (
             <div className="embla__slide">
               <img
-                className="w-[300px]"
+                className="w-4/5 p-2 bg-[#FCFCF4] rounded-[3px] mx-auto"
                 src={toImgSrc(nft.tokenURI)}
-                alt={`Slide ${idx + 1}`}
+                alt="loading..."
               />
               <h2 className="my-4 text-center font-bold text-[20px]">
                 {nft.nftName}
