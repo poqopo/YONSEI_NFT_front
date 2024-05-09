@@ -17,7 +17,7 @@ export default function Gallery({ nfts }: GalleryProps) {
     return temp.replace('json', 'png');
   };
   const descriptionSplit = (description: string) => {
-    const desList = description.split(/\\n/g);
+    const desList = description.split(/\n/g);
     return desList;
   };
 
@@ -37,7 +37,7 @@ export default function Gallery({ nfts }: GalleryProps) {
                 {nft.nftName}
               </h2>
               {descriptionSplit(nft.description).map((line, index) => (
-                <p>{line}</p>
+                <p className="px-4">{line}</p>
               ))}
             </div>
           );
