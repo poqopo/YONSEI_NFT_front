@@ -17,7 +17,7 @@ export default function Gallery({ nfts }: GalleryProps) {
     return temp.replace('json', 'png');
   };
   const descriptionSplit = (description: string) => {
-    const desList = description.split(/\\n/g);
+    const desList = description.split(/\n/g);
     return desList;
   };
 
