@@ -22,7 +22,7 @@ export default function Gallery({ nfts }: GalleryProps) {
   };
 
   return (
-    <div className="embla" ref={emblaRef}>
+    <div id="nftcapture" className="embla" ref={emblaRef}>
       <div className="embla__container">
         {nfts.map((nft, idx) => {
           descriptionSplit(nft.description);
@@ -30,6 +30,7 @@ export default function Gallery({ nfts }: GalleryProps) {
             <div className="embla__slide">
               <img
                 className="w-[300px]"
+                crossOrigin="anonymous"
                 src={toImgSrc(nft.tokenURI)}
                 alt={`Slide ${idx + 1}`}
               />
