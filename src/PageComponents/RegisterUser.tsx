@@ -10,16 +10,16 @@ export default function RegisterUser({
   major,
   setStudentNumber,
   setMajor,
-  setUserToggle,
-  setShowMenu,
+  setIsUserRegistered,
+  setIsLogin,
 }: {
   studentNumber: any;
   userAddress: any;
   major: any;
   setStudentNumber: any;
   setMajor: any;
-  setUserToggle: any;
-  setShowMenu: any;
+  setIsUserRegistered: any;
+  setIsLogin: any;
 }) {
   const [showconfirmModal, setShowConfirmModal] = useState(false);
 
@@ -31,8 +31,8 @@ export default function RegisterUser({
     const res = await addNewUser(_address, _studentNumber, _major);
     if (res.status === 200) {
       setShowConfirmModal(false);
-      setUserToggle(false);
-      setShowMenu(true);
+      setIsUserRegistered(false);
+      setIsLogin(true);
     } else {
       window.alert(res.result);
     }

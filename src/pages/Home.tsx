@@ -22,8 +22,8 @@ const DEFAULT = 'DEFAULT';
 export default function Home() {
   const [qrvalueAuth, setqrvalueAuth] = useState(DEFAULT);
   const [isSideMenuOpened, setIsSideMenuOpened] = useState(false);
-  const [userToggle, setUserToggle] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
+  const [isUserRegistered, setIsUserRegistered] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const [studentNumber, setStudentNumber] = useState('');
   const [major, setMajor] = useState<
     { Department_KR: string; Department: string } | undefined
@@ -34,11 +34,11 @@ export default function Home() {
 
   const checkInfo = async (info: userDetail) => {
     if (info.studentNumber === DEFAULT || info.studentNumber === '') {
-      setUserToggle(true);
+      setIsUserRegistered(true);
     } else {
       const majorDict = await getMajor(info.studentNumber);
       setMajor(majorDict);
-      setShowMenu(true);
+      setIsLogin(true);
     }
   };
   const getUserData = () => {
@@ -50,7 +50,7 @@ export default function Home() {
     } else {
       getAddressMB(async (address: string) => {
         dispatch(setAddress(address));
-        setShowMenu(true);
+        setIsLogin(true);
         checkInfo(await getUserByAdress(address));
       });
     }
@@ -79,15 +79,15 @@ export default function Home() {
         <div />
       )}
 
-      {userToggle ? (
+      {isUserRegistered ? (
         <RegisterUser
           studentNumber={studentNumber}
           userAddress={userAddress}
           major={major}
           setStudentNumber={setStudentNumber}
           setMajor={setMajor}
-          setUserToggle={setUserToggle}
-          setShowMenu={setShowMenu}
+          setIsUserRegistered={setIsUserRegistered}
+          setIsLogin={setIsLogin}
         />
       ) : (
         <div />
@@ -95,7 +95,7 @@ export default function Home() {
 
       <div className="w-full">
         <img className="w-full h-3/4" src="/background.png" alt="loading..." />
-        {showMenu ? (
+        {isLogin ? (
           <div className="relative -translate-y-full pb-5">
             <CustomButton
               text="NFT 발급하기"
