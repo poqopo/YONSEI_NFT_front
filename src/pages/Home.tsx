@@ -82,6 +82,7 @@ export default function Home() {
           major={major}
           setStudentNumber={setStudentNumber}
           setMajor={setMajor}
+          setUserToggle={setUserToggle}
           setShowMenu={setShowMenu}
         />
       ) : (
