@@ -2,10 +2,10 @@ import React from 'react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 
 interface MenuProps {
-  toggleMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  clickSideMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function Menu({ toggleMenu }: MenuProps) {
+export default function SideMenu({ clickSideMenu }: MenuProps) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -19,7 +19,7 @@ function Menu({ toggleMenu }: MenuProps) {
         <button
           type="button"
           className="text-[30px]"
-          onClick={() => toggleMenu(false)}
+          onClick={() => clickSideMenu(false)}
         >
           <IoCloseCircleOutline />
         </button>
@@ -39,4 +39,3 @@ function Menu({ toggleMenu }: MenuProps) {
     </div>
   );
 }
-export default Menu;

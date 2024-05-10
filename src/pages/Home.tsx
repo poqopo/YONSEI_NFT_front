@@ -7,7 +7,7 @@ import Event from './Event';
 import { getAddressPC, getAddressMB } from '../utils/klip';
 import QnA from './QnA';
 import { setAddress } from '@/store/store';
-import Menu from '@/Components/Menu';
+import SideMenu from '@/Components/SideMenu';
 import { userDetail } from '@/utils/type';
 import getMajor from '@/utils/getMajor';
 import { addNewUser, getUserByAdress } from '@/utils/axios';
@@ -21,7 +21,7 @@ const DEFAULT = 'DEFAULT';
 
 export default function Home() {
   const [qrvalueAuth, setqrvalueAuth] = useState(DEFAULT);
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [isSideMenuOpened, setIsSideMenuOpened] = useState(false);
   const [userToggle, setUserToggle] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [studentNumber, setStudentNumber] = useState('');
@@ -68,12 +68,16 @@ export default function Home() {
       <button
         type="button"
         className="absolute top-5 ml-4 text-[30px]"
-        onClick={() => setToggleMenu(true)}
+        onClick={() => setIsSideMenuOpened(true)}
       >
         <TiThMenu />
       </button>
 
-      {toggleMenu ? <Menu toggleMenu={() => setToggleMenu(false)} /> : <div />}
+      {isSideMenuOpened ? (
+        <SideMenu clickSideMenu={() => setIsSideMenuOpened(false)} />
+      ) : (
+        <div />
+      )}
 
       {userToggle ? (
         <RegisterUser
