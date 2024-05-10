@@ -13,7 +13,7 @@ import getMajor from '@/utils/getMajor';
 import { addNewUser, getUserByAdress } from '@/utils/axios';
 import CustomButton from '@/Components/Button';
 import Character from './Character';
-import RegisterStudentNumber from '@/PageComponents/RegisterStudentNumber';
+import RegisterUser from '@/PageComponents/RegisterUser';
 import KakaoLoginButton from '@/PageComponents/KakaoLoginButton';
 import KakaoQRModal from '@/PageComponents/KakaoQRModal';
 
@@ -76,7 +76,7 @@ export default function Home() {
       {toggleMenu ? <Menu toggleMenu={() => setToggleMenu(false)} /> : <div />}
 
       {userToggle ? (
-        <RegisterStudentNumber
+        <RegisterUser
           studentNumber={studentNumber}
           userAddress={userAddress}
           major={major}

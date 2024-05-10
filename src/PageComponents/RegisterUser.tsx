@@ -4,7 +4,7 @@ import StudentInput from '@/Components/StudentNumberInput';
 import PersonalInfo from '@/Components/PersonalInfo';
 import getMajor from '@/utils/getMajor';
 
-export default function RegisterStudentNumber({
+export default function RegisterUser({
   studentNumber,
   userAddress,
   major,
