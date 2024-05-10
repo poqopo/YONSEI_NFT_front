@@ -43,7 +43,7 @@ export default function AfterMinting() {
       </button>
       <div className="py-8">
         <div className="w-3/4 m-auto">
-          <div className="mx-auto w-4/5 max-w-[300px] p-3 bg-[#FCFCF4] rounded-[10px]">
+          <div className="mx-auto w-4/5 max-w-[300px] p-2 bg-[#FCFCF4] rounded-[20px]">
             <img
               className="mx-auto"
               crossOrigin="anonymous"
