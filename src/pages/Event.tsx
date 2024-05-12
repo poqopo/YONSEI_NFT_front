@@ -1,11 +1,17 @@
 export default function Event() {
   return (
     <div id="Event" className="h-full flex flex-col place-content-center pb-10">
-      <h3 className="mt-9 font-extrabold text-[20px]">Event</h3>
+      <img
+        className="mx-auto h-[24px] my-3"
+        src="/Event.svg"
+        alt="loading..."
+      />
       <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-semibold text-[18px]">
-          첫 번째, 팜희를 자랑해팜!
-        </h2>
+        <img
+          className="mx-auto h-[20px] my-5"
+          src="/Event1.svg"
+          alt="loading..."
+        />
         <div className="font-medium text-[13px] bg-[#FCFCF4] rounded-[15px] p-5 border-[3px] border-black">
           <img
             className="w-full mx-auto my-5 rounded-[8px] border border-black"
@@ -31,9 +37,11 @@ export default function Event() {
       </div>
 
       <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-extrabold text-[18px]">
-          두 번째, 팜둥희를 찾아팜!
-        </h2>
+        <img
+          className="mx-auto h-[20px] my-5"
+          src="/Event2.svg"
+          alt="loading..."
+        />
         <div className="font-medium text-[13px] bg-[#FCFCF4] rounded-[15px] p-5 border-[3px] border-black">
           <img
             className="w-full mx-auto rounded-[8px] -translate-y-1/4"
@@ -62,9 +70,11 @@ export default function Event() {
         </div>
       </div>
       <div className="w-4/5 m-auto text-start">
-        <h2 className="mt-10 mb-5 font-extrabold text-[18px]">
-          세 번째, 아카라카를 기록해팜!
-        </h2>
+        <img
+          className="mx-auto h-[20px] my-5"
+          src="/Event3.svg"
+          alt="loading..."
+        />
         <div className="font-medium text-[13px] bg-[#FCFCF4] rounded-[15px] p-5 border-[3px] border-black">
           <ul className="list-decimal text-[15px] font-medium pl-5">
             <li>

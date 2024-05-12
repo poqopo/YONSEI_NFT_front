@@ -42,9 +42,11 @@ export default function Referral() {
         <AiFillHome />
       </button>
       <div className="w-full rounded-[30px]">
-        <h3 className="font-extrabold text-[24px] text-black">
-          팜둥희를 찾아팜!
-        </h3>
+        <img
+          className="mx-auto h-[24px] my-3"
+          src="/referral.svg"
+          alt="loading..."
+        />
         <img
           className="mx-auto w-3/4 -translate-y-1/4"
           src="/friend.png"

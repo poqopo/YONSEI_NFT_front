@@ -1,7 +1,11 @@
 export default function Howto() {
   return (
     <div id="Howto">
-      <h3 className="mt-9 font-bold text-[20px]">HOW TO</h3>
+      <img
+        className="mx-auto h-[24px] my-3"
+        src="/HowTo.svg"
+        alt="loading..."
+      />{' '}
       <ul className="list-decimal w-3/4 mx-auto mt-10 text-start">
         <li className=" mb-5 font-medium text-[15px]">
           가장 먼저 카카오 로그인을 해주세요.

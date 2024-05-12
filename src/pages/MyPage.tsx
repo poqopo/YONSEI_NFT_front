@@ -23,7 +23,7 @@ export default function MyPage() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col gap-y-5 font-roboto text-[#090707] text-center pb-5">
+    <div className="min-h-screen flex flex-col font-roboto text-[#090707] text-center pb-5">
       <button
         type="button"
         className="absolute top-5 ml-4 text-[30px]"
