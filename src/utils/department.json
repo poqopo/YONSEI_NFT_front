@@ -208,7 +208,7 @@
     "Department": "SystemSemiconductorEngineering"
   },
   "190": {
-    "Department_KR": "UIC(UD)",
+    "Department_KR": "유디",
     "Department": "UD"
   },
   "191": {
@@ -228,16 +228,16 @@
     "Department": "Pharmacy"
   },
   "195": {
-    "Department_KR": "UIC(HASS)",
-    "Department": "HASS"
+    "Department_KR": "하스",
+    "Department": "HASSD"
   },
   "197": {
-    "Department_KR": "UIC(AS)",
-    "Department": "AS"
+    "Department_KR": "하스",
+    "Department": "HASSD"
   },
   "199": {
-    "Department_KR": "UIC(ISE)",
-    "Department": "ISE"
+    "Department_KR": "ISED",
+    "Department": "ISED"
   },
   "999": {
     "Department_KR": "싱크로나이즈드비행학과",
