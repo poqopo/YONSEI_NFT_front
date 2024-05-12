@@ -143,6 +143,14 @@
     "Department_KR": "컴퓨터과학과",
     "Department": "ComputerScience"
   },
+  "148": {
+    "Department_KR": "컴퓨터과학과",
+    "Department": "ComputerScience"
+  },
+  "149": {
+    "Department_KR": "인공지능학과",
+    "Department": "ArtificialIntelligence"
+  },
   "151": {
     "Department_KR": "의류환경학과",
     "Department": "ClothingTextiles"
@@ -220,7 +228,7 @@
     "Department": "Dentistry"
   },
   "193": {
-    "Department_KR": "글로벌융합공학부",
+    "Department_KR": "IT융합공학과",
     "Department": "IntegratedTechnology"
   },
   "194": {
@@ -232,7 +240,7 @@
     "Department": "HASSD"
   },
   "197": {
-    "Department_KR": "하스",
+    "Department_KR": "하스(AS)",
     "Department": "HASSD"
   },
   "199": {
