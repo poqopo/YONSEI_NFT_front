@@ -26,7 +26,8 @@ export default function QnA() {
         link="https://forms.gle/2iCWLzTd5AfSDDPr8"
       />
       <p className="font-bold text-center">
-        기타 문의사항은 <br /> 🐥@dokpamee.nft로 부탁드려요!
+        기타 문의사항은 <br />
+        인스타그램 @dokpami.nft로 연락 주세요.
       </p>
     </div>
   );

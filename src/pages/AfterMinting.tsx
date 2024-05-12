@@ -45,7 +45,7 @@ export default function AfterMinting() {
         <div className="w-3/4 m-auto">
           <div className="mx-auto w-4/5 max-w-[300px] p-2 bg-[#FCFCF4] rounded-[20px]">
             <img
-              className="mx-auto"
+              className="mx-auto rounded-[20px]"
               crossOrigin="anonymous"
               src={toImgSrc(url)}
               alt="loading..."

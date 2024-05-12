@@ -15,7 +15,7 @@ export default function Event() {
           <ul className="list-decimal text-[15px] font-medium pl-5">
             <li>
               인스타그램에서 팜희를 팔로우해 주세요. <br />
-              <span className="font-extrabold">🐥@dokpamee.nft</span>
+              <span className="font-extrabold">🐥@dokpami.nft</span>
             </li>
             <li className="my-2">
               여러분이 받은 팜희 NFT를 캡쳐한 후, 팜희를 태그해서 스토리에
