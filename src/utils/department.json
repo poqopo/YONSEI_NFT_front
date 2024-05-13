@@ -8,27 +8,27 @@
     "Department": "GlobalLeaders"
   },
   "110": {
-    "Department_KR": "국어 국문학과",
+    "Department_KR": "국어국문학과",
     "Department": "KoreanLanguageLiterature"
   },
   "111": {
-    "Department_KR": "중어 중문학과",
+    "Department_KR": "중어중문학과",
     "Department": "ChineseLanguageLiterature"
   },
   "112": {
-    "Department_KR": "영어 영문학과",
+    "Department_KR": "영어영문학과",
     "Department": "EnglishLanguageLiterature"
   },
   "113": {
-    "Department_KR": "독어 독문학과",
+    "Department_KR": "독어독문학과",
     "Department": "GermanLanguageLiterature"
   },
   "114": {
-    "Department_KR": "불어 불문학과",
+    "Department_KR": "불어불문학과",
     "Department": "FrenchLanguageLiterature"
   },
   "115": {
-    "Department_KR": "노어 노문학과",
+    "Department_KR": "노어노문학과",
     "Department": "RussianLanguageLiterature"
   },
   "116": {
@@ -40,7 +40,7 @@
     "Department": "Philosophy"
   },
   "118": {
-    "Department_KR": "문헌 정보학과",
+    "Department_KR": "문헌정보학과",
     "Department": "LibraryInformationScience"
   },
   "119": {
@@ -60,7 +60,7 @@
     "Department": "Business"
   },
   "124": {
-    "Department_KR": "정치 외교학과",
+    "Department_KR": "정치외교학과",
     "Department": "PoliticalScienceandInternationalStudies"
   },
   "125": {
