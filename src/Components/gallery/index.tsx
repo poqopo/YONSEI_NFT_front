@@ -33,6 +33,7 @@ export default function Gallery({ nfts }: GalleryProps) {
             <div className="embla__slide">
               <img
                 className="w-4/5 p-2 bg-[#FCFCF4] rounded-[3px] mx-auto"
+                crossOrigin="anonymous"
                 src={toImgSrc(nft.tokenURI)}
                 alt="loading..."
               />

@@ -41,11 +41,11 @@ export default function AfterMinting() {
       >
         <AiFillHome />
       </button>
-      <div id="nftcapture" className="py-8">
+      <div className="py-8">
         <div className="w-3/4 m-auto">
-          <div className="mx-auto w-4/5 max-w-[300px] p-3 bg-[#FCFCF4] rounded-[10px]">
+          <div className="mx-auto w-4/5 max-w-[300px] p-2 bg-[#FCFCF4] rounded-[20px]">
             <img
-              className="mx-auto"
+              className="mx-auto rounded-[20px]"
               crossOrigin="anonymous"
               src={toImgSrc(url)}
               alt="loading..."
@@ -53,7 +53,7 @@ export default function AfterMinting() {
           </div>
           <h2 className="my-4 text-center font-bold text-[20px]">{name}</h2>
           <p className="text-[#090707]">
-            나 「 {major} 」 가 되어버렸어! <br />
+            나 「 {major} 」 소속이 되어버렸어! <br />
             어느새 심장이 두근거리기 시작했는걸😎 <br /> <br />
             아래 공유하기 버튼을 눌러서 <br />
             바로 나, 독팜희를 친구들에게 소개해줘!🐥 <br />

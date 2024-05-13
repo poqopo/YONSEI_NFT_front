@@ -8,27 +8,27 @@
     "Department": "GlobalLeaders"
   },
   "110": {
-    "Department_KR": "국어 국문학과",
+    "Department_KR": "국어국문학과",
     "Department": "KoreanLanguageLiterature"
   },
   "111": {
-    "Department_KR": "중어 중문학과",
+    "Department_KR": "중어중문학과",
     "Department": "ChineseLanguageLiterature"
   },
   "112": {
-    "Department_KR": "영어 영문학과",
+    "Department_KR": "영어영문학과",
     "Department": "EnglishLanguageLiterature"
   },
   "113": {
-    "Department_KR": "독어 독문학과",
+    "Department_KR": "독어독문학과",
     "Department": "GermanLanguageLiterature"
   },
   "114": {
-    "Department_KR": "불어 불문학과",
+    "Department_KR": "불어불문학과",
     "Department": "FrenchLanguageLiterature"
   },
   "115": {
-    "Department_KR": "노어 노문학과",
+    "Department_KR": "노어노문학과",
     "Department": "RussianLanguageLiterature"
   },
   "116": {
@@ -40,7 +40,7 @@
     "Department": "Philosophy"
   },
   "118": {
-    "Department_KR": "문헌 정보학과",
+    "Department_KR": "문헌정보학과",
     "Department": "LibraryInformationScience"
   },
   "119": {
@@ -60,7 +60,7 @@
     "Department": "Business"
   },
   "124": {
-    "Department_KR": "정치 외교학과",
+    "Department_KR": "정치외교학과",
     "Department": "PoliticalScienceandInternationalStudies"
   },
   "125": {
@@ -143,6 +143,14 @@
     "Department_KR": "컴퓨터과학과",
     "Department": "ComputerScience"
   },
+  "148": {
+    "Department_KR": "컴퓨터과학과",
+    "Department": "ComputerScience"
+  },
+  "149": {
+    "Department_KR": "인공지능학과",
+    "Department": "ArtificialIntelligence"
+  },
   "151": {
     "Department_KR": "의류환경학과",
     "Department": "ClothingTextiles"
@@ -199,12 +207,16 @@
     "Department_KR": "교육학부",
     "Department": "Education"
   },
+  "188": {
+    "Department_KR": "디스플레이융합공학과",
+    "Department": "IntegratedDisplayEngineering"
+  },
   "189": {
     "Department_KR": "시스템반도체공학과",
     "Department": "SystemSemiconductorEngineering"
   },
   "190": {
-    "Department_KR": "UIC(UD)",
+    "Department_KR": "유디",
     "Department": "UD"
   },
   "191": {
@@ -216,7 +228,7 @@
     "Department": "Dentistry"
   },
   "193": {
-    "Department_KR": "글로벌융합공학부",
+    "Department_KR": "IT융합공학과",
     "Department": "IntegratedTechnology"
   },
   "194": {
@@ -224,16 +236,16 @@
     "Department": "Pharmacy"
   },
   "195": {
-    "Department_KR": "UIC(HASS)",
-    "Department": "HASS"
+    "Department_KR": "하스",
+    "Department": "HASSD"
   },
   "197": {
-    "Department_KR": "UIC(AS)",
-    "Department": "AS"
+    "Department_KR": "하스(AS)",
+    "Department": "HASSD"
   },
   "199": {
-    "Department_KR": "UIC(ISE)",
-    "Department": "ISE"
+    "Department_KR": "ISED",
+    "Department": "ISED"
   },
   "999": {
     "Department_KR": "싱크로나이즈드비행학과",

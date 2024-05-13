@@ -129,30 +129,15 @@ export default function Mint() {
               onMintClick();
             }}
           />
-          <CustomButton
+          {/* <CustomButton
             text="블록블록 독팜희 NFT 받기"
             onClick={() => {
               onBlockBlockMintClick();
             }}
-          />
-          <StudentInput
-            inputText="학번 10자리를 입력해주세요"
-            onChange={handleInputChange}
-            onClick={handleSubmit}
-            buttonText="민팅하기"
-          />
+          /> */}
         </div>
       )}
 
-      <p className="font-medium text-[16px]">
-        0000144000 : 사환시 <br />
-        0000142000 : 전전 <br />
-        0000145000 : 기공 <br />
-        0000143000 : 건축공학과 <br />
-        0000146000 : 신소재공학부 <br />
-        0000136000 : 대기과학과 <br />
-        0000141000 : 화학생명공학부 <br />
-      </p>
       <CustomButton
         text="나의 NFT 확인하기"
         onClick={() => {

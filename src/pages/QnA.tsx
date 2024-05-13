@@ -6,7 +6,7 @@ export default function QnA() {
       id="QNA"
       className="h-full pb-10 w-5/6 flex flex-col m-auto text-start gap-y-[10px]"
     >
-      <h3 className="my-9 font-bold text-[20px] text-center">FAQ</h3>
+      <img className="mx-auto h-[24px] my-3" src="/FAQ.svg" alt="loading..." />{' '}
       <FAQModal
         title="NFT란 무엇인가요?"
         text="NFT는 블록체인을 활용하여 영원히 보존하고 사용자가 소유할 수 있도록 만든 디지털 자산이에요. 일반적인 사진이나 그림이 온라인에서 무분별하게 복제되고 쓰이는 것과 달리, NFT는 소유자를 증명하며 영원히 존재한다는 특성이 있어요. MY YONSEI NFT 에서는 이러한 NFT의 특성을 활용하여 여러분들의 소중한 추억들을 영원히 보존하고자 해요. 바로 우리 귀여운 팜희와 함께 말이에요."
@@ -26,7 +26,8 @@ export default function QnA() {
         link="https://forms.gle/2iCWLzTd5AfSDDPr8"
       />
       <p className="font-bold text-center">
-        기타 문의사항은 <br /> 🐥@dokpamee.nft로 부탁드려요!
+        기타 문의사항은 <br />
+        인스타그램 @dokpami.nft로 연락 주세요.
       </p>
     </div>
   );
