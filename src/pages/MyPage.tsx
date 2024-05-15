@@ -37,7 +37,11 @@ export default function MyPage() {
       ) : (
         <div className="">
           <div className="mx-auto w-4/5 max-w-[300px] p-3 bg-[#FCFCF4] rounded-[10px] my-10">
-            <img className="mx-auto " src="/character.png" alt="loading..." />
+            <img
+              className="mx-auto rounded-[10px]"
+              src="/character.png"
+              alt="loading..."
+            />
           </div>
 
           <p className="text-[#090707] my-10">
