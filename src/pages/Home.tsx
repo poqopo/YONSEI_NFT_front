@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiThMenu } from 'react-icons/ti';
+import Select from 'react-select';
 import Howto from './Howto';
 import Event from './Event';
 import { getAddressPC, getAddressMB } from '../utils/klip';
@@ -18,6 +19,7 @@ import CustomButton from '@/Components/Button';
 import Character from './Character';
 import StudentInput from '@/Components/StudentNumberInput';
 import PersonalInfo from '@/Components/PersonalInfo';
+import groupedOptions from '@/utils/majors';
 
 const DEFAULT = 'DEFAULT';
 
@@ -28,6 +30,7 @@ export default function Home() {
   const [showMenu, setShowMenu] = useState(false);
   const [showconfirmModal, setShowConfirmModal] = useState(false);
   const [studentNumber, setStudentNumber] = useState('');
+  const [yonsei, setYonsei] = useState(true);
   const [major, setMajor] = useState<
     { Department_KR: string; Department: string } | undefined
   >(undefined);
@@ -53,7 +56,6 @@ export default function Home() {
     } else {
       getAddressMB(async (address: string) => {
         dispatch(setAddress(address));
-        setShowMenu(true);
         checkInfo(await getUserByAdress(address));
       });
     }
@@ -99,10 +101,13 @@ export default function Home() {
   const handleInputChange = (value: string) => {
     setStudentNumber(value);
   };
-
   // Function that processes the submitted student number
   const handleSubmit = () => {
     searchMajor(studentNumber);
+  };
+
+  const handleSelect = (e: any) => {
+    setStudentNumber(`0000${e.value}000`);
   };
 
   return (
@@ -117,10 +122,10 @@ export default function Home() {
       {toggleMenu ? <Menu toggleMenu={() => setToggleMenu(false)} /> : <div />}
 
       {userToggle ? (
-        <div className="fixed top-1/4 right-1/2 translate-x-1/2 w-5/6 rounded-[12px] max-w-[400px] bg-white z-50 p-5">
+        <div className="fixed top-1/5 right-1/2 translate-x-1/2 w-5/6 rounded-[12px] max-w-[400px] bg-white z-50 p-5">
           <div className="p-3">
             <h2 className="text-start font-bold text-[18px]">
-              여러분의 학번을 입력해주세요.
+              여러분의 학번을 입력해주세요!
             </h2>
             <h3 className="text-[#475467] text-[17px] text-start">
               수정할 수 없으니 신중히 확인해 주세요!
@@ -130,7 +135,7 @@ export default function Home() {
             <div>
               <div className="text-[16px] text-start my-2">
                 <span className="font-bold">{major?.Department_KR}</span>
-                <span>가 맞으신가요?</span>
+                <span> 소속이 맞으신가요?</span>
               </div>
               <div>
                 <button
@@ -156,16 +161,37 @@ export default function Home() {
             </div>
           ) : (
             <div>
-              <h2 className="text-start text-[15px] font-bold p-3">
-                개인정보 수집 동의
-              </h2>
-              <PersonalInfo />
-              <StudentInput
-                inputText="학번 10자리를 입력해주세요"
-                onChange={handleInputChange}
-                onClick={handleSubmit}
-                buttonText="동의하고 제출하기"
-              />
+              {yonsei ? (
+                <div>
+                  <h2 className="text-start text-[15px] font-bold p-3">
+                    개인정보 수집 동의
+                  </h2>
+                  <PersonalInfo />
+                  <button
+                    type="button"
+                    className="my-2 text-[11px] underline"
+                    onClick={() => setYonsei(false)}
+                  >
+                    학번을 모르신다면 클릭해주세요!
+                  </button>
+                  <StudentInput
+                    inputText="학번 10자리를 입력해주세요"
+                    onChange={handleInputChange}
+                    onClick={handleSubmit}
+                    buttonText="동의하고 제출하기"
+                  />
+                </div>
+              ) : (
+                <div>
+                  <Select
+                    options={groupedOptions}
+                    className="text-start w-full px-5 my-5 mx-auto"
+                    onChange={handleSelect}
+                    placeholder="여러분의 학과를 선택해주세요"
+                  />
+                  <CustomButton text="제출하기" onClick={handleSubmit} />
+                </div>
+              )}
             </div>
           )}
         </div>

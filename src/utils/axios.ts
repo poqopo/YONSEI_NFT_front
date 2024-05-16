@@ -140,10 +140,17 @@ export async function addNewUser(
   major: string | undefined,
 ): Promise<addUserResult> {
   try {
+    let user;
+    if (studentNumber?.startsWith('0000')) {
+      user = userAddress;
+    } else {
+      user = studentNumber;
+    }
+    console.log(user);
     // axios.post 메소드를 사용하여 서버에 데이터 전송
     const response = await axios.post<addUserResult>(
       `${API_URL}/${API_PATH.addNewUser}`,
-      { userAddress, studentNumber, major }, // 데이터를 본문에 직접 전달
+      { userAddress, studentNumber: user, major }, // 데이터를 본문에 직접 전달
     );
     // 응답 데이터 반환
     return {
