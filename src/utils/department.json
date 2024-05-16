@@ -247,6 +247,10 @@
     "Department_KR": "ISED",
     "Department": "ISED"
   },
+  "610": {
+    "Department_KR": "법학과",
+    "Department": "Lawschool"
+  },
   "999": {
     "Department_KR": "싱크로나이즈드비행학과",
     "Department": "TEST"
