@@ -33,7 +33,7 @@ function Menu({ toggleMenu }: MenuProps) {
           <a href="#Character">Character</a>
           <a href="#Howto">How to</a>
           <a href="#Event">Event</a>
-          <a href="#QNA">QNA</a>
+          <a href="#QNA">FAQ</a>
         </div>
       </div>
     </div>
